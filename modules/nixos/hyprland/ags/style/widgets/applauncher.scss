@@ -1,0 +1,7 @@
+@import '../theme.scss';
+
+window.background {
+    @include theme;
+    border-radius: 6pt 6pt 6pt 6pt;
+
+}
