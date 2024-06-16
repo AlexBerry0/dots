@@ -15,7 +15,7 @@ in {
   # import the flake's module for your system
   imports = [spicetify-nix.nixosModule];
 
-  # configure spicetify :)
+  # configure spicetify
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
