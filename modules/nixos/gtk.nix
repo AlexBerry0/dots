@@ -2,7 +2,14 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  modded-catppuccin = pkgs.fetchFromGitHub {
+    owner = "AlexBerry0";
+    repo = "Modded-Catppuccin-Mocha-GTK-theme";
+    rev = "5ec4a99d456047dfe94d5724ab137f6de21abdc6";
+    hash = "sha256-Ke4+jzxObBUejdmaAte2KOdBudbQ1jIyQ1Kb3kvFK9c=";
+  };
+in {
   gtk = {
     enable = true;
 
@@ -14,19 +21,12 @@
     };
 
     theme = {
-      # name = "Catppuccin-Mocha-Standard-Peach-Dark";
-      # package = pkgs.catppuccin-gtk.override {
-      #   accents = ["peach"];
-      #   size = "standard";
-      #   variant = "mocha";
-      # };
       name = "Catppuccin-Mocha";
     };
 
     cursorTheme = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
-      # size = 16;
     };
 
     gtk3.extraConfig = {
@@ -42,6 +42,10 @@
     };
   };
 
+  home.file.".themes/Catppuccin-Mocha" = {
+    source = "${modded-catppuccin}/Catppuccin-Mocha";
+    recursive = true;
+  };
+
   home.sessionVariables.GTK_THEME = "Catppuccin-Mocha";
-  # ...
 }
