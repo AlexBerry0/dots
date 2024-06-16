@@ -100,17 +100,20 @@
   system.stateVersion = "23.11";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
+  networking.firewall = {
+  enable = true;
+  allowedTCPPorts = [
     # Adguard home
     80
     3000
     # Jellyfin
     8096
     # Minecraft
-    25565
-  ];
-  networking.firewall.allowedUDPPorts = [
-    # Adguard-home
+    25565 
+     ];
+  allowedUDPPortRanges = [
+     # Adguard-home
     53
   ];
+};
 }
