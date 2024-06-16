@@ -17,12 +17,31 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.loader = {
+    timeout = 5;
 
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
+    efi = {
+      efiSysMountPoint = "/boot";
+    };
+
+    grub = {
+      enable = true;
+      version = 2;
+      efiSupport = true;
+      efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
+      devices = ["nodev"];
+      extraEntriesBeforeNixOS = true;
+      extraEntries = ''
+        menuentry "Reboot" {
+          reboot
+        }
+        menuentry "Poweroff" {
+          halt
+        }
+      '';
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
