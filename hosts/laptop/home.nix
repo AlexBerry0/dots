@@ -9,6 +9,7 @@
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/kitty.nix
+    ../../modules/home-manager/jetbrains.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/zsh.nix
@@ -58,6 +59,8 @@
     python3
     inotify-tools
     bun
+    discord
+    gparted
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

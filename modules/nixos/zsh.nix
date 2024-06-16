@@ -11,7 +11,7 @@
 
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nix flake update";
+      update = "cd /etc/nixos && sudo nix flake update && cd";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
     };
     history.size = 100000;

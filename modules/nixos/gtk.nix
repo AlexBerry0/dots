@@ -27,7 +27,7 @@ in {
     cursorTheme = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
-      size = 21;
+      size = 22;
     };
 
     gtk3.extraConfig = {

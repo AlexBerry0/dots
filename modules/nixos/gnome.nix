@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -406,6 +407,10 @@
 
     "org/gnome/shell/extensions/user-theme" = {
       name = "Catppuccin-Mocha";
+    };
+
+    "org/gnome/desktop/interface" = {
+      scaling-factor = lib.hm.gvariant.mkUint32 1;
     };
   };
 

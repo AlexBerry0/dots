@@ -20,13 +20,12 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     timeout = 5;
-
-    efi = {
-      efiSysMountPoint = "/boot";
-    };
-
     grub = {
       enable = true;
+      theme = pkgs.sleek-grub-theme.override {
+        withBanner = "Hello Alex,";
+        withStyle = "dark";
+      };
       efiSupport = true;
       efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
       devices = ["nodev"];
@@ -43,6 +42,7 @@
     };
   };
 
+  environment.variables.XCURSOR_SIZE = "22";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

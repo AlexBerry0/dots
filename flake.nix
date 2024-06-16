@@ -13,12 +13,15 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     ags.url = "github:Aylur/ags";
+
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    spicetify-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,13 +37,17 @@
         inherit system;
         specialArgs = {
           inherit inputs;
+          inherit spicetify-nix;
           machineName = "laptop";
         };
+
         modules = [
           ./hosts/laptop/configuration.nix
+          ./modules/home-manager/spicetify.nix
           inputs.home-manager.nixosModules.default
         ];
       };
+
       home-server = lib.nixosSystem {
         inherit system;
         specialArgs = {
