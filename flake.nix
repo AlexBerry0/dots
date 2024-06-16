@@ -20,13 +20,38 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/default/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    lib = nixpkgs.lib;
+  in {
+    nixosConfigurations = {
+      laptop = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          machineName = "laptop";
+        };
+        modules = [
+          ./hosts/laptop/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      home-server = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          machineName = "home-server";
+        };
+        modules = [
+          ./hosts/home-server/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
