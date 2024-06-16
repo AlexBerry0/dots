@@ -2,7 +2,7 @@
 ## Introduction  
 These are my NixOS dotfiles for my systems, I really wouldn't reccommend using them.  
 There are two hosts, laptop, and homeserver, these are pretty self descriptive.
-In my laptop config there are two desktop enviroments, gnome and hyprland, the gnome config is *mostly* finished while the hyprland config is barley started. 
+In my laptop config there are two desktop enviroments, gnome and hyprland, the gnome config is *mostly* finished while the hyprland config is barely started. 
 
 ## Installation
 First clone the repo  
@@ -33,8 +33,9 @@ git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sud
 (Todo)  
 ## Todo  
 ### Laptop
-- [ ] Package GTK theme properly
-- [ ] Switch to SDDM
+- [X] Package GTK theme properly
+- [X] Switch to SDDM
+- [ ] Change SDDM theme
 - [ ] Get jetbrains IDEs setup with plugins
 - [ ] Gnome titlebar clock formating
 - [ ] Work out gnome keybinds
@@ -47,4 +48,5 @@ git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sud
 - [ ] Get SSL certificates setup
 ### Other
 - [ ] Add pictures to github repo
+- [ ] Add other background to media
 - [ ] Add propper formating and descriptions to github repo
