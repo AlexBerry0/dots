@@ -3,12 +3,7 @@
   pkgs,
   ...
 }: let
-  modded-catppuccin = pkgs.fetchFromGitHub {
-    owner = "AlexBerry0";
-    repo = "Modded-Catppuccin-Mocha-GTK-theme";
-    rev = "5ec4a99d456047dfe94d5724ab137f6de21abdc6";
-    hash = "sha256-Ke4+jzxObBUejdmaAte2KOdBudbQ1jIyQ1Kb3kvFK9c=";
-  };
+  Catppuccin-Mocha = import ../../pkgs/modded-catppuccin.nix {inherit pkgs;};
 in {
   gtk = {
     enable = true;
@@ -43,10 +38,10 @@ in {
     };
   };
 
-  home.file.".themes/Catppuccin-Mocha" = {
-    source = "${modded-catppuccin}/Catppuccin-Mocha";
-    recursive = true;
-  };
+  # home.file.".themes/Catppuccin-Mocha" = {
+  #   source = "${modded-catppuccin}/Catppuccin-Mocha";
+  #   recursive = true;
+  # };
 
   home.sessionVariables.GTK_THEME = "Catppuccin-Mocha";
 }

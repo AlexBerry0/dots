@@ -30,15 +30,16 @@
       efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
       devices = ["nodev"];
       useOSProber = true;
-      extraEntriesBeforeNixOS = true;
-      extraEntries = ''
-        menuentry "Reboot" {
-          reboot
-        }
-        menuentry "Poweroff" {
-          halt
-        }
-      '';
+      # extraEntriesBeforeNixOS = true;
+      # extraEntries = ''
+      #   menuentry "Reboot" {
+      #     reboot
+      #   }      #   }
+
+      #   menuentry "Poweroff" {
+      #     halt
+      #   }
+      # '';
     };
   };
 
@@ -75,7 +76,9 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.theme = "${import ../../pkgs/sddm-sugar-dark.nix {inherit pkgs;}}";
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages =
@@ -173,6 +176,8 @@
     polkit
     polkit_gnome
     git
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
