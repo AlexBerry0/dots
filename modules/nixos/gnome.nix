@@ -55,6 +55,21 @@
       welcome-dialog-last-shown-version = "99.9";
     };
 
+    "org/gnome/desktop/wm/preferences" = {
+      auto-raise = false;
+      button-layout = "close,minimize,maximize:";
+      focus-mode = "click";
+      num-workspaces = 1;
+      resize-with-right-button = false;
+    };
+
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = false;
+      overlay-key = "Super_L";
+      workspaces-only-on-primary = true;
+    };
+
     "org/gnome/desktop/background" = {
       picture-uri = "file:///etc/nixos/media/space_saturn.png";
       # picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
@@ -62,7 +77,7 @@
 
     "org/gnome/shell/extensions/Logo-menu" = {
       hide-softwarecentre = true;
-      menu-button-icon-image = 3;
+      menu-button-icon-image = 23;
       menu-button-icon-size = 21;
       # menu-button-software-center = "pamac-manager";
       # menu-button-system-monitor = "gnome-terminal --maximize -- htop";
@@ -361,11 +376,6 @@
       volume-mixer-use-regex = true;
     };
 
-    # "org/gnome/shell/extensions/rounded-window-corners";
-    # custom-rounded-corner-settings = @a{sv} {};
-    # global-rounded-corner-settings = {"padding": <{"left": <uint32 1>, "right": <uint32 1>, "top": <uint32 1>, "bottom": <uint32 1>}>, "keep_rounded_corners": <{"maximized": <false>, "fullscreen": <false>}>, "border_radius": <uint32 12>, "smoothing": <uint32 0>};
-    # settings-version = uint32 5;
-    # ;
     "org/gnome/shell/extensions/tiling-assistant" = {
       active-window-hint = 1;
       active-window-hint-color = "rgb(91,155,248)";
