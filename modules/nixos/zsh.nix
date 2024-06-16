@@ -11,10 +11,10 @@
 
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nix flake update && sudo nixos-rebuild switch --flake /etc/nixos/#default";
-      newupdate = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
+      update = "sudo nix flake update";
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
     };
-    history.size = 10000;
+    history.size = 100000;
     history.path = "/home/alexb/zsh/history";
     oh-my-zsh = {
       enable = true;

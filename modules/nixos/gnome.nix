@@ -75,13 +75,18 @@
       # picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
     };
 
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>t";
+      command = "kitty";
+      name = "Gnome - Terminal";
+    };
+
     "org/gnome/shell/extensions/Logo-menu" = {
       hide-softwarecentre = true;
       menu-button-icon-image = 23;
       menu-button-icon-size = 21;
-      # menu-button-software-center = "pamac-manager";
-      # menu-button-system-monitor = "gnome-terminal --maximize -- htop";
-      # menu-button-terminal = "gnome-terminal";
+      menu-button-system-monitor = "kitty --maximize -- htop";
+      menu-button-terminal = "kitty";
       show-activities-button = false;
       show-lockorientation = false;
       show-lockscreen = true;
