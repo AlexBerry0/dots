@@ -30,6 +30,11 @@ OR Do it all in one command (MAKE SURE TO REPLACE THE HOSTNAME)
 git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sudo mv dots/* /etc/nixos/ && sudo rm -r dots && sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE
 ```
 ## Pictures  
+### Gnome  
+![Gnome-config](media/Demo-Screenshot.png)
+### Hyprland
+(Todo)  
+### Home-Serer
 (Todo)  
 ## Todo  
 ### Laptop
