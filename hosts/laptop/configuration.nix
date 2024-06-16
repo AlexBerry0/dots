@@ -27,10 +27,10 @@
 
     grub = {
       enable = true;
-      version = 2;
       efiSupport = true;
       efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
       devices = ["nodev"];
+      useOSProber = true;
       extraEntriesBeforeNixOS = true;
       extraEntries = ''
         menuentry "Reboot" {
