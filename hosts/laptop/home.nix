@@ -8,6 +8,7 @@
     inputs.nix-colors.homeManagerModules.default
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/alacritty.nix
+    ../../modules/home-manager/kitty.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/zsh.nix
@@ -34,7 +35,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    gnome.gnome-terminal
     firefox
     beeper
     stacer
