@@ -93,9 +93,9 @@
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
     layout = "us";
-    variant = "";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
