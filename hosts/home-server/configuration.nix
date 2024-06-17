@@ -101,7 +101,7 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowedTCPPorts = [
       # Adguard home
       80
