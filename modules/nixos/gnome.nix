@@ -412,6 +412,12 @@
     "org/gnome/desktop/interface" = {
       scaling-factor = lib.hm.gvariant.mkUint32 1;
     };
+
+    "org/gnome/desktop/datetime" = {
+      time-format = "custom";
+      custom-time-format = "%m-%d %H:%M";
+      automatic-timezone = false;
+    };
   };
 
   home.packages = with pkgs; [
