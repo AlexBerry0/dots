@@ -101,19 +101,19 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-  enable = true;
-  allowedTCPPorts = [
-    # Adguard home
-    80
-    3000
-    # Jellyfin
-    8096
-    # Minecraft
-    25565 
-     ];
-  allowedUDPPortRanges = [
-     # Adguard-home
-    53
-  ];
-};
+    enable = true;
+    allowedTCPPorts = [
+      # Adguard home
+      80
+      3000
+      # Jellyfin
+      8096
+      # Minecraft
+      25565
+    ];
+    allowedUDPPorts = [
+      # Adguard-home
+      53
+    ];
+  };
 }
