@@ -12,13 +12,12 @@
 
   # Containers
   virtualisation.oci-containers.containers."jellyfin" = {
-    autoStart = true;
     image = "jellyfin/jellyfin";
     volumes = [
-      "/home/user/docker/jellyfin/cache/:/cache:rw"
-      "/home/user/docker/jellyfin/config/:/config:rw"
-      "/home/user/media:/media:rw"
-      "/home/user/media:/media2:ro"
+      "/root/home/user/docker/jellyfin/cache/:/cache:rw"
+      "/root/home/user/docker/jellyfin/config/:/config:rw"
+      "/root/home/user/media:/media:rw"
+      "/root/home/user/media:/media2:ro"
     ];
     ports = ["8096:8096"];
     user = "uid:gid";
@@ -28,7 +27,6 @@
     ];
   };
   systemd.services."docker-jellyfin" = {
-    enable = true;
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
       RestartMaxDelaySec = lib.mkOverride 500 "1m";
