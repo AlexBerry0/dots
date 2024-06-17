@@ -19,6 +19,7 @@
       "/home/user/media:/media:rw"
       "/home/user/media:/media2:ro"
     ];
+    ports = ["8096:8096"];
     user = "uid:gid";
     log-driver = "journald";
     extraOptions = [
