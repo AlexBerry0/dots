@@ -28,6 +28,7 @@
     ];
   };
   systemd.services."docker-jellyfin" = {
+    enable = true;
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
       RestartMaxDelaySec = lib.mkOverride 500 "1m";
