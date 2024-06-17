@@ -12,6 +12,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."jellyfin" = {
+    autoStart = true;
     image = "jellyfin/jellyfin";
     volumes = [
       "/home/user/docker/jellyfin/cache/:/cache:rw"
