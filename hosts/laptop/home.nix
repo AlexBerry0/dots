@@ -64,6 +64,8 @@
     arduino-cli
     arduino-ide
     nmap
+    nix-prefetch-github
+    nix-prefetch
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
