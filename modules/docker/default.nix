@@ -8,6 +8,6 @@
     ./media
     ./adguard-home.nix
     # ./minecraft.nix
-    ./homarr
+    ./homarr.nix
   ];
 }
