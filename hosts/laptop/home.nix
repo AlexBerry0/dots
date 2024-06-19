@@ -66,6 +66,7 @@
     nmap
     nix-prefetch-github
     nix-prefetch
+    nodejs_22
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
