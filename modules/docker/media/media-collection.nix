@@ -287,10 +287,10 @@
       Restart = lib.mkOverride 500 "\"no\"";
     };
     partOf = [
-      "docker-compose-wireguard-ui-root.target"
+      "docker-compose-media-collection-root.target"
     ];
     wantedBy = [
-      "docker-compose-wireguard-ui-root.target"
+      "docker-compose-media-collection-root.target"
     ];
   };
 
@@ -321,29 +321,12 @@
     partOf = ["docker-compose-media-collection-root.target"];
     wantedBy = ["docker-compose-media-collection-root.target"];
   };
-  systemd.services."docker-network-wireguard-ui_wireguard_net" = {
-    path = [pkgs.docker];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStop = "${pkgs.docker}/bin/docker network rm -f wireguard-ui_wireguard_net";
-    };
-    script = ''
-      docker network inspect wireguard-ui_wireguard_net || docker network create wireguard-ui_wireguard_net --ipam-driver=default --subnet=10.0.1.0/24
-    '';
-    partOf = ["docker-compose-wireguard-ui-root.target"];
-    wantedBy = ["docker-compose-wireguard-ui-root.target"];
-  };
-
   # Root service
   # When started, this will automatically create all resources and start
   # the containers. When stopped, this will teardown all resources.
   systemd.targets."docker-compose-media-collection-root" = {
     unitConfig = {
     };
-    wantedBy = ["multi-user.target"];
-  };
-  systemd.targets."docker-compose-wireguard-ui-root" = {
     wantedBy = ["multi-user.target"];
   };
 }
