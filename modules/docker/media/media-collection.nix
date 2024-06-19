@@ -284,7 +284,10 @@
   };
   systemd.services."docker-wireguard-ui" = {
     serviceConfig = {
-      Restart = lib.mkOverride 500 "\"no\"";
+      Restart = lib.mkOverride 500 "always";
+      RestartMaxDelaySec = lib.mkOverride 500 "1m";
+      RestartSec = lib.mkOverride 500 "100ms";
+      RestartSteps = lib.mkOverride 500 9;
     };
     partOf = [
       "docker-compose-media-collection-root.target"
