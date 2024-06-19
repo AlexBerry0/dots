@@ -20,7 +20,7 @@
       "/root/home/user/media:/media2:ro"
     ];
     ports = ["8096:8096"];
-    user = "1000:100";
+    # user = "1000:100";
     log-driver = "journald";
     extraOptions = [
       "--network=host"
