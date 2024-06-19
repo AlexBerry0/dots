@@ -7,6 +7,7 @@
   imports = [
     ./media
     ./adguard-home.nix
-    ./minecraft.nix
+    # ./minecraft.nix
+    ./homarr
   ];
 }
