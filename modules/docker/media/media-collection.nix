@@ -11,15 +11,15 @@
   virtualisation.oci-containers.backend = "docker";
 
   # Containers
+
+  # Prowlarr
   virtualisation.oci-containers.containers."prowlarr" = {
     image = "ghcr.io/linuxserver/prowlarr:develop";
     environment = {
-      PGID = "1000";
-      PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
     };
     volumes = [
-      "/opt/docker/servarr/prowlarr:/config:rw"
+      "/root/home/user/docker/servarr/prowlarr:/config:rw"
     ];
     ports = [
       "9696:9696/tcp"
@@ -51,17 +51,20 @@
       "docker-compose-media-collection-root.target"
     ];
   };
+
+  # QbitTorrent
+
   virtualisation.oci-containers.containers."qbittorrent" = {
     image = "lscr.io/linuxserver/qbittorrent:latest";
     environment = {
       PGID = "1000";
       PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
       WEBUI_PORT = "8180";
     };
     volumes = [
-      "/opt/docker/servarr/_downloads:/downloads:rw"
-      "/opt/docker/servarr/qbittorrent:/config:rw"
+      "/root/home/user/downloads:/downloads:rw"
+      "/root/home/user/docker/servarr/qbittorrent:/config:rw"
     ];
     dependsOn = [
       "wireguard"
@@ -85,17 +88,18 @@
       "docker-compose-media-collection-root.target"
     ];
   };
+
+  # Radarr
+
   virtualisation.oci-containers.containers."radarr" = {
     image = "ghcr.io/linuxserver/radarr";
     environment = {
-      PGID = "1000";
-      PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
     };
     volumes = [
-      "/mnt/synology-movies:/media/movies:rw"
-      "/opt/docker/servarr/_downloads:/media/_downloads:rw"
-      "/opt/docker/servarr/radarr:/config:rw"
+      "/root/home/user/media:/media/movies:rw"
+      "/root/home/user/downloads:/media/_downloads:rw"
+      "/root/home/user/docker/servarr/radarr:/config:rw"
     ];
     ports = [
       "7878:7878/tcp"
@@ -127,16 +131,17 @@
       "docker-compose-media-collection-root.target"
     ];
   };
+
+  # Sabnzb
+
   virtualisation.oci-containers.containers."sabnzb" = {
     image = "lscr.io/linuxserver/sabnzbd:latest";
     environment = {
-      PGID = "1000";
-      PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
     };
     volumes = [
-      "/opt/docker/servarr/_downloads:/downloads:rw"
-      "/opt/docker/servarr/sabnzb:/config:rw"
+      "/root/home/user/downloads:/downloads:rw"
+      "/root/home/user/docker/servarr/sabnzb:/config:rw"
     ];
     dependsOn = [
       "wireguard"
@@ -160,17 +165,17 @@
       "docker-compose-media-collection-root.target"
     ];
   };
+
+  # Sonarr
   virtualisation.oci-containers.containers."sonarr" = {
     image = "ghcr.io/linuxserver/sonarr";
     environment = {
-      PGID = "1000";
-      PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
     };
     volumes = [
-      "/mnt/synology-tv:/media/tv:rw"
-      "/opt/docker/servarr/_downloads:/media/_downloads:rw"
-      "/opt/docker/servarr/sonarr:/config:rw"
+      "/root/home/user/media:/media/tv:rw"
+      "/root/home/user/downloads:/media/_downloads:rw"
+      "/root/home/user/docker/servarr/sonarr:/config:rw"
     ];
     ports = [
       "8989:8989/tcp"
@@ -202,16 +207,17 @@
       "docker-compose-media-collection-root.target"
     ];
   };
+
+  # Wireguard
+
   virtualisation.oci-containers.containers."wireguard" = {
     image = "ghcr.io/linuxserver/wireguard";
     environment = {
-      PGID = "1000";
-      PUID = "1000";
-      TZ = "America/New_York";
+      TZ = "Pacific/Auckland";
     };
     volumes = [
       "/lib/modules:/lib/modules:rw"
-      "/opt/docker/servarr/wireguard:/config:rw"
+      "/root/home/user/docker/servarr/wireguard:/config:rw"
     ];
     ports = [
       "8180:8180/tcp"

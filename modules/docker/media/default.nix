@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./jellyfin.nix
-    # ./jellyseer.nix
-    # ./media-collection.nix
+    ./jellyseer.nix
+    ./media-collection.nix
   ];
 }

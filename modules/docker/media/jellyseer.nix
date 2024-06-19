@@ -14,7 +14,7 @@
   virtualisation.oci-containers.containers."jellyseer-jellyseerr" = {
     image = "";
     volumes = [
-      "/home/user/docker/jellyseer/:/app/.next:rw"
+      "/root/home/user/docker/jellyseer/:/app/.next:rw"
     ];
     ports = [
       "5055:5055/tcp"
