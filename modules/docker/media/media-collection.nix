@@ -289,6 +289,12 @@
       RestartSec = lib.mkOverride 500 "100ms";
       RestartSteps = lib.mkOverride 500 9;
     };
+    after = [
+      "docker-network-media-collection_wireguard_net.service"
+    ];
+    requires = [
+      "docker-network-media-collection_wireguard_net.service"
+    ];
     partOf = [
       "docker-compose-media-collection-root.target"
     ];
