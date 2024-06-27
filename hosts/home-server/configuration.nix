@@ -105,8 +105,7 @@
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["wg"];
-  networking.nftables.enable = true;
-  systemd.services.wg.after = ["NetworkManager.service"];
+  networking.nftables.enable = false;
   networking.firewall = {
     enable = false;
   };

@@ -25,7 +25,7 @@
     transmission = {
       enable = true;
       vpn.enable = true;
-      peerPort = 51820; # Set this to the port forwarded by your VPN
+      peerPort = 50000; # Set this to the port forwarded by your VPN
     };
 
     # It is possible for this module to run the *Arrs through a VPN, but it
