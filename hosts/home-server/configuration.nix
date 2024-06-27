@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../../modules/docker
     ../../modules/nixos/nixarr.nix
+    inputs.nixarr.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
 
