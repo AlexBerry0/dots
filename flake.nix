@@ -15,6 +15,8 @@
     ags.url = "github:Aylur/ags";
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
   outputs = {
@@ -22,6 +24,7 @@
     nixpkgs,
     home-manager,
     spicetify-nix,
+    nixarr,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -56,6 +59,7 @@
         };
         modules = [
           ./hosts/home-server/configuration.nix
+          ./modules/nixos/nixarr.nix
           inputs.home-manager.nixosModules.default
         ];
       };
