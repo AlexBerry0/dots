@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./media
     ./adguard-home.nix
     # ./minecraft.nix
     ./homarr.nix
