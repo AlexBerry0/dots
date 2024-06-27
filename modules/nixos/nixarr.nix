@@ -15,7 +15,7 @@
       enable = true;
       # WARNING: This file must _not_ be in the config git directory
       # You can usually get this wireguard file from your VPN provider
-      wgConf = "/data/.secret/wg.conf";
+      wgConf = "/data/.secret/vpn/wg.conf";
     };
 
     jellyfin = {
