@@ -100,22 +100,4 @@
     settings.KbdInteractiveAuthentication = true;
   };
   system.stateVersion = "23.11";
-
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = false;
-    allowedTCPPorts = [
-      # Adguard home
-      80
-      3000
-      # Jellyfin
-      8096
-      # Minecraft
-      25565
-    ];
-    allowedUDPPorts = [
-      # Adguard-home
-      53
-    ];
-  };
 }
