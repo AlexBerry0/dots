@@ -60,6 +60,7 @@
         modules = [
           ./hosts/home-server/configuration.nix
           inputs.home-manager.nixosModules.default
+          nixarr.nixosModules.default
         ];
       };
     };
