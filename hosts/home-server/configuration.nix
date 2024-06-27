@@ -101,4 +101,10 @@
     settings.KbdInteractiveAuthentication = true;
   };
   system.stateVersion = "23.11";
+
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = ["wg"];
+  networking.firewall = {
+    enable = false;
+  };
 }
