@@ -92,6 +92,7 @@
     pciutils
     usbutils
     git
+    wireguard-tools
   ];
 
   services.openssh = {
