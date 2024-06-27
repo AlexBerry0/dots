@@ -104,8 +104,9 @@
   system.stateVersion = "23.11";
 
   networking.nat.enable = true;
-  networking.nat.internalInterfaces = ["wg0"];
-  networking.nftables.enable = lib.mkForce false;
+  networking.nat.internalInterfaces = ["wg"];
+  networking.nftables.enable = true;
+  systemd.services.wg.after = ["NetworkManager.service"];
   networking.firewall = {
     enable = false;
   };
