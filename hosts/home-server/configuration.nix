@@ -8,6 +8,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/docker
+    ../../modules/nixos/nixarr.nix
     inputs.home-manager.nixosModules.default
   ];
 

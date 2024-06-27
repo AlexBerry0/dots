@@ -59,7 +59,6 @@
         };
         modules = [
           ./hosts/home-server/configuration.nix
-          ./modules/nixos/nixarr.nix
           inputs.home-manager.nixosModules.default
         ];
       };
