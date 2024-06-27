@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  nixarr,
   ...
 }: {
   nixarr = {
