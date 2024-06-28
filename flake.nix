@@ -16,10 +16,10 @@
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
-    # nixarr.url = "github:rasmus-kirk/nixarr";
+    nixarr.url = "github:rasmus-kirk/nixarr";
 
-    vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
-    vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
+    # vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
+    # vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -27,8 +27,8 @@
     nixpkgs,
     home-manager,
     spicetify-nix,
-    # nixarr,
-    vpnconfinement,
+    nixarr,
+    # vpnconfinement,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -64,8 +64,8 @@
         modules = [
           ./hosts/home-server/configuration.nix
           inputs.home-manager.nixosModules.default
-          # nixarr.nixosModules.default
-          vpnconfinement.nixosModules.default
+          nixarr.nixosModules.default
+          # vpnconfinement.nixosModules.default
         ];
       };
     };
