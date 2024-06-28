@@ -36,7 +36,5 @@
     settings = {
       "rpc-bind-address" = "0.0.0.0"; # Bind RPC/WebUI to bridge address
     };
-    rpc-whitelist = "*.*.*.*";
-    rpc-whitelist-enabled = 1;
   };
 }
