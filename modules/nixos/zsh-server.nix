@@ -10,7 +10,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ls = "ls -all";
+      ls = "ls -h";
       update = "cd /etc/nixos && git pull && sudo nixos-rebuild switch --flake /etc/nixos/#home-server";
       actual-update = "cd /etc/nixos && sudo nix flake update";
       status = "sudo systemctl status";
