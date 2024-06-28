@@ -7,7 +7,7 @@
   # Define VPN network namespace
   vpnnamespaces.wg = {
     enable = true;
-    wireguardConfigFile = /. + "/.secrets/vpn/wg.conf";
+    wireguardConfigFile = /. + "/data/.secrets/vpn/wg.conf";
     accessibleFrom = [
       "192.168.0.0/24"
     ];
