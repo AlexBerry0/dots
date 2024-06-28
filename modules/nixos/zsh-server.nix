@@ -22,5 +22,16 @@
       enable = true;
       plugins = ["git"];
     };
+    initExtra = ''
+      [[ ! -f ${../../configs/p10k.zsh} ]] || source ${../../configs/p10k.zsh}
+      nitch
+    '';
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
   };
 }
