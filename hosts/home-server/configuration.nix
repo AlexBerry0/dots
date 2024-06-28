@@ -9,7 +9,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/docker
-    ../../modules/nixos/nixarr.nix
+    # ../../modules/nixos/nixarr.nix
+    ../../modules/nixos/vpn-confinement.nix
+    inputs.vpnconfinement.nixosModules.default
     inputs.nixarr.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];

@@ -17,6 +17,9 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     nixarr.url = "github:rasmus-kirk/nixarr";
+
+    vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
+    vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -61,6 +64,7 @@
           ./hosts/home-server/configuration.nix
           inputs.home-manager.nixosModules.default
           nixarr.nixosModules.default
+          vpnconfinement.nixosModules.default
         ];
       };
     };
