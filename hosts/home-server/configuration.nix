@@ -21,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "home-server"; # Define your hostname.
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -88,8 +88,6 @@
     wireguard-tools
     jellyfin-ffmpeg
   ];
-
-  networking.hostName = "home-server";
 
   # 1. enable vaapi on OS-level
   nixpkgs.config.packageOverrides = pkgs: {
