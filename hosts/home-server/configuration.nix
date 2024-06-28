@@ -105,10 +105,10 @@
   };
   system.stateVersion = "23.11";
 
-  networking.nat.enable = true;
+  networking.nat.enable = false;
   networking.nat.internalInterfaces = ["wg"];
   networking.nftables.enable = false;
   networking.firewall = {
-    enable = false;
+    enable = true;
   };
 }
