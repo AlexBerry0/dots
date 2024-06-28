@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./adguard-home.nix
-    ./minecraft.nix
+    # ./minecraft.nix
     ./homarr.nix
   ];
 }
