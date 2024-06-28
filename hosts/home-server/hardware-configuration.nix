@@ -25,11 +25,6 @@
     };
 
   fileSystems."/mnt/library" =
-    { device = "/dev/sdb1";
-      fsType = "ext4";
-    };
-
-  fileSystems."/mnt/library" =
     { device = "/dev/disk/by-uuid/627c2049-5b72-410d-baa8-4740eab7e865";
       fsType = "ext4";
     };
