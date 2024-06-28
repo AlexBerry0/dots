@@ -34,7 +34,7 @@
   services.transmission = {
     enable = true;
     settings = {
-      "rpc-bind-address" = "192.168.1.224"; # Bind RPC/WebUI to bridge address
+      "rpc-bind-address" = "0.0.0.0"; # Bind RPC/WebUI to bridge address
     };
   };
 }
