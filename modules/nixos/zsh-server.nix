@@ -17,7 +17,7 @@
       restart = "sudo systemctl restart";
     };
     history.size = 100000;
-    history.path = "/home/alexb/zsh/history";
+    history.path = "/home/user/zsh/history";
     oh-my-zsh = {
       enable = true;
       plugins = ["git"];
