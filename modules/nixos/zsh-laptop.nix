@@ -11,6 +11,7 @@
 
     shellAliases = {
       ll = "ls -l";
+      kssh = "kitty +kitten ssh";
       update = "cd /etc/nixos && sudo nix flake update && cd";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
     };
