@@ -27,7 +27,7 @@
     nixpkgs,
     home-manager,
     spicetify-nix,
-    nixarr,
+    # nixarr,
     vpnconfinement,
     ...
   } @ inputs: let
