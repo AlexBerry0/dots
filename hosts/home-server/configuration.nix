@@ -12,7 +12,7 @@
     # ../../modules/nixos/nixarr.nix
     ../../modules/nixos/vpn-confinement.nix
     inputs.vpnconfinement.nixosModules.default
-    inputs.nixarr.nixosModules.default
+    # inputs.nixarr.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
 
