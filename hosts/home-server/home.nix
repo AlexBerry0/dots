@@ -20,6 +20,7 @@
   # environment.
   home.packages = with pkgs; [
     htop
+    nitch
   ];
 
   home.sessionVariables = {
