@@ -28,6 +28,7 @@
     home-manager,
     spicetify-nix,
     nixarr,
+    vpnconfinement,
     ...
   } @ inputs: let
     system = "x86_64-linux";
