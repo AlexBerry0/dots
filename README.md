@@ -35,4 +35,4 @@ git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sud
 ### Hyprland
 (Todo)  
 ### Home-Server
-(Todo)  
+![Home-Server-Dashboard](media/Homarr.png)
