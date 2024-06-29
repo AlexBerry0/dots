@@ -34,5 +34,5 @@ git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sud
 ![Gnome-config](media/Demo-Screenshot.png)
 ### Hyprland
 (Todo)  
-### Home-Serer
+### Home-Server
 (Todo)  
