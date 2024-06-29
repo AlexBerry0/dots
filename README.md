@@ -36,18 +36,3 @@ git clone https://github.com/AlexBerry0/dots.git && sudo  rm /etc/nixos/* && sud
 (Todo)  
 ### Home-Serer
 (Todo)  
-## Todo  
-### Laptop
-- [ ] Change SDDM theme
-- [ ] Get jetbrains IDEs setup with plugins
-- [ ] Gnome titlebar clock formating
-- [ ] Work out gnome keybinds
-- [ ] Move to hyprland (long term)
-### Home-server
-- [ ] Check port forwarding (minecraft server)
-- [ ] Setup OpenVPN
-- [ ] Fix issues with transmission hanging
-- [ ] Properly setup dashboard
-### Other
-- [ ] Add propper formating and descriptions to github repo
-- [ ] Migrate todo to issues
