@@ -104,6 +104,7 @@
       vpl-gpu-rt # QSV on 11th gen or newer
       intel-media-sdk # QSV up to 11th gen
       tshark
+      tcpdump
     ];
   };
 
