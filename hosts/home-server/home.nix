@@ -22,7 +22,6 @@
     htop
     nitch
     bottom
-    tshark
   ];
 
   home.sessionVariables = {
