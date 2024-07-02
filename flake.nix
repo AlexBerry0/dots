@@ -68,22 +68,19 @@
           # vpnconfinement.nixosModules.default
         ];
       };
-
-      nixosConfigurations = {
-        desktop = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit spicetify-nix;
-            machineName = "desktop";
-          };
-
-          modules = [
-            ./hosts/desktop/configuration.nix
-            ./modules/home-manager/spicetify.nix
-            inputs.home-manager.nixosModules.default
-          ];
+      desktop = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit spicetify-nix;
+          machineName = "desktop";
         };
+
+        modules = [
+          ./hosts/desktop/configuration.nix
+          ./modules/home-manager/spicetify.nix
+          inputs.home-manager.nixosModules.default
+        ];
       };
     };
   };
