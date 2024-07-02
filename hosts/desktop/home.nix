@@ -10,7 +10,7 @@
     ../../modules/home-manager/kitty.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
-    ../../modules/nixos/zsh-laptop.nix
+    ../../modules/nixos/zsh/zsh-desktop.nix
     ../../modules/nixos/nerdfonts.nix
   ];
 
