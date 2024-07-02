@@ -58,6 +58,12 @@
     celluloid
     termius
     wireshark
+    obs-studio
+    prismlauncher
+    steam-run
+    protontricks
+    lutris
+    cartridges
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
