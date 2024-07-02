@@ -8,7 +8,6 @@
     inputs.nix-colors.homeManagerModules.default
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/kitty.nix
-    ../../modules/home-manager/steam.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/zsh/zsh-desktop.nix
