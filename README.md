@@ -172,7 +172,37 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 6. Pull from this origin  
 ```git pull origin master```
 7. Finally rebuild using the chosen host  
-```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```
+```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```  
+
+Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:  
+
+> [!CAUTION]
+> Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
+
+If you cannot do this because you are out of space on your ```/boot``` partition then follow the steps in the expandable section below  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off, but 🤷.  
+```bootctl remove```  
+Then:  
+```sudo rm -rf /boot/loader```
+
+<details>
+<summary>Fix for /boot being out of space</summary>
+<ol>
+  <li>Rebuild but don't switch and store that config</li>
+  <code>sudo nixos-rebuild build --flake /etc/nixos/#HOST-NAME-HERE</code>
+  <li>Run a garbage collection to remove the old system generation</li>
+  <code>sudo nix-collect-garbage -d</code>
+  <li>cd into /boot/kernels/</li>
+  <code>cd /boot/kernels</code>
+  <li>List the files and then delete any old kernels, DO NOT DELETE NEW ONES, BE VERY CAREFUL</li>
+  <li>Rebuild and switch</li>
+  <code>sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE</code>
+  <li>Now reboot</li>
+</ol>
+</details>
+
+
+
 
 ## Inspiration:
 
