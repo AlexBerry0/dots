@@ -15,7 +15,7 @@
          <a = href="https://nixos.org">
             <img src="https://img.shields.io/badge/NixOS-Unstable-blue?style=for-the-badge&logo=NixOS&logoColor=white&label=NixOS&labelColor=303446&color=91D7E3">
          </a>
-         <a href="https://github.com/AlexBerry0/dots/blob/main/LICENSE">
+         <a href="https://github.com/AlexBerry0/dots/blob/master/LICENSE">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=313244&colorB=F5A97F&logo=unlicense&logoColor=F5A97F&"/>
          </a>
       </div>
@@ -26,7 +26,7 @@
 ## Introduction  
 These are my NixOS dotfiles for my systems. These are not intended to be a drop in configuration for your computer, but you are welcome to use it as a reference or starting point for your own configuration.
 **If you are looking for a more generic NixOS configuration, I recommend [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs).**   
-This is all themed from [Catppuccin Mocha](https://catppuccin.com/palette)
+This is all themed using [Catppuccin Mocha](https://catppuccin.com/palette).
 
 
 
@@ -156,29 +156,25 @@ These other modules are run using [declarative docker containers](https://nixos.
 
 ## Installation
 
-First clone the repo (preferably in your home folder)  
-```
-git clone https://github.com/AlexBerry0/dots.git
-```
-Then remove all files currently in /etc/nixos/
-```
-sudo rm -rf /etc/nixos/*
-```
-Then move all files from the cloned repository to ```/etc/nixos```  
-```
-sudo mv -R dots/* /etc/nixos/
-``` 
-(optional) Finally delete the (now) empty folder  
-```
-sudo rm -r dots
-```
-Finally rebuild using the chosen host  
-```
-sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE
-```
+This install procedure assumes that the user is on a fresh install of NixOS, that they are using bash, and that their hardware-configuration is the same as the hosts dotfiles they will be using. So modify the way you install the dotfiles if this is not the case.
+
+
+1. First enter a nix shell with git  
+```nix-shell -p git ssh```
+2. Change the ownership of ```/etc/nixos``` to your user (Optional)  
+``` sudo chown -R "USER" /etc/nixos```
+3. Remove all files currently in ```/etc/nixos```  
+```sudo rm -rf /etc/nixos/*```
+4. Go into ```/etc/nixos``` and initialize a git repo  
+```cd /etc/nixos && git init```
+5. Add this repo as a remote origin  
+```git remote add origin git@github.com:AlexBerry0/dots.git```
+6. Pull from this origin  
+```git pull origin master```
+7. Finally rebuild using the chosen host  
+```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```
 
 ## Inspiration:
-
 
  - [Tobycks's Dots](https://github.com/tobyck/dotfiles)
  - [Sly-Harvey's Config](https://github.com/Sly-Harvey/NixOS)
