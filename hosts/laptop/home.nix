@@ -12,7 +12,7 @@
     ../../modules/home-manager/jetbrains.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
-    ../../modules/nixos/zsh-laptop.nix
+    ../../modules/nixos/zsh/zsh-laptop.nix
     ../../modules/nixos/nerdfonts.nix
     ../../modules/nixos/hyprland
   ];

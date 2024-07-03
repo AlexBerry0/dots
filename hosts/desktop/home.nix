@@ -10,7 +10,7 @@
     ../../modules/home-manager/kitty.nix
     ../../modules/nixos/gtk.nix
     ../../modules/nixos/gnome.nix
-    ../../modules/nixos/zsh-laptop.nix
+    ../../modules/nixos/zsh/zsh-desktop.nix
     ../../modules/nixos/nerdfonts.nix
   ];
 
@@ -58,6 +58,12 @@
     celluloid
     termius
     wireshark
+    obs-studio
+    prismlauncher
+    steam-run
+    protontricks
+    lutris
+    cartridges
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

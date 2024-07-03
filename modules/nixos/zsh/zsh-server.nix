@@ -10,20 +10,20 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -l";
-      kssh = "kitty +kitten ssh";
-      update = "cd /etc/nixos && sudo nix flake update && cd";
-      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
+      ls = "ls -h";
+      update = "cd /etc/nixos && git pull && sudo nixos-rebuild switch --flake /etc/nixos/#home-server";
+      actual-update = "cd /etc/nixos && sudo nix flake update";
+      status = "sudo systemctl status";
+      restart = "sudo systemctl restart";
     };
     history.size = 100000;
-    history.path = "/home/alexb/zsh/history";
+    history.path = "/home/user/zsh/history";
     oh-my-zsh = {
       enable = true;
       plugins = ["git"];
-      # theme = "robbyrussell";
     };
     initExtra = ''
-      [[ ! -f ${../../configs/p10k.zsh} ]] || source ${../../configs/p10k.zsh}
+      [[ ! -f ${../../../configs/p10k.zsh} ]] || source ${../../../configs/p10k.zsh}
       nitch
     '';
     plugins = [
