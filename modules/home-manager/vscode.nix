@@ -64,6 +64,8 @@ in {
       shardulm94.trailing-spaces
       timonwong.shellcheck
       hashicorp.terraform
+
+      streetsidesoftware.code-spell-checker
     ];
 
     userSettings = {
