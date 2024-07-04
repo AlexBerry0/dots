@@ -231,7 +231,7 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 ```nix-shell -p git```
 2. Change the ownership of ```/etc/nixos``` to your user (Optional)  
 ``` sudo chown -R "USER" /etc/nixos```
-3. Remove all files currently in ```/etc/nixos```  
+3. Remove all files currently in ```/etc/nixos```(You should *probably* save hardware-configuration.nix first)  
 ```sudo rm -rf /etc/nixos/*```
 4. Go into ```/etc/nixos``` and initialize a git repo  
 ```cd /etc/nixos && git init```
@@ -242,13 +242,6 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 7. Finally rebuild using the chosen host  
 ```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```  
 8. Reboot
-
-Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off on rebuild, but 🤷.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```bootctl remove```  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then:  
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo rm -rf /boot/loader```  
 
 <details>
 <summary>What to do if you manually partitioned the NixOS install and Windows isn't showing up in the boot menu</summary>
@@ -278,7 +271,7 @@ Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:
 
 
 
-## Inspiration:https://github.com/sddm/sddm
+## Inspiration:
 
  - [Tobycks's Dots](https://github.com/tobyck/dotfiles)
  - [Sly-Harvey's Config](https://github.com/Sly-Harvey/NixOS)
