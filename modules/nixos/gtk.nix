@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: let
   modded-catppuccin = pkgs.fetchFromGitHub {
@@ -46,6 +47,12 @@ in {
   home.file.".themes/Catppuccin-Mocha" = {
     source = "${modded-catppuccin}/Catppuccin-Mocha";
     recursive = true;
+  };
+
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/gtk-dark.css";
   };
 
   home.sessionVariables.GTK_THEME = "Catppuccin-Mocha";
