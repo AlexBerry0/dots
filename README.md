@@ -244,19 +244,39 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 8. Reboot
 
 Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:  
-
-> [!CAUTION]
-> Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off on rebuild, but 🤷.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```bootctl remove```  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then:  
+> [!CAUTION]
+> Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo rm -rf /boot/loader```  
 
-
+<details>
+<summary>What to do if you manually partitioned the NixOS install and Windows isn't showing up in the boot menu</summary>
+<ol>
+  <li>Boot into a windows install USB</li>
+  <li>Press <kbd>Shift</kbd> + <kbd>F10</kbd> to open a DOS menu</li>
+  <li>Run <code>diskpart</code></li>
+  <li>Run <code>select Disk=0</code></li>
+  <li>Run <code>list partition</code></li>
+  <li>Look for the partition that matches the size and type of the /boot partition.</li>
+  <li>Run <code>select partition (num partition of `/boot`)</code></li>
+  <li>Assign it a letter by running <code>assign letter=""</code>, the letter can be any unused disk letter, I used "Y"</li>
+  <li>Exit diskpart</li>
+  <li>Now run <code>bcdboot C:/Windows /s "":</code></li>
+  <li>Enter <code>diskpart</code> again</li>
+  <li>Run <code>list volume</code></li>
+  <li>Identify the volume corresponding to the `/boot` partition</li>
+  <li>Run <code>select volume (num partition of `/boot`)</code></li>
+  <li>Run <code>remove letter=""</code></li>
+  <li>reboot</li>
+</ol>
+</details>
 
 > [!IMPORTANT]  
 > If you run into issues with /boot running out of storage space while attempting to rebuild and switch after (This will happen if you used automatic partitioning from the Calamares installer and are trying to dualboot with Windows.) Then you should reinstall NixOS and use manual partitioning to make /boot at least 250Mb. However, if you will not do that then [this guide](https://github.com/NixOS/nixpkgs/issues/23926#issuecomment-940438117) is your best bet for fixing this. You will need to do this every time you update the kernel.  
+
 
 
 
