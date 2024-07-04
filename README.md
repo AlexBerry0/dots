@@ -247,8 +247,6 @@ Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off on rebuild, but 🤷.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```bootctl remove```  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then:  
-> [!CAUTION]
-> Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo rm -rf /boot/loader```  
 
