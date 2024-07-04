@@ -150,13 +150,81 @@ These other modules are run using [declarative docker containers](https://nixos.
 ### Desktop 🚧
 <details>
 <summary>Desktop details </summary>
+<h4>Intro</h4>
+My Desktop is used mostly for gaming and its config is very smiler to my laptop. It's dualbooting windows, as VR games don't work well enough with linux Nvidia drivers, It's running Gnome as the DE and has mostly the same apps and general configurations.
+
+<h4>Things that are the same as my laptop configuration</h4>
+
+
+| Type           | Program      |
+| :------------- | :----------: |
+| Desktop Manager| [SDDM](https://github.com/sddm/sddm) |
+| Desktop Environment| [Gnome](https://www.gnome.org/) |
+| Text editor    | [VSCode](https://code.visualstudio.com/), with declaratively defined extensions |
+| Shell          | [ZSH](https://www.zsh.org/) |
+| Terminal       | [Kitty](https://github.com/kovidgoyal/kitty) |
+| Bootloader     | [Grub](https://www.gnu.org/software/grub/) |
+| File Manager   | [Nautilus](https://apps.gnome.org/Nautilus/) |
+| GTK Theme      | [My modded Catppuccin Mocha theme](https://github.com/AlexBerry0/Modded-Catppuccin-Mocha-GTK-theme) |
+| GTK Icon Theme | [Reversal Purple Dark](https://github.com/yeyushengfan258/Reversal-icon-theme) |
+| Terminal Font  | [Hack](https://github.com/source-foundry/Hack) |
+| Messaging      | [Beeper](https://www.beeper.com/) |
+| Music          | [Spotify](https://spotify.com) with [Spicetify](https://github.com/the-argus/spicetify-nix) |
+| VPN            | [Mullvad](https://mullvad.net/en) |
+| OOP development| [IntelliJ Idea](https://www.jetbrains.com/) |
+| Media Player   | [Celluloid](https://celluloid-player.github.io/) |
+
+The gnome extensions are also the same:
+
+
+| Name           |
+| :------------: |
+| user-themes |
+| quick-settings-tweaker |
+| autohide-battery |
+| bluetooth-quick-connect |
+| blur-my-shell |
+| burn-my-windows |
+| compiz-windows-effect |
+| coverflow-alt-tab |
+| just-perfection |
+| logo-menu |
+| media-controls |
+| no-titlebar-when-maximized |
+| notification-banner-reloaded |
+| order-gnome-shell-extensions |
+| pip-on-top |
+| tiling-assistant |
+| transparent-window-moving |
+| dash-to-dock |
+| unite |
+
+<h4>Things that are different from my laptop configuration</h4>
+
+<h5>Gaming</h5>
+
+Here are a list of apps & services I am using for gaming:
+
+
+| Name           |
+| :------------- |
+| [Steam](https://store.steampowered.com/about/)|
+| [OBS-studio](https://obsproject.com/)|
+| [Prism-launcher](https://prismlauncher.org/)|
+| [Minecraft](https://www.minecraft.net/en-us)|
+| [Lutris](https://lutris.net/)|
+| [Cartridges](https://github.com/kra-mo/cartridges)|
+| [steam-run](https://store.steampowered.com/about/)|
+
+
+ I am also using the proprietary Nvidia drivers.
 
 </details>
 
 
 ## Installation
 
-This install procedure assumes that the user is on a fresh install of NixOS, that they are using bash, and that their hardware-configuration is the same as the hosts dotfiles they will be using. So modify the way you install the dotfiles if this is not the case.
+This install procedure assumes that the user is on a fresh install of NixOS, that they are using bash, and that their hardware-configuration is the same as the hosts dotfiles they will be using. So modify the way you install the dotfiles if this is not the case. If you are dualbooting linux and windows you need to make sure that your /boot partition has more than 250Mb of space, otherwise you will run into issues.
 
 
 1. First enter a nix shell with git  
@@ -173,39 +241,26 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 ```git pull origin master```
 7. Finally rebuild using the chosen host  
 ```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```  
+8. Reboot
 
 Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:  
 
 > [!CAUTION]
 > Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
 
-If you cannot do this because you are out of space on your ```/boot``` partition then follow the steps in the expandable section below  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Reboot  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off on rebuild, but 🤷.  
-```bootctl remove```  
-Then:  
-```sudo rm -rf /boot/loader```
-
-<details>
-<summary>Fix for /boot being out of space</summary>
-<ol>
-  <li>Rebuild but don't switch and store that config</li>
-  <code>cd /etc/nixos/ && sudo nixos-rebuild build --flake /etc/nixos/#HOST-NAME-HERE</code>
-  <li>Run a garbage collection to remove the old system generation</li>
-  <code>sudo nix-collect-garbage -d</code>
-  <li>cd into /boot/kernels/</li>
-  <code>cd /boot/kernels</code>
-  <li>List the files and then delete any old kernels, DO NOT DELETE NEW ONES, BE VERY CAREFUL</li>
-  <li>Rebuild and switch, DO NOT DO THIS IN /BOOT, DO IT IN /etc/nixos</li>
-  <code>cd /etc/nixos/ && sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE</code>
-  <li>Now reboot</li>
-</ol>
-</details>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```bootctl remove```  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo rm -rf /boot/loader```  
 
 
 
+> [!IMPORTANT]  
+> If you run into issues with /boot running out of storage space while attempting to rebuild and switch after (This will happen if you used automatic partitioning from the Calamares installer and are trying to dualboot with Windows.) Then you should reinstall NixOS and use manual partitioning to make /boot at least 250Mb. However, if you will not do that then [this guide](https://github.com/NixOS/nixpkgs/issues/23926#issuecomment-940438117) is your best bet for fixing this. You will need to do this every time you update the kernel.  
 
-## Inspiration:
+
+
+## Inspiration:https://github.com/sddm/sddm
 
  - [Tobycks's Dots](https://github.com/tobyck/dotfiles)
  - [Sly-Harvey's Config](https://github.com/Sly-Harvey/NixOS)

@@ -64,6 +64,7 @@ in {
       shardulm94.trailing-spaces
       timonwong.shellcheck
       hashicorp.terraform
+      astro-build.astro-vscode
 
       streetsidesoftware.code-spell-checker
     ];
@@ -81,6 +82,7 @@ in {
       "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
       "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
 
       "security.workspace.trust.untrustedFiles" = "open";
       "github.copilot.enable" = {
