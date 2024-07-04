@@ -160,7 +160,7 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 
 
 1. First enter a nix shell with git  
-```nix-shell -p git ssh```
+```nix-shell -p git```
 2. Change the ownership of ```/etc/nixos``` to your user (Optional)  
 ``` sudo chown -R "USER" /etc/nixos```
 3. Remove all files currently in ```/etc/nixos```  
@@ -168,7 +168,7 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 4. Go into ```/etc/nixos``` and initialize a git repo  
 ```cd /etc/nixos && git init```
 5. Add this repo as a remote origin  
-```git remote add origin git@github.com:AlexBerry0/dots.git```
+```git remote add origin https://github.com/AlexBerry0/dots.git)```
 6. Pull from this origin  
 ```git pull origin master```
 7. Finally rebuild using the chosen host  
@@ -180,7 +180,8 @@ Follow the next step/s if you are using the ```desktop``` or ```laptop``` hosts:
 > Anything below this is currently untested (should be in 12 hours), and therefore is VERY likely to break your bootloader so maybe hold off for a couple of hours  
 
 If you cannot do this because you are out of space on your ```/boot``` partition then follow the steps in the expandable section below  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off, but 🤷.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Reboot
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. Remove systemd boot, ideally this should be done automatically when systemd-boot is turned off on rebuild, but 🤷.  
 ```bootctl remove```  
 Then:  
 ```sudo rm -rf /boot/loader```
@@ -195,7 +196,7 @@ Then:
   <li>cd into /boot/kernels/</li>
   <code>cd /boot/kernels</code>
   <li>List the files and then delete any old kernels, DO NOT DELETE NEW ONES, BE VERY CAREFUL</li>
-  <li>Rebuild and switch</li>
+  <li>Rebuild and switch, DO NOT DO THIS IN /BOOT, DO IT IN /etc/nixos</li>
   <code>sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE</code>
   <li>Now reboot</li>
 </ol>
