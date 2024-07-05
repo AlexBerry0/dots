@@ -16,6 +16,7 @@
     environment = {
       EULA = "true";
       DIFFICULTY = "hard";
+      MEMORY = "4G";
     };
     volumes = [
       "data:/data:rw"
