@@ -15,6 +15,7 @@
     image = "itzg/minecraft-server";
     environment = {
       EULA = "true";
+      DIFFICULTY = "hard";
     };
     volumes = [
       "data:/data:rw"
@@ -30,7 +31,7 @@
   };
   systemd.services."docker-minecraft-mc" = {
     serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
+      Restart = lib.mkOverride 500 "on-failure";
       RestartMaxDelaySec = lib.mkOverride 500 "1m";
       RestartSec = lib.mkOverride 500 "100ms";
       RestartSteps = lib.mkOverride 500 9;
