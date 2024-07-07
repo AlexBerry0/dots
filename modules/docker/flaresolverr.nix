@@ -17,7 +17,6 @@
       CAPTCHA_SOLVER = "none";
       LOG_HTML = "false";
       LOG_LEVEL = "info";
-      TZ = "Europe/London";
     };
     ports = [
       "8191:8191/tcp"
