@@ -15,6 +15,8 @@
     image = "itzg/minecraft-server";
     environment = {
       EULA = "true";
+      DIFFICULTY = "hard";
+      MEMORY = "6G";
     };
     volumes = [
       "minecraft_data:/data:rw"
