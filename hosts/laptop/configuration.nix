@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     inputs.nix-colors.homeManagerModules.default
     inputs.home-manager.nixosModules.default
+    ../../modules/nixos/printing.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
