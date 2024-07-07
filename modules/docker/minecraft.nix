@@ -15,16 +15,15 @@
     image = "itzg/minecraft-server";
     environment = {
       EULA = "true";
-      DIFFICULTY = "hard";
-      MEMORY = "6G";
     };
     volumes = [
-      "data:/data:rw"
+      "minecraft_data:/data:rw"
     ];
     ports = [
       "25565:25565/tcp"
     ];
     log-driver = "journald";
+    autoStart = false;
     extraOptions = [
       "--network-alias=mc"
       "--network=minecraft_default"
@@ -86,6 +85,5 @@
   # When started, this will automatically create all resources and start
   # the containers. When stopped, this will teardown all resources.
   systemd.targets."docker-compose-minecraft-root" = {
-    wantedBy = ["multi-user.target"];
   };
 }
