@@ -12,7 +12,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."flaresolverr" = {
-    image = "ghcr.io/flaresolverr/flaresolverr:latest";
+    image = "flaresolverr/flaresolverr:latest";
     environment = {
       CAPTCHA_SOLVER = "none";
       LOG_HTML = "false";

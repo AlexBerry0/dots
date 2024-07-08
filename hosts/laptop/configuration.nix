@@ -54,6 +54,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  programs.captive-browser.enable = true;
+  programs.captive-browser.interface = "wlo1";
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
