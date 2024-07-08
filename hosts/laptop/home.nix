@@ -6,15 +6,15 @@
 }: {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../../modules/home-manager/vscode.nix
-    ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/kitty.nix
-    ../../modules/home-manager/jetbrains.nix
-    ../../modules/nixos/gtk.nix
-    ../../modules/nixos/gnome.nix
-    ../../modules/nixos/zsh/zsh-laptop.nix
-    ../../modules/nixos/nerdfonts.nix
-    ../../modules/nixos/hyprland
+    ../../modules/personal-computers/home-manager/vscode.nix
+    ../../modules/personal-computers/home-manager/alacritty.nix
+    ../../modules/personal-computers/home-manager/kitty.nix
+    ../../modules/personal-computers/home-manager/jetbrains.nix
+    ../../modules/personal-computers/system/gtk.nix
+    ../../modules/personal-computers/system/gnome/gnome.nix
+    ../../modules/personal-computers/system/zsh/zsh-laptop.nix
+    ../../modules/personal-computers/system/nerdfonts.nix
+    ../../modules/personal-computers/system/hyprland
   ];
 
   home.username = "alexb";
@@ -81,8 +81,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr/hypridle.conf".source = ../../modules/nixos/hyprland/hypridle.conf;
-    ".config/hypr/hyprlock.conf".source = ../../modules/nixos/hyprland/hyprlock.conf;
+    ".config/hypr/hypridle.conf".source = ../../modules/personal-computers/system/hyprland/hypridle.conf;
+    ".config/hypr/hyprlock.conf".source = ../../modules/personal-computers/system/hyprland/hyprlock.conf;
   };
 
   home.sessionVariables = {

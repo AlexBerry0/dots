@@ -13,7 +13,7 @@
       ll = "ls -l";
       kssh = "kitty +kitten ssh";
       update = "cd /etc/nixos && sudo nix flake update && cd";
-      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#desktop";
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
     };
     history.size = 100000;
     history.path = "/home/alexb/zsh/history";
@@ -23,7 +23,7 @@
       # theme = "robbyrussell";
     };
     initExtra = ''
-      [[ ! -f ${../../../configs/p10k.zsh} ]] || source ${../../../configs/p10k.zsh}
+      [[ ! -f ${../../../../configs/p10k.zsh} ]] || source ${../../../../configs/p10k.zsh}
       nitch
     '';
     plugins = [

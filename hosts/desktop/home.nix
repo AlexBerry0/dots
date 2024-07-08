@@ -6,12 +6,12 @@
 }: {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../../modules/home-manager/vscode.nix
-    ../../modules/home-manager/kitty.nix
-    ../../modules/nixos/gtk.nix
-    ../../modules/nixos/gnome.nix
-    ../../modules/nixos/zsh/zsh-desktop.nix
-    ../../modules/nixos/nerdfonts.nix
+    ../../modules/personal-computers/home-manager/vscode.nix
+    ../../modules/personal-computers/home-manager/kitty.nix
+    ../../modules/personal-computers/system/gtk.nix
+    ../../modules/personal-computers/system/gnome/gnome.nix
+    ../../modules/personal-computers/system/zsh/zsh-desktop.nix
+    ../../modules/personal-computers/system/nerdfonts.nix
   ];
 
   home.username = "alexb";
@@ -65,13 +65,6 @@
     lutris
     cartridges
   ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    ".config/hypr/hypridle.conf".source = ../../modules/nixos/hyprland/hypridle.conf;
-    ".config/hypr/hyprlock.conf".source = ../../modules/nixos/hyprland/hyprlock.conf;
-  };
 
   home.sessionVariables = {
     # EDITOR = "emacs";

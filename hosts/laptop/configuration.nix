@@ -12,8 +12,14 @@
     ./hardware-configuration.nix
     inputs.nix-colors.homeManagerModules.default
     inputs.home-manager.nixosModules.default
-    ../../modules/nixos/printing.nix
+    ../../modules/personal-computers/system/printing.nix
+    # inputs.sops-nix.nixosModules.sops
   ];
+
+  # sops.defaultSopsFile = ./secrets/secrets.yaml;
+  # sops.defaultSopsFormat = "yaml";
+
+  # sops.age.keyFile = "/home/alexb/.config/sops/age/keys.txt";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -181,6 +187,7 @@
     git
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
+    sops
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

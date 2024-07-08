@@ -8,8 +8,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/docker
-    ../../modules/nixos/nixarr.nix
+    ../../modules/server/docker
+    ../../modules/server/nixarr.nix
     inputs.nixarr.nixosModules.default
     # ../../modules/nixos/vpn-confinement.nix
     # inputs.vpnconfinement.nixosModules.default
