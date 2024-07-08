@@ -236,12 +236,25 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 4. Go into ```/etc/nixos``` and initialize a git repo  
 ```cd /etc/nixos && git init```
 5. Add this repo as a remote origin  
-```git remote add origin https://github.com/AlexBerry0/dots.git)```
+```git remote add origin https://github.com/AlexBerry0/dots.git```
 6. Pull from this origin  
 ```git pull origin master```
 7. Finally rebuild using the chosen host  
 ```sudo nixos-rebuild switch --flake /etc/nixos/#HOST-NAME-HERE```  
 8. Reboot
+
+> [!IMPORTANT]  
+>  If you are dualbooting you may need to follow the below instructions if either Systemd boot hasn't been removed, or Windows isn't showing up in the Grub boot options. Only follow the instructions for remaking the windows EFI files if Windows isn't showing up in the grub options, NOT the systemd boot options. It shouldn't show up in the systemd options. Please be careful with these as they could break your system/s.
+
+
+<details>
+<summary>What to do if after rebuild the system still boots into Systemd boot</summary>
+<ol>
+  <li>Remove systemd boot, by running <code>sudo bootctl remove</code> ideally this should be done automatically when systemd-boot is turned off, but 🤷.</li>
+  <li>Optionally run <code>sudo rm -rf /boot/loader</code> to remove some unneeded files</li>
+  <li>reboot</li>
+</ol>
+</details>
 
 <details>
 <summary>What to do if you manually partitioned the NixOS install and Windows isn't showing up in the boot menu</summary>
@@ -267,8 +280,6 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 
 > [!IMPORTANT]  
 > If you run into issues with /boot running out of storage space while attempting to rebuild and switch after (This will happen if you used automatic partitioning from the Calamares installer and are trying to dualboot with Windows.) Then you should reinstall NixOS and use manual partitioning to make /boot at least 250Mb. However, if you will not do that then [this guide](https://github.com/NixOS/nixpkgs/issues/23926#issuecomment-940438117) is your best bet for fixing this. You will need to do this every time you update the kernel.  
-
-
 
 
 ## Inspiration:
