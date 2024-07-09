@@ -17,6 +17,9 @@
       EULA = "true";
       DIFFICULTY = "hard";
       MEMORY = "6G";
+      SEED = "-1367981316524969714";
+      VERSION = "LATEST";
+      ENABLE_WHITELIST = "true";
     };
     volumes = [
       "minecraft_data:/data:rw"
