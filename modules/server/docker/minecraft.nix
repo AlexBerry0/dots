@@ -22,7 +22,7 @@
       ENABLE_WHITELIST = "true";
     };
     volumes = [
-      "minecraft_data:/data:rw"
+      "/home/user/docker/minecraft/:/data:rw"
     ];
     ports = [
       "25565:25565/tcp"
