@@ -11,7 +11,9 @@
     '';
     serviceConfig = {
       User = "gtk-fix";
+      Type = "oneshot";
     };
+    wantedBy = ["multi-user.target"];
   };
 
   users.users.gtk-fix = {
