@@ -13,6 +13,8 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.home-manager.nixosModules.default
     ../../modules/personal-computers/system/printing.nix
+    # ../../modules/personal-computers/services
+
     # inputs.sops-nix.nixosModules.sops
   ];
 

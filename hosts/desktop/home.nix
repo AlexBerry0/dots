@@ -12,6 +12,7 @@
     ../../modules/personal-computers/system/gnome/gnome.nix
     ../../modules/personal-computers/system/zsh/zsh-desktop.nix
     ../../modules/personal-computers/system/nerdfonts.nix
+    ../../modules/personal-computers/system/gnome/dconf/desktop.nix
   ];
 
   home.username = "alexb";
