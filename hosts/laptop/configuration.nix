@@ -14,6 +14,7 @@
     inputs.home-manager.nixosModules.default
     ../../modules/personal-computers/system/printing.nix
     # ../../modules/personal-computers/services
+    ../../modules/personal-computers/home-manager/steam.nix
 
     # inputs.sops-nix.nixosModules.sops
   ];
