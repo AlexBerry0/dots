@@ -37,6 +37,7 @@
 
     "org/gnome/desktop/interface" = {
       scaling-factor = lib.hm.gvariant.mkUint32 1;
+      clock-format = "12h";
     };
 
     "org/gnome/desktop/datetime" = {
