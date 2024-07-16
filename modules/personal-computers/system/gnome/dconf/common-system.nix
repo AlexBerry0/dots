@@ -29,12 +29,6 @@
       # picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      binding = "<Super>t";
-      command = "kitty";
-      name = "Kitty - Terminal";
-    };
-
     "org/gnome/desktop/interface" = {
       scaling-factor = lib.hm.gvariant.mkUint32 1;
       clock-format = "12h";
@@ -44,6 +38,19 @@
       time-format = "custom";
       custom-time-format = "%m-%d %H:%M";
       automatic-timezone = false;
+    };
+
+    # Keyboard shortcuts
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>t";
+      command = "kitty";
+      name = "Kitty - Terminal";
     };
   };
 }
