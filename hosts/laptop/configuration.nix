@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -19,6 +16,7 @@
     # inputs.sops-nix.nixosModules.sops
   ];
 
+  # SOPS
   # sops.defaultSopsFile = ./secrets/secrets.yaml;
   # sops.defaultSopsFormat = "yaml";
 
@@ -26,7 +24,7 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Bootloader.
+  # Bootloader
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     timeout = 5;
@@ -40,31 +38,28 @@
       efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
       devices = ["nodev"];
       useOSProber = true;
-      # extraEntriesBeforeNixOS = true;
-      # extraEntries = ''
-      #   menuentry "Reboot" {
-      #     reboot
-      #   }      #   }
-
-      #   menuentry "Poweroff" {
-      #     halt
-      #   }
-      # '';
     };
   };
 
   environment.variables.XCURSOR_SIZE = "22";
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  # Networking
   networking.networkmanager.enable = true;
   programs.captive-browser.enable = true;
   programs.captive-browser.interface = "wlo1";
+  networking.hostName = "alexslaptoplinux";
+
+  # Mullvad config, currently commented out as I don't use it and it seems to break captive browser
+  services.mullvad-vpn.enable = true;
+
+  # networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+  # services.resolved = {
+  #   enable = true;
+  #   dnssec = "true";
+  #   domains = ["~."];
+  #   fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+  #   dnsovertls = "true";
+  # };
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -87,12 +82,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-
+  # SDDM
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.theme = "${import ../../pkgs/sddm-sugar-dark.nix {inherit pkgs;}}";
-  services.xserver.desktopManager.gnome.enable = true;
 
+  # GNOME
+  services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages =
     (with pkgs; [
       # gnome-text-editor
@@ -102,27 +97,28 @@
       gnome-connections
       snapshot
       gedit
-    ])
-    ++ (with pkgs.gnome; [
       cheese # webcam tool
-      gnome-music
       epiphany # web browser
       geary # email reader
       evince # document viewer
-      gnome-characters
+      yelp # Help view
       totem # video player
+      gnome-font-viewer
+    ])
+    ++ (with pkgs.gnome; [
+      gnome-music
+      gnome-characters
       tali # poker game
       iagno # go game
       hitori # sudoku game
       atomix # puzzle game
-      yelp # Help view
       gnome-contacts
       gnome-initial-setup
       gnome-shell-extensions
       gnome-maps
-      gnome-font-viewer
     ]);
 
+  # Hyprland
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
@@ -135,7 +131,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # Sounds
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -144,20 +140,11 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   programs.zsh.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Users
   users.users.alexb = {
     isNormalUser = true;
     description = "Alex Berry";
@@ -170,21 +157,17 @@
   #  ";
 
   home-manager = {
-    # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
       "alexb" = import ./home.nix;
     };
   };
-  #
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System Packages
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
     polkit
     polkit_gnome
     git
@@ -192,14 +175,6 @@
     libsForQt5.qt5.qtgraphicaleffects
     sops
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   security.polkit.enable = true;
 
@@ -218,33 +193,6 @@
       };
     };
   };
-  # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  services.mullvad-vpn.enable = true;
-
-  # networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-  # services.resolved = {
-  #   enable = true;
-  #   dnssec = "true";
-  #   domains = ["~."];
-  #   fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-  #   dnsovertls = "true";
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }

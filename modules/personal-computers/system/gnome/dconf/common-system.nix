@@ -26,7 +26,7 @@
 
     "org/gnome/desktop/background" = {
       picture-uri = "file:///etc/nixos/media/space_saturn.png";
-      # picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
+      picture-uri-dark = "file:///etc/nixos/media/space_saturn.png";
     };
 
     "org/gnome/desktop/interface" = {
