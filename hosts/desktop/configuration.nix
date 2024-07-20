@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.nix-colors.homeManagerModules.default
     inputs.home-manager.nixosModules.default
@@ -70,12 +69,6 @@
   };
 
   environment.variables.XCURSOR_SIZE = "22";
-  networking.hostName = "alexsdesktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -173,6 +166,7 @@
       "alexb" = import ./home.nix;
     };
   };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -183,6 +177,7 @@
     git
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
+    btm
   ];
 
   security.polkit.enable = true;
@@ -207,6 +202,12 @@
 
   services.mullvad-vpn.enable = true;
 
+  # Networking
+
+  networking.networkmanager.enable = true;
+
+  networking.hostName = "alexsdesktop";
+
   networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
   services.resolved = {
     enable = true;
@@ -215,9 +216,6 @@
     fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
     dnsovertls = "true";
   };
-
-  # Networking
-  networking.networkmanager.enable = true;
 
   # Other
   system.stateVersion = "23.11";

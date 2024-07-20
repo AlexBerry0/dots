@@ -9,5 +9,6 @@
     ./minecraft.nix
     ./homarr.nix
     ./flaresolverr.nix
+    # ./immich.nix
   ];
 }
