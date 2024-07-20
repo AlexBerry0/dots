@@ -132,7 +132,7 @@
   services.printing.enable = true;
 
   # Sounds
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -174,6 +174,7 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     sops
+    bottom
   ];
 
   security.polkit.enable = true;

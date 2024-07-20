@@ -1,0 +1,11 @@
+# .sops.yaml
+
+keys:
+  - &primary age177xnd5sgs5wuhd2t3qz84rnnd38aujy09yfw24z76e29xhmdk43sacz9lu
+  - &laptop age1q748kqt0gndq0advuxq5yc3lxjsmp0q2jz35xeja93vygzjcwf6s4xg59t
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *primary
+      - *laptop

@@ -10,6 +10,7 @@
       window = {
         title = "Terminal";
 
+        # Position and size of the terminal when it is opened
         position = {
           x = 900;
           y = 350;
@@ -35,6 +36,7 @@
         program = "${pkgs.zsh}/bin/zsh";
         #   args = [ "--init-command" "echo; neofetch; echo" ];
       };
+      # Uses colours from nix colors
       colors = with config.colorScheme.palette; {
         bright = {
           black = "0x${base00}";

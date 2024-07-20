@@ -54,6 +54,7 @@ in {
       # Copilot
       github.copilot
 
+      # Formatters
       bbenoist.nix
       christian-kohler.path-intellisense
       dbaeumer.vscode-eslint
@@ -66,10 +67,12 @@ in {
       hashicorp.terraform
       astro-build.astro-vscode
 
+      # Other
       streetsidesoftware.code-spell-checker
     ];
 
     userSettings = {
+      # Define formatters for different languges
       "[c]"."editor.defaultFormatter" = "xaver.clang-format";
       "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
       "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";

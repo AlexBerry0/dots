@@ -14,15 +14,15 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     ags.url = "github:Aylur/ags";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixarr.url = "github:rasmus-kirk/nixarr";
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
-    # vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -53,7 +53,6 @@
 
         modules = [
           ./hosts/laptop/configuration.nix
-          ./modules/personal-computers/home-manager/spicetify.nix
           inputs.home-manager.nixosModules.default
         ];
       };
@@ -68,7 +67,6 @@
           ./hosts/home-server/configuration.nix
           inputs.home-manager.nixosModules.default
           nixarr.nixosModules.default
-          # vpnconfinement.nixosModules.default
         ];
       };
       desktop = lib.nixosSystem {
@@ -81,7 +79,6 @@
 
         modules = [
           ./hosts/desktop/configuration.nix
-          ./modules/personal-computers/home-manager/spicetify.nix
           inputs.home-manager.nixosModules.default
         ];
       };

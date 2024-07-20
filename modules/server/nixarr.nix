@@ -3,6 +3,26 @@
   inputs,
   ...
 }: {
+  systemd.services."wg-mover" = {
+    script = ''
+      echo "
+      $(cat ${config.sops.secrets."nixarr/wgconf".path})
+      " > /var/lib/sometestservice/testfile
+    '';
+    serviceConfig = {
+      User = "wg-mover";
+      WorkingDirectory = "/var/lib/wg-mover";
+    };
+  };
+
+  users.users.wg-mover = {
+    home = "/var/lib/wg-mover";
+    createHome = true;
+    isSystemUser = true;
+    group = "wg-mover";
+  };
+  users.groups.wg-mover = {};
+
   imports = [
     ./jellyseer.nix
   ];

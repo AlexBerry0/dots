@@ -10,6 +10,7 @@
     ../../modules/personal-computers/home-manager/alacritty.nix
     ../../modules/personal-computers/home-manager/kitty.nix
     ../../modules/personal-computers/home-manager/jetbrains.nix
+    ../../modules/personal-computers/home-manager/spicetify.nix
     ../../modules/personal-computers/system/gtk.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
     ../../modules/personal-computers/system/zsh/zsh-laptop.nix
@@ -70,6 +71,8 @@
     mediainfo
     wireshark
     delfin
+    foliate
+    sops
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

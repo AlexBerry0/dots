@@ -11,11 +11,20 @@
     ../../modules/server/docker
     ../../modules/server/nixarr.nix
     inputs.nixarr.nixosModules.default
-    # ../../modules/nixos/vpn-confinement.nix
-    # inputs.vpnconfinement.nixosModules.default
     inputs.home-manager.nixosModules.default
+    inputs.sops-nix.nixosModules.sops
   ];
 
+  # SOPS
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
+
+  sops.secrets = {
+    "nixarr/wgconf".owner = "wg-mover";
+    "immich".owner = "immich";
+  };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
