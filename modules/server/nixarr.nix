@@ -7,7 +7,7 @@
     script = ''
       echo "
       $(cat ${config.sops.secrets."nixarr/wgconf".path})
-      " > /var/lib/sometestservice/testfile
+      " > /var/lib/wg-mover/wg.conf
     '';
     serviceConfig = {
       User = "wg-mover";
@@ -38,7 +38,7 @@
       enable = true;
       # WARNING: This file must _not_ be in the config git directory
       # You can usually get this wireguard file from your VPN provider
-      wgConf = "/data/.secret/vpn/wg.conf";
+      wgConf = "var/lib/wg-mover/wg.conf";
     };
 
     jellyfin = {
