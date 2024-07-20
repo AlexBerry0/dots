@@ -57,7 +57,6 @@
     protontricks
     lutris
     cartridges
-    minecraft
   ];
 
   home.sessionVariables = {
