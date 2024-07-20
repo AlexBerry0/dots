@@ -35,7 +35,7 @@
         program = "${pkgs.zsh}/bin/zsh";
         #   args = [ "--init-command" "echo; neofetch; echo" ];
       };
-      colors = with config.colorScheme.colors; {
+      colors = with config.colorScheme.palette; {
         bright = {
           black = "0x${base00}";
           blue = "0x${base0D}";

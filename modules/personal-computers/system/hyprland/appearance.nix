@@ -6,7 +6,7 @@
   wayland.windowManager.hyprland.settings = let
     border = true;
   in {
-    general = with config.colorScheme.colors; {
+    general = with config.colorScheme.palette; {
       gaps_in = 4;
       gaps_out = 8;
       border_size =

@@ -18,6 +18,9 @@
 
     nixarr.url = "github:rasmus-kirk/nixarr";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     # vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
     # vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -50,7 +53,7 @@
 
         modules = [
           ./hosts/laptop/configuration.nix
-          ./modules/home-manager/spicetify.nix
+          ./modules/personal-computers/home-manager/spicetify.nix
           inputs.home-manager.nixosModules.default
         ];
       };
@@ -78,7 +81,7 @@
 
         modules = [
           ./hosts/desktop/configuration.nix
-          ./modules/home-manager/spicetify.nix
+          ./modules/personal-computers/home-manager/spicetify.nix
           inputs.home-manager.nixosModules.default
         ];
       };

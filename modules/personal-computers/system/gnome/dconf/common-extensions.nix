@@ -3,11 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-#let
-#   modded-unite = import ../../pkgs/modded-unite.nix {inherit pkgs;};
-# in
-{
+}: {
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
@@ -50,40 +46,6 @@
         "x11gestures@joseexposito.github.io"
         "burn-my-windows@schneegans.github.com"
       ];
-      favorite-apps = [
-        "firefox.desktop"
-        "org.gnome.Nautilus.desktop"
-        "google-chrome.desktop"
-        "beeper.desktop"
-      ];
-      last-selected-power-profile = "power-saver";
-      welcome-dialog-last-shown-version = "99.9";
-    };
-
-    "org/gnome/desktop/wm/preferences" = {
-      auto-raise = false;
-      button-layout = "close,minimize,maximize:";
-      focus-mode = "click";
-      num-workspaces = 1;
-      resize-with-right-button = false;
-    };
-
-    "org/gnome/mutter" = {
-      dynamic-workspaces = true;
-      edge-tiling = false;
-      overlay-key = "Super_L";
-      workspaces-only-on-primary = true;
-    };
-
-    "org/gnome/desktop/background" = {
-      picture-uri = "file:///etc/nixos/media/space_saturn.png";
-      # picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/vnc-d.png";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      binding = "<Super>t";
-      command = "kitty";
-      name = "Kitty - Terminal";
     };
 
     "org/gnome/shell/extensions/Logo-menu" = {
@@ -94,7 +56,7 @@
       menu-button-terminal = "kitty";
       show-activities-button = false;
       show-lockorientation = false;
-      show-lockscreen = true;
+      show-lockscreen = false;
       show-power-options = false;
       symbolic-icon = true;
       use-custom-icon = false;
@@ -412,39 +374,5 @@
     "org/gnome/shell/extensions/user-theme" = {
       name = "Catppuccin-Mocha";
     };
-
-    "org/gnome/desktop/interface" = {
-      scaling-factor = lib.hm.gvariant.mkUint32 1;
-    };
-
-    "org/gnome/desktop/datetime" = {
-      time-format = "custom";
-      custom-time-format = "%m-%d %H:%M";
-      automatic-timezone = false;
-    };
   };
-
-  home.packages = [
-    pkgs.gnomeExtensions.user-themes
-    pkgs.gnomeExtensions.quick-settings-tweaker
-    pkgs.gnomeExtensions.autohide-battery
-    pkgs.gnomeExtensions.bluetooth-quick-connect
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.burn-my-windows
-    pkgs.gnomeExtensions.compiz-windows-effect
-    pkgs.gnomeExtensions.coverflow-alt-tab
-    pkgs.gnomeExtensions.just-perfection
-    pkgs.gnomeExtensions.logo-menu
-    pkgs.gnomeExtensions.media-controls
-    pkgs.gnomeExtensions.no-titlebar-when-maximized
-    pkgs.gnomeExtensions.notification-banner-reloaded
-    pkgs.gnomeExtensions.order-gnome-shell-extensions
-    pkgs.gnomeExtensions.pip-on-top
-    pkgs.gnomeExtensions.tiling-assistant
-    pkgs.gnomeExtensions.transparent-window-moving
-    pkgs.gnomeExtensions.dash-to-dock
-    pkgs.gnomeExtensions.unite
-    # modded-unite
-    pkgs.catppuccin
-  ];
 }

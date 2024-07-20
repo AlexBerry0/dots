@@ -17,14 +17,18 @@
       EULA = "true";
       DIFFICULTY = "hard";
       MEMORY = "6G";
+      SEED = "-1367981316524969714";
+      VERSION = "LATEST";
+      ENABLE_WHITELIST = "true";
     };
     volumes = [
-      "data:/data:rw"
+      "/home/user/docker/minecraft/:/data:rw"
     ];
     ports = [
       "25565:25565/tcp"
     ];
     log-driver = "journald";
+    autoStart = false;
     extraOptions = [
       "--network-alias=mc"
       "--network=minecraft_default"
@@ -86,6 +90,5 @@
   # When started, this will automatically create all resources and start
   # the containers. When stopped, this will teardown all resources.
   systemd.targets."docker-compose-minecraft-root" = {
-    wantedBy = ["multi-user.target"];
   };
 }

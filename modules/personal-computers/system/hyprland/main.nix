@@ -14,7 +14,7 @@
     ];
 
     exec = [
-      "swaybg -i ${../../../media/space_saturn.png}"
+      "swaybg -i ${../../../../media/space_saturn.png}"
     ];
 
     debug = {
