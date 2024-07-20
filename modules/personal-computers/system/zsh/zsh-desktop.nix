@@ -23,7 +23,7 @@
       # theme = "robbyrussell";
     };
     initExtra = ''
-      [[ ! -f ${../../../../configs/p10k.zsh} ]] || source ${../../c../../onfigs/p10k.zsh}
+      [[ ! -f ${../../../../configs/p10k.zsh} ]] || source ${../../c../../configs/p10k.zsh}
       nitch
     '';
     plugins = [
