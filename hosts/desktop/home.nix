@@ -58,6 +58,7 @@
     protontricks
     lutris
     cartridges
+    bottles
   ];
 
   home.sessionVariables = {

@@ -100,7 +100,7 @@
       cheese # webcam tool
       epiphany # web browser
       geary # email reader
-      evince # document viewer
+      # evince # document viewer
       yelp # Help view
       totem # video player
       gnome-font-viewer

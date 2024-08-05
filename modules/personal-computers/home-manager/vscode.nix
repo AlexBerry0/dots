@@ -50,9 +50,17 @@ in {
       # Languages
       yzhang.markdown-all-in-one
       brettm12345.nixfmt-vscode
+      mikestead.dotenv
+      ms-toolsai.jupyter
+      ms-toolsai.jupyter-renderers
+      ms-toolsai.jupyter-keymap
+      ms-toolsai.vscode-jupyter-cell-tags
+      ms-toolsai.vscode-jupyter-slideshow
+      ms-python.python
 
       # Copilot
       github.copilot
+      github.copilot-chat
 
       # Formatters
       bbenoist.nix
@@ -89,7 +97,7 @@ in {
 
       "security.workspace.trust.untrustedFiles" = "open";
       "github.copilot.enable" = {
-        "*" = false;
+        "*" = true;
       };
       "editor.formatOnType" = true;
       "workbench.iconTheme" = "catppuccin-mocha";

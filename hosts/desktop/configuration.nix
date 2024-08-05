@@ -178,6 +178,7 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     btm
+    python3
   ];
 
   security.polkit.enable = true;
