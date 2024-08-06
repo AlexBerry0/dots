@@ -28,6 +28,7 @@
     "text/x-makefile"
     "text/x-python"
     "text/x-scss"
+    "text/x-ocaml"
   ];
 in {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
@@ -57,6 +58,7 @@ in {
       ms-toolsai.vscode-jupyter-cell-tags
       ms-toolsai.vscode-jupyter-slideshow
       ms-python.python
+      ocamllabs.ocaml-platform
 
       # Copilot
       github.copilot
@@ -74,6 +76,7 @@ in {
       timonwong.shellcheck
       hashicorp.terraform
       astro-build.astro-vscode
+      badochov.ocaml-formatter
 
       # Other
       streetsidesoftware.code-spell-checker
@@ -94,6 +97,7 @@ in {
       "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[ocaml]"."editor.defaultFormatter" = "badochov.ocaml-formatter";
 
       "security.workspace.trust.untrustedFiles" = "open";
       "github.copilot.enable" = {
