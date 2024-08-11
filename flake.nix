@@ -39,10 +39,10 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [
+        inputs.hyprpanel.overlay.${system}
+      ];
     };
-    overlays = [
-      inputs.hyprpanel.overlay.${system}
-    ];
 
     lib = nixpkgs.lib;
   in {

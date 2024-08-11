@@ -176,7 +176,6 @@
     sops
     bottom
     ocaml
-    hyprpanel
   ];
 
   security.polkit.enable = true;
