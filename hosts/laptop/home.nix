@@ -73,7 +73,6 @@
     delfin
     foliate
     sops
-    hyprpanel
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
