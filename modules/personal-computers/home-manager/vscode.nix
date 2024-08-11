@@ -103,6 +103,7 @@ in {
       "github.copilot.enable" = {
         "*" = true;
       };
+      "editor.inlineSuggest.enabled" = false;
       "editor.formatOnType" = true;
       "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.colorTheme" = "Catppuccin Mocha";

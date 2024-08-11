@@ -12,7 +12,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    ags.url = "github:Aylur/ags";
+    # ags.url = "github:Aylur/ags";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -45,6 +46,9 @@
     nixosConfigurations = {
       laptop = lib.nixosSystem {
         inherit system;
+        overlays = [
+          inputs.hyprpanel.overlay.${system}
+        ];
         specialArgs = {
           inherit inputs;
           inherit spicetify-nix;

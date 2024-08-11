@@ -175,6 +175,7 @@
     libsForQt5.qt5.qtgraphicaleffects
     sops
     bottom
+    ocaml
   ];
 
   security.polkit.enable = true;
