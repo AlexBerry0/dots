@@ -100,7 +100,7 @@
       cheese # webcam tool
       epiphany # web browser
       geary # email reader
-      evince # document viewer
+      # evince # document viewer
       yelp # Help view
       totem # video player
       gnome-font-viewer
@@ -175,6 +175,7 @@
     libsForQt5.qt5.qtgraphicaleffects
     sops
     bottom
+    ocaml
   ];
 
   security.polkit.enable = true;

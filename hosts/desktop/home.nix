@@ -60,6 +60,7 @@
     cartridges
     nodejs_22
     vesktop
+    bottles
   ];
 
   home.sessionVariables = {

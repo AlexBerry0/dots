@@ -50,7 +50,7 @@
         # Misc
         "$mainMod, B, exec, hyprctl dispatch toggleopaque"
         "$mainMod CTRL, L, exec, hyprlock"
-        "$mainMod, A, exec, ags -t applauncher"
+        # "$mainMod, A, exec, ags -t applauncher"
 
         (go-to-ws "CTRL" left "e-1")
         (go-to-ws "CTRL" right "e+1")

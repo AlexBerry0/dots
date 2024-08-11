@@ -178,6 +178,7 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     bottom
+    python3
   ];
   environment.variables = {
     MOZ_ENABLE_WAYLAND = 0;

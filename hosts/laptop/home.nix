@@ -73,6 +73,7 @@
     delfin
     foliate
     sops
+    hyprpanel
     vesktop
   ];
 

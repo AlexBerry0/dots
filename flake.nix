@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "My NixOS system flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,7 +12,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    ags.url = "github:Aylur/ags";
+    # ags.url = "github:Aylur/ags";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -21,8 +22,10 @@
 
     nixarr.url = "github:rasmus-kirk/nixarr";
 
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -31,20 +34,22 @@
     home-manager,
     spicetify-nix,
     nixarr,
-    # vpnconfinement,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
+      overlays = [
+        inputs.hyprpanel.overlay.${system}
+      ];
       config.allowUnfree = true;
     };
-
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
       laptop = lib.nixosSystem {
         inherit system;
+
         specialArgs = {
           inherit inputs;
           inherit spicetify-nix;

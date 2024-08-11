@@ -14,6 +14,9 @@
       kssh = "kitty +kitten ssh";
       update = "cd /etc/nixos && sudo nix flake update && cd";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
+      pull = "git pull";
+      push = "git push";
+      commit = "git add --all && git commit";
     };
     history.size = 100000;
     history.path = "/home/alexb/zsh/history";

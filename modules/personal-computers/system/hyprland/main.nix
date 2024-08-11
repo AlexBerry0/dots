@@ -11,6 +11,7 @@
 
     exec-once = [
       "hypridle"
+      "ags"
     ];
 
     exec = [

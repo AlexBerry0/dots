@@ -36,7 +36,7 @@
     vpn = {
       enable = true;
       # WARNING: This file must _not_ be in the config git directory
-      wgConf = "var/lib/wg-mover/wg.conf";
+      wgConf = "/var/lib/wg-mover/wg.conf";
     };
 
     jellyfin = {

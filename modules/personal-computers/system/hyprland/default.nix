@@ -8,7 +8,7 @@
     ./main.nix
     ./appearance.nix
     ./keybinds.nix
-    ./ags
+    # ./ags
   ];
 
   wayland.windowManager.hyprland.enable = true;

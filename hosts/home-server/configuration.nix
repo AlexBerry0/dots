@@ -23,7 +23,7 @@
 
   sops.secrets = {
     "nixarr/wgconf".owner = "wg-mover";
-    "immich".owner = "immich";
+    # "immich".owner = "immich";
   };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
