@@ -58,6 +58,8 @@
     protontricks
     lutris
     cartridges
+    nodejs_22
+    vesktop
   ];
 
   home.sessionVariables = {

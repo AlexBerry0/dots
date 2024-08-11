@@ -177,8 +177,11 @@
     git
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
-    btm
+    bottom
   ];
+  environment.variables = {
+    MOZ_ENABLE_WAYLAND = 0;
+  };
 
   security.polkit.enable = true;
 
