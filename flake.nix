@@ -40,15 +40,16 @@
       inherit system;
       config.allowUnfree = true;
     };
+    overlays = [
+      inputs.hyprpanel.overlay.${system}
+    ];
 
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
       laptop = lib.nixosSystem {
         inherit system;
-        overlays = [
-          inputs.hyprpanel.overlay.${system}
-        ];
+
         specialArgs = {
           inherit inputs;
           inherit spicetify-nix;
