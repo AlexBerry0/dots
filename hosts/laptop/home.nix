@@ -3,9 +3,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  hyprpanelPkg = inputs.hyprpanel.packages.${pkgs.system}.default;
-in {
+}: {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ../../modules/personal-computers/home-manager/vscode.nix
@@ -85,6 +83,7 @@ in {
     swww
     waybar
     hyprpanelPkg
+    hyprpanel
 
     # gnome-bluetooth-3
   ];
@@ -97,6 +96,11 @@ in {
   };
 
   home.sessionVariables = {
+  };
+  programs = {
+    hyprpanel = {
+      enable = true;
+    };
   };
 
   # Let Home Manager install and manage itself.
