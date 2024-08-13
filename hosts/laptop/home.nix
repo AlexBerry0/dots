@@ -3,7 +3,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  hyprpanelPkg = inputs.hyprpanel.packages.${pkgs.system}.default;
+in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ../../modules/personal-computers/home-manager/vscode.nix
@@ -73,8 +75,18 @@
     delfin
     foliate
     sops
-    hyprpanel
     vesktop
+    grimblast
+    gpu-screen-recorder
+    hyprpicker
+    btop
+    matugen
+    wl-clipboard
+    swww
+    waybar
+    hyprpanelPkg
+
+    # gnome-bluetooth-3
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

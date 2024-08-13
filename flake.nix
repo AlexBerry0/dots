@@ -39,17 +39,14 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [
-        inputs.hyprpanel.overlay.${system}
-      ];
       config.allowUnfree = true;
     };
+
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      laptop = lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-
         specialArgs = {
           inherit inputs;
           inherit spicetify-nix;
@@ -62,7 +59,7 @@
         ];
       };
 
-      home-server = lib.nixosSystem {
+      home-server = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -74,7 +71,7 @@
           nixarr.nixosModules.default
         ];
       };
-      desktop = lib.nixosSystem {
+      desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
