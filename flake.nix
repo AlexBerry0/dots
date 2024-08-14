@@ -44,7 +44,6 @@
         inputs.hyprpanel.overlay.${system}
       ];
     };
-
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {

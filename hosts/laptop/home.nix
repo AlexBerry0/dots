@@ -82,8 +82,7 @@
     wl-clipboard
     swww
     waybar
-    hyprpanelPkg
-    hyprpanel
+    # hyprpanelPkg
 
     # gnome-bluetooth-3
   ];
@@ -97,11 +96,11 @@
 
   home.sessionVariables = {
   };
-  programs = {
-    hyprpanel = {
-      enable = true;
-    };
-  };
+  # programs = {
+  #   hyprpanel = {
+  #     enable = true;
+  #   };
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
