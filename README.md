@@ -147,7 +147,7 @@ These other modules are run using [declarative docker containers](https://nixos.
 
 </details>
 
-### Desktop 🚧
+### Desktop  
 <details>
 <summary>Desktop details </summary>
 <h4>Intro</h4>
