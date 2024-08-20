@@ -1,6 +1,5 @@
 {
   description = "My NixOS system flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,7 +12,7 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # ags.url = "github:Aylur/ags";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -26,6 +25,8 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -34,20 +35,21 @@
     home-manager,
     spicetify-nix,
     nixarr,
+    catppuccin,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [
-        inputs.hyprpanel.overlay.${system}
-      ];
+      # overlays = [
+      #   inputs.hyprpanel.overlay.${system}
+      # ];
     };
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      laptop = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -58,10 +60,11 @@
         modules = [
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
+          catppuccin.nixosModules.catppuccin
         ];
       };
 
-      home-server = nixpkgs.lib.nixosSystem {
+      home-server = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -73,7 +76,7 @@
           nixarr.nixosModules.default
         ];
       };
-      desktop = nixpkgs.lib.nixosSystem {
+      desktop = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -84,6 +87,7 @@
         modules = [
           ./hosts/desktop/configuration.nix
           inputs.home-manager.nixosModules.default
+          catppuccin.nixosModules.catppuccin
         ];
       };
     };
