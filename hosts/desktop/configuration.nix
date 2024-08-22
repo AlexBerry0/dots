@@ -146,14 +146,14 @@
     pulse.enable = true;
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # Users
   users.users.alexb = {
     isNormalUser = true;
     description = "Alex Berry";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   # system.activationScripts.script.text = "

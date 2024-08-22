@@ -10,8 +10,9 @@
   programs = {
     bottom.catppuccin.enable = true;
     kitty.catppuccin.enable = true;
-    zsh.syntaxHighlighting.catppuccin.enable = true;
+    fish.catppuccin.enable = true;
     rofi.catppuccin.enable = true;
+    fzf.catppuccin.enable = true;
   };
 
   wayland.windowManager.hyprland.catppuccin.enable = true;
