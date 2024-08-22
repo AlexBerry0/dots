@@ -11,7 +11,7 @@
     ../../modules/personal-computers/home-manager/spicetify.nix
     ../../modules/personal-computers/system/gtk.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
-    ../../modules/personal-computers/system/zsh/zsh-desktop.nix
+    ../../modules/personal-computers/system/fish/fish-desktop.nix
     ../../modules/personal-computers/system/nerdfonts.nix
     ../../modules/personal-computers/system/gnome/dconf/desktop.nix
   ];

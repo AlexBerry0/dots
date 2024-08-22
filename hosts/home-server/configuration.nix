@@ -71,10 +71,10 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHSszT5O1TWzRhXLUc/TXWQYuMEFAeK7STHr3wI6ICOB"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFMoECrae028A8AXizdtI87oAyb8PzJDWKvqS8jbSl/m"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

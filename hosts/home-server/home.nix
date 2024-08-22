@@ -6,7 +6,7 @@
 }: {
   imports = [
     # ./modules/openvpn.nix
-    ../../modules/server/system/zsh-server.nix
+    ../../modules/server/system/fish-server.nix
   ];
 
   home.username = "user";

@@ -33,7 +33,7 @@
       # background_opacity = 0.65;
 
       shell = {
-        program = "${pkgs.zsh}/bin/zsh";
+        program = "${pkgs.fish}/bin/fish";
         #   args = [ "--init-command" "echo; neofetch; echo" ];
       };
       # Uses colours from nix colors

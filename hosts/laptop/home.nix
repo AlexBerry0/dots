@@ -14,7 +14,7 @@
     ../../modules/personal-computers/home-manager/spicetify.nix
     ../../modules/personal-computers/home-manager/catppuccin.nix
     ../../modules/personal-computers/system/gtk.nix
-    ../../modules/personal-computers/system/fish.nix
+    ../../modules/personal-computers/system/fish/fish-laptop.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
     # ../../modules/personal-computers/system/zsh/zsh-laptop.nix
     ../../modules/personal-computers/system/nerdfonts.nix
