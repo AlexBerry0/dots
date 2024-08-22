@@ -60,7 +60,8 @@ It has two desktop environments/WMs, Gnome & Hyprland, I am in the process of sw
 | :------------- | :----------: |
 | Desktop Manager| [SDDM](https://github.com/sddm/sddm) |
 | Text editor    | [VSCode](https://code.visualstudio.com/), with declaratively defined extensions |
-| Shell          | [ZSH](https://www.zsh.org/) |
+| Shell          | [Fish](https://fishshell.com/) |
+| Shell Prompt   | [Starship](https://starship.rs/) |
 | Terminal       | [Kitty](https://github.com/kovidgoyal/kitty) |
 | Bootloader     | [Grub](https://www.gnu.org/software/grub/) |
 | File Manager   | [Nautilus](https://apps.gnome.org/Nautilus/) |
@@ -161,7 +162,8 @@ My Desktop is used mostly for gaming and its config is very smiler to my laptop.
 | Desktop Manager| [SDDM](https://github.com/sddm/sddm) |
 | Desktop Environment| [Gnome](https://www.gnome.org/) |
 | Text editor    | [VSCode](https://code.visualstudio.com/), with declaratively defined extensions |
-| Shell          | [ZSH](https://www.zsh.org/) |
+| Shell          | [Fish](https://fishshell.com/) |
+| Shell Prompt   | [Starship](https://starship.rs/) |
 | Terminal       | [Kitty](https://github.com/kovidgoyal/kitty) |
 | Bootloader     | [Grub](https://www.gnu.org/software/grub/) |
 | File Manager   | [Nautilus](https://apps.gnome.org/Nautilus/) |

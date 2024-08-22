@@ -22,7 +22,7 @@
       add_newline = false;
 
       "line_break" = {
-        disabled = true;
+        disabled = false;
       };
 
       directory = {
@@ -107,7 +107,7 @@
       # Disable greeting
       set fish_greeting
 
-      echo "$(nitch)"
+      nitch
 
       # Get rid of the `l` alias
       functions --erase l
