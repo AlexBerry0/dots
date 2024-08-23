@@ -15,9 +15,9 @@
     settings = {
       palette = "catppuccin_mocha";
 
-      format = "[](fg:lavender)$directory$character";
+      format = "[](fg:blue)$directory$character";
 
-      right_format = "[](fg:rosewater)$cmd_duration[](fg:sky bg:rosewater)$aws$conda$dart$docker_context$elixir$elm$gcloud$golang$hg_branch$java$julia$nim$nodejs$perl$php$python$ruby$rust$scala$shlvl$swift$terraform[](fg:peach bg:sky)$git_branch$git_status[](bg:peach fg:teal)$kubernetes[](fg:teal)";
+      right_format = "[](fg:yellow)$cmd_duration[](fg:sky bg:yellow)$aws$conda$dart$docker_context$elixir$elm$gcloud$golang$hg_branch$java$julia$nim$nodejs$perl$php$python$ruby$rust$scala$shlvl$swift$terraform[](fg:peach bg:sky)$git_branch$git_status[](bg:peach fg:teal)$kubernetes[](fg:teal)";
 
       add_newline = false;
 
@@ -26,7 +26,7 @@
       };
 
       directory = {
-        style = "bg:lavender fg:base";
+        style = "bg:blue fg:base";
         format = "[ $path ]($style)";
         truncation_length = 2;
         truncation_symbol = "…/";
@@ -34,16 +34,16 @@
       };
 
       character = {
-        success_symbol = "[](bg:green fg:lavender)[](fg:green)";
-        error_symbol = "[](bg:red fg:lavender)[](fg:red)";
-        vimcmd_symbol = "[](fg:yellow bg:lavender)[](bg:yellow fg:base)";
-        vimcmd_replace_one_symbol = "[](fg:flamingo bg:lavender)[](bg:flamingo fg:base)";
-        vimcmd_replace_symbol = "[](fg:flamingo bg:lavender)[](bg:flamingo fg:base)";
-        vimcmd_visual_symbol = "[](fg:yellow bg:lavender)[](bg:yellow fg:base)";
+        success_symbol = "[](bg:green fg:blue)[](fg:green)";
+        error_symbol = "[](bg:red fg:blue)[](fg:red)";
+        vimcmd_symbol = "[](fg:yellow bg:blue)[](bg:yellow fg:base)";
+        vimcmd_replace_one_symbol = "[](fg:flamingo bg:blue)[](bg:flamingo fg:base)";
+        vimcmd_replace_symbol = "[](fg:flamingo bg:blue)[](bg:flamingo fg:base)";
+        vimcmd_visual_symbol = "[](fg:yellow bg:blue)[](bg:yellow fg:base)";
       };
 
       "cmd_duration" = {
-        style = "bg:rosewater fg:base";
+        style = "bg:yellow fg:base";
         format = "[ $duration ]($style)";
       };
 
