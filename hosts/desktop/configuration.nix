@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.default
     # Temp till I figure out how to put this in ./home.nix
     ../../modules/personal-computers/home-manager/steam.nix
+    ../../modules/common/nh.nix
     # ../../modules/personal-computers/services
   ];
 

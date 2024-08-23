@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/server/docker
     ../../modules/server/nixarr.nix
+    ../../modules/common/nh.nix
     inputs.nixarr.nixosModules.default
     inputs.home-manager.nixosModules.default
     inputs.sops-nix.nixosModules.sops

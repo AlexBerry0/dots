@@ -278,7 +278,7 @@
     ];
     shellAliases = {
       ls = "ls -h";
-      update = "cd /etc/nixos && git pull && sudo nixos-rebuild switch --flake /etc/nixos/#home-server";
+      update = "cd /etc/nixos && git pull && nh os switch -H home-server";
       actual-update = "cd /etc/nixos && sudo nix flake update";
       status = "sudo systemctl status";
       restart = "sudo systemctl restart";

@@ -12,7 +12,7 @@
     ../../modules/personal-computers/system/printing.nix
     ../../modules/personal-computers/services
     ../../modules/personal-computers/home-manager/steam.nix
-
+    ../../modules/common/nh.nix
     # inputs.sops-nix.nixosModules.sops
   ];
 
@@ -176,7 +176,6 @@
     sops
     bottom
     ocaml
-    nh
   ];
 
   security.polkit.enable = true;
