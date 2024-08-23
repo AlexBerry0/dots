@@ -17,7 +17,7 @@
 
       format = "[](fg:lavender)$directory$character";
 
-      right_format = "[](fg:rosewater)$cmd_duration[](fg:sky bg:rosewater)$hostname[](fg:peach bg:sky)$git_branch$git_status[](bg:peach fg:teal)$kubernetes[](fg:teal)";
+      right_format = "[](fg:rosewater)$cmd_duration[](fg:sky bg:rosewater)$aws$conda$dart$docker_context$elixir$elm$gcloud$golang$hg_branch$java$julia$nim$nodejs$perl$php$python$ruby$rust$scala$shlvl$swift$terraform[](fg:peach bg:sky)$git_branch$git_status[](bg:peach fg:teal)$kubernetes[](fg:teal)";
 
       add_newline = false;
 
@@ -47,10 +47,10 @@
         format = "[ $duration ]($style)";
       };
 
-      hostname = {
-        style = "bg:sky fg:base";
-        format = "[ $hostname ]($style)";
-      };
+      # hostname = {
+      #   style = "bg:sky fg:base";
+      #   format = "[ $hostname ]($style)";
+      # };
 
       "git_branch" = {
         symbol = "";
@@ -67,6 +67,121 @@
         disabled = false;
         format = "[ $symbol$context ]($style)";
         style = "bg:teal fg:base";
+      };
+      aws = {
+        symbol = "  ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      conda = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      dart = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      docker_context = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      elixir = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      elm = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      gcloud = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      golang = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      hg_branch = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      java = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      julia = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      nim = {
+        symbol = "󰆥 ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      nodejs = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      # package = {
+      #   symbol = "󰏗 ";
+      #   format = "[ $symbol ]($style)";
+      #   style = "bg:sky fg:base";
+      # };
+      perl = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      php = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      python = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      ruby = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      rust = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      scala = {
+        symbol = " ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      shlvl = {
+        symbol = "";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      swift = {
+        symbol = "󰛥 ";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
+      };
+      terraform = {
+        symbol = "󱁢";
+        format = "[ $symbol ]($style)";
+        style = "bg:sky fg:base";
       };
 
       palettes.catppuccin_mocha = {
