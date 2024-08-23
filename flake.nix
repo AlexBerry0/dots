@@ -11,8 +11,6 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # ags.url = "github:Aylur/ags";
-    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -42,9 +40,6 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      # overlays = [
-      #   inputs.hyprpanel.overlay.${system}
-      # ];
     };
     lib = nixpkgs.lib;
   in {

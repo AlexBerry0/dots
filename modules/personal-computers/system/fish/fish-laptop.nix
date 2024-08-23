@@ -165,7 +165,7 @@
       ll = "ls -l";
       kssh = "kitty +kitten ssh";
       update = "cd /etc/nixos && sudo nix flake update && cd";
-      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#laptop";
+      rebuild = "nh os switch /etc/nixos/ -H laptop";
       pull = "git pull";
       push = "git push";
       commit = "git add --all && git commit";
