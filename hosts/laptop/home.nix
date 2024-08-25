@@ -16,7 +16,6 @@
     ../../modules/personal-computers/system/gtk.nix
     ../../modules/personal-computers/system/fish/fish-laptop.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
-    # ../../modules/personal-computers/system/zsh/zsh-laptop.nix
     ../../modules/personal-computers/system/nerdfonts.nix
     ../../modules/personal-computers/system/hyprland
     ../../modules/personal-computers/system/gnome/dconf/laptop.nix
@@ -85,9 +84,8 @@
     wl-clipboard
     swww
     waybar
-    # hyprpanelPkg
-
-    # gnome-bluetooth-3
+    obsidian
+    spotify-player
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

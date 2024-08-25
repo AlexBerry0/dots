@@ -280,7 +280,7 @@
       ll = "ls -l";
       kssh = "kitty +kitten ssh";
       update = "cd /etc/nixos && sudo nix flake update && cd";
-      rebuild = "nh os switch -H laptop";
+      rebuild = "nh os switch /etc/nixos -H laptop";
       pull = "git pull";
       push = "git push";
       commit = "git add --all && git commit";
