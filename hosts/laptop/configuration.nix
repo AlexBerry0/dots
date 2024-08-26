@@ -176,6 +176,9 @@
     sops
     bottom
     ocaml
+    rustup
+    cargo
+    libgcc
   ];
 
   security.polkit.enable = true;
