@@ -286,7 +286,7 @@ This install procedure assumes that the user is on a fresh install of NixOS, tha
 
 ## Inspiration:
 
- - [TobyCKs's Dots](https://github.com/tobyck/dotfiles)
+ - [TobyCK's Dots](https://github.com/tobyck/dotfiles)
  - [Sly-Harvey's Config](https://github.com/Sly-Harvey/NixOS)
  - [Wimpy's NixOS & Home Manager Configurations](https://github.com/wimpysworld/nix-config)
  - [Veraticus's Config](https://github.com/Veraticus/nix-config)
