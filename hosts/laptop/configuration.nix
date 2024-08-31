@@ -181,6 +181,8 @@
     libgcc
   ];
 
+  virtualisation.waydroid.enable = true;
+
   security.polkit.enable = true;
 
   systemd = {

@@ -86,6 +86,8 @@
     waybar
     obsidian
     spotify-player
+    pandoc
+    texliveTeTeX
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
