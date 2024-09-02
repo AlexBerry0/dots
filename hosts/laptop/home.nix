@@ -88,6 +88,7 @@
     spotify-player
     pandoc
     texliveTeTeX
+    qalculate-gtk
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

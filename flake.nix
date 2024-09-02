@@ -25,6 +25,8 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = {
