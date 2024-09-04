@@ -87,7 +87,6 @@
     obsidian
     spotify-player
     pandoc
-    texliveTeTeX
     qalculate-gtk
   ];
 
