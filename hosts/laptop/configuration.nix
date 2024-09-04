@@ -13,7 +13,6 @@
     ../../modules/personal-computers/services
     ../../modules/personal-computers/home-manager/steam.nix
     ../../modules/common/nh.nix
-    inputs.zen-browser.packages."${system}".default
     # inputs.sops-nix.nixosModules.sops
   ];
 
@@ -180,6 +179,7 @@
     rustup
     cargo
     libgcc
+    inputs.zen-browser.packages."${system}".default
   ];
 
   virtualisation.waydroid.enable = true;
