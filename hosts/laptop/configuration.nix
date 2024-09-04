@@ -88,35 +88,32 @@
 
   # GNOME
   services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages =
-    (with pkgs; [
-      # gnome-text-editor
-      gnome-console
-      gnome-photos
-      gnome-tour
-      gnome-connections
-      snapshot
-      gedit
-      cheese # webcam tool
-      epiphany # web browser
-      geary # email reader
-      # evince # document viewer
-      yelp # Help view
-      totem # video player
-      gnome-font-viewer
-    ])
-    ++ (with pkgs.gnome; [
-      gnome-music
-      gnome-characters
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-      gnome-contacts
-      gnome-initial-setup
-      gnome-shell-extensions
-      gnome-maps
-    ]);
+  environment.gnome.excludePackages = with pkgs; [
+    # gnome-text-editor
+    gnome-console
+    gnome-photos
+    gnome-tour
+    gnome-connections
+    snapshot
+    gedit
+    cheese # webcam tool
+    epiphany # web browser
+    geary # email reader
+    # evince # document viewer
+    yelp # Help view
+    totem # video player
+    gnome-font-viewer
+    gnome-music
+    gnome-characters
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    gnome-contacts
+    gnome-initial-setup
+    gnome-shell-extensions
+    gnome-maps
+  ];
 
   # Hyprland
   programs.hyprland.enable = true;
