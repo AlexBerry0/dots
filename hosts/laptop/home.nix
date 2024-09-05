@@ -19,6 +19,7 @@
     ../../modules/personal-computers/system/nerdfonts.nix
     ../../modules/personal-computers/system/hyprland
     ../../modules/personal-computers/system/gnome/dconf/laptop.nix
+    ../../modules/personal-computers/system/direnv.nix
   ];
 
   home.username = "alexb";

@@ -233,6 +233,7 @@
       # Initialise some stuff
       starship init fish | source
       zoxide init fish --cmd cd | source
+      test -r '/home/alexb/.opam/opam-init/init.fish' && source '/home/alexb/.opam/opam-init/init.fish' > /dev/null 2> /dev/null;
     '';
 
     functions = {

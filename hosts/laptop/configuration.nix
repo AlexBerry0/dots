@@ -173,9 +173,11 @@
     sops
     bottom
     ocaml
+    opam
     rustup
     cargo
     libgcc
+    gnumake
     inputs.zen-browser.packages."${system}".default
   ];
 
