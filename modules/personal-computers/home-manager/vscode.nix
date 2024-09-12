@@ -80,6 +80,7 @@ in {
 
       # Other
       streetsidesoftware.code-spell-checker
+      mkhl.direnv
     ];
 
     userSettings = {
