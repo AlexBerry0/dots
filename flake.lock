@@ -366,7 +366,9 @@
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
         "nixpkgs": "nixpkgs_2",
-        "sub-merge": "sub-merge",
+        "sub-merge": [
+          "submerger"
+        ],
         "treefmt-nix": "treefmt-nix",
         "vpnconfinement": "vpnconfinement"
       },
@@ -465,6 +467,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1726463316,
+        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1725634671,
         "narHash": "sha256-v3rIhsJBOMLR8e/RNWxr828tB+WywYIoajrZKFM+0Gg=",
         "owner": "nixos",
@@ -489,14 +507,14 @@
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
+        "submerger": "submerger",
         "zen-browser": "zen-browser"
       }
     },
     "rust-overlay": {
       "inputs": {
         "nixpkgs": [
-          "nixarr",
-          "sub-merge",
+          "submerger",
           "nixpkgs"
         ]
       },
@@ -556,25 +574,22 @@
         "type": "github"
       }
     },
-    "sub-merge": {
+    "submerger": {
       "inputs": {
-        "nixpkgs": [
-          "nixarr",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_4",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1726777757,
-        "narHash": "sha256-erzx+U/itU8MmIj1lhYoKHElCWaHJetsUihTlfW2OrQ=",
+        "lastModified": 1726842908,
+        "narHash": "sha256-sn3oWKcdXmy42wsBg1yCFBHHRCKVkQ+D8YnlLY/RX3A=",
         "owner": "rasmus-kirk",
-        "repo": "sub-merge",
-        "rev": "01e8d59a07a6841a2ac17f5cf73f077e47bf2ec4",
+        "repo": "submerger",
+        "rev": "6ffa3b28017d9d67c48a2f9de98788da05aa5ba2",
         "type": "github"
       },
       "original": {
         "owner": "rasmus-kirk",
-        "repo": "sub-merge",
+        "repo": "submerger",
         "type": "github"
       }
     },
@@ -668,7 +683,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1726001766,
