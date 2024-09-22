@@ -4,24 +4,36 @@
   ...
 }: {
   systemd.services."wg-mover" = {
-    script = ''
-      touch /var/lib/wg-mover/wg.conf &&
-        echo "
-        $(cat ${config.sops.secrets."nixarr/wgconf".path})
-        " > /var/lib/wg-mover/wg.conf
-    '';
+    description = "Moves WireGuard config from SOPS secret to a readable location";
+    after = ["network.target" "sops.service"]; # Ensure it waits for SOPS
+    wants = ["sops.service"]; # Explicit dependency on SOPS
+
     serviceConfig = {
       User = "wg-mover";
       WorkingDirectory = "/var/lib/wg-mover";
+      ExecStartPre = ''        # Ensure the directory exists
+               mkdir -p /var/lib/wg-mover
+      '';
+      ExecStart = ''
+        touch /var/lib/wg-mover/wg.conf &&
+        echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
+      '';
+      ExecReload = ''        # Handle service reload
+               echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
+      '';
     };
+
+    wantedBy = ["multi-user.target"];
   };
 
+  # Create the wg-mover user and group
   users.users.wg-mover = {
     home = "/var/lib/wg-mover";
     createHome = true;
     isSystemUser = true;
     group = "wg-mover";
   };
+
   users.groups.wg-mover = {};
 
   imports = [
