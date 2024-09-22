@@ -16,8 +16,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixarr.url = "github:rasmus-kirk/nixarr";
+    submerger.url = "github:rasmus-kirk/submerger";
+    nixarr = {
+      url = "github:rasmus-kirk/nixarr";
+      inputs.sub-merge.follows = "submerger";
+    };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
