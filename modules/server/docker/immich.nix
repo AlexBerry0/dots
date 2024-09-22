@@ -5,9 +5,6 @@
   config,
   ...
 }: {
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-  ];
   # Runtime
   virtualisation.docker = {
     enable = true;
