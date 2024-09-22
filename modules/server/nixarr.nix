@@ -11,15 +11,17 @@
     serviceConfig = {
       User = "wg-mover";
       WorkingDirectory = "/var/lib/wg-mover";
-      ExecStartPre = ''        # Ensure the directory exists
-               mkdir -p /var/lib/wg-mover
+      # Ensure the directory exists
+      ExecStartPre = ''
+        mkdir -p /var/lib/wg-mover
       '';
       ExecStart = ''
         touch /var/lib/wg-mover/wg.conf &&
         echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
       '';
-      ExecReload = ''        # Handle service reload
-               echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
+      # Handle service reload
+      ExecReload = ''
+        echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
       '';
     };
 
