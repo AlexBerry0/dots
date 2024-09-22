@@ -13,15 +13,16 @@
       WorkingDirectory = "/var/lib/wg-mover";
       # Ensure the directory exists
       ExecStartPre = ''
-        mkdir -p /var/lib/wg-mover
+        ${pkgs.coreutils}/bin/mkdir -p /var/lib/wg-mover
       '';
+      # Write the WireGuard config file
       ExecStart = ''
-        touch /var/lib/wg-mover/wg.conf &&
-        echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
+        ${pkgs.coreutils}/bin/touch /var/lib/wg-mover/wg.conf &&
+        ${pkgs.bash}/bin/bash -c 'echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf'
       '';
       # Handle service reload
       ExecReload = ''
-        echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf
+        ${pkgs.bash}/bin/bash -c 'echo "$(cat ${config.sops.secrets."nixarr/wgconf".path})" > /var/lib/wg-mover/wg.conf'
       '';
     };
 
@@ -35,6 +36,8 @@
     isSystemUser = true;
     group = "wg-mover";
   };
+
+  users.groups.wg-mover = {};
 
   users.groups.wg-mover = {};
 
