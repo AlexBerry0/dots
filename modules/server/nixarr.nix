@@ -5,9 +5,10 @@
 }: {
   systemd.services."wg-mover" = {
     script = ''
-      echo "
-      $(cat ${config.sops.secrets."nixarr/wgconf".path})
-      " > /var/lib/wg-mover/wg.conf
+      touch /var/lib/wg-mover/wg.conf &&
+        echo "
+        $(cat ${config.sops.secrets."nixarr/wgconf".path})
+        " > /var/lib/wg-mover/wg.conf
     '';
     serviceConfig = {
       User = "wg-mover";
