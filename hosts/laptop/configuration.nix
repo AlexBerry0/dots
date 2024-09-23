@@ -178,6 +178,7 @@
     cargo
     libgcc
     gnumake
+    docker
     inputs.zen-browser.packages."${system}".default
   ];
 

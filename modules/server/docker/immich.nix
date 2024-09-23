@@ -53,7 +53,7 @@
       POSTGRES_DB = "${config.sops.secrets."immich/DB_DATABASE_NAME".path}";
       POSTGRES_INITDB_ARGS = "--data-checksums";
       POSTGRES_PASSWORD = "${config.sops.secrets."immich/DB_PASSWORD".path}";
-      POSTGRES_USER = "${config.sops.secrets."immich/${config.sops.secrets."immich/DB_USERNAME".path}".path}";
+      POSTGRES_USER = "${config.sops.secrets."immich/DB_USERNAME".path}";
     };
     volumes = [
       "/mnt/drive2/immich/postgres:/var/lib/postgresql/data:rw"
