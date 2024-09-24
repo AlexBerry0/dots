@@ -24,7 +24,7 @@
 
   sops.secrets = {
     "nixarr/wgconf".owner = "wg-mover";
-    "immich".owner = "immich";
+    # "immich".owner = "immich";
   };
 
   # sops.secrets."nixarr/wgconf" = {};
