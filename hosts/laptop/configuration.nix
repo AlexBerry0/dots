@@ -145,7 +145,7 @@
   users.users.alexb = {
     isNormalUser = true;
     description = "Alex Berry";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.fish;
   };
 
@@ -178,11 +178,11 @@
     cargo
     libgcc
     gnumake
-    docker
     inputs.zen-browser.packages."${system}".default
   ];
 
   virtualisation.waydroid.enable = true;
+  virtualisation.docker.enable = true;
 
   security.polkit.enable = true;
 
