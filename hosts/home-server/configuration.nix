@@ -22,12 +22,12 @@
 
   sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
 
-  # sops.secrets = {
-  #   "nixarr/wgconf".owner = "wg-mover";
-  #   "immich".owner = "immich";
-  # };
+  sops.secrets = {
+    "nixarr/wgconf".owner = "wg-mover";
+    "immich".owner = "immich";
+  };
 
-  sops.secrets."nixarr/wgconf" = {};
+  # sops.secrets."nixarr/wgconf" = {};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
