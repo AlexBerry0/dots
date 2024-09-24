@@ -32,11 +32,11 @@ This is all themed using [Catppuccin Mocha](https://catppuccin.com/palette).
 
 ## Hosts
 
-|   Hostname  |            Board            |               CPU              |  RAM  |          GPU                | Role | OS  | State |
-| :---------: | :-------------------------: | :----------------------------: | :---: | :-------------------------: | :--: | :-: | :---: |
-| `laptop`    | Lenovo Yoga 6 13ABR8        | AMD Ryzen 5 7530U              | 16GB  | Radeon Graphics × 12        | 💻️🎭️ | ❄️   | ✅    |
-| `home-server`| HP EliteDesk 800 G2 SFF    | INTEL Core i7-6700             | 8GB   | Intel HD Graphics 530       | 🗄️   | ❄️   | ✅    |
-| `desktop`   | Gigabyte A520M DS3H AC      | AMD Ryzen 5 3600               | 16GB  | NVIDIA GTX 1660 SUPER       | 🖥️🎭️ | ❄️   | 🚧    |
+|   Hostname    |          Board          |        CPU         | RAM  |          GPU          | Role | OS | State |
+|:-------------:|:-----------------------:|:------------------:|:----:|:---------------------:|:----:|:--:|:-----:|
+|   `laptop`    |  Lenovo Yoga 6 13ABR8   | AMD Ryzen 5 7530U  | 16GB | Radeon Graphics × 12  | 💻️🎭️ | ❄️  |   ✅   |
+| `home-server` | HP EliteDesk 800 G2 SFF | INTEL Core i7-6700 | 8GB  | Intel HD Graphics 530 |  🗄️  | ❄️  |   ✅   |
+|   `desktop`   | Gigabyte A520M DS3H AC  |  AMD Ryzen 5 3600  | 16GB | NVIDIA GTX 1660 SUPER | 🖥️🎭️ | ❄️  |  🚧   |
 
 **Key**:
 
@@ -56,28 +56,28 @@ My laptop is dual booting Windows (for school assessments), & NixOS (for everyth
 It has two desktop environments/WMs, Gnome & Hyprland, I am in the process of switching to Hyprland from Gnome as managing dconf settings using home-manager is terrible. However this is taking a while and is a low priority so it won't happen anytime soon. Below listed are the apps I use.
 <h4>Common</h4>
 
-| Type           | Program      |
-| :------------- | :----------: |
-| Desktop Manager| [SDDM](https://github.com/sddm/sddm) |
-| Text editor    | [VSCode](https://code.visualstudio.com/), with declaratively defined extensions |
-| Shell          | [Fish](https://fishshell.com/) |
-| Shell Prompt   | [Starship](https://starship.rs/) |
-| Terminal       | [Kitty](https://github.com/kovidgoyal/kitty) |
-| Bootloader     | [Grub](https://www.gnu.org/software/grub/) |
-| File Manager   | [Nautilus](https://apps.gnome.org/Nautilus/) |
-| GTK Theme      | [My modded Catppuccin Mocha theme](https://github.com/AlexBerry0/Modded-Catppuccin-Mocha-GTK-theme) |
-| GTK Icon Theme | [Reversal Purple Dark](https://github.com/yeyushengfan258/Reversal-icon-theme) |
-| Terminal Font  | [Hack](https://github.com/source-foundry/Hack) |
+| Type            |                                               Program                                               |
+|:----------------|:---------------------------------------------------------------------------------------------------:|
+| Desktop Manager |                                [SDDM](https://github.com/sddm/sddm)                                 |
+| Text editor     |           [VSCode](https://code.visualstudio.com/), with declaratively defined extensions           |
+| Shell           |                                   [Fish](https://fishshell.com/)                                    |
+| Shell Prompt    |                                  [Starship](https://starship.rs/)                                   |
+| Terminal        |                            [Kitty](https://github.com/kovidgoyal/kitty)                             |
+| Bootloader      |                             [Grub](https://www.gnu.org/software/grub/)                              |
+| File Manager    |                            [Nautilus](https://apps.gnome.org/Nautilus/)                             |
+| GTK Theme       | [My modded Catppuccin Mocha theme](https://github.com/AlexBerry0/Modded-Catppuccin-Mocha-GTK-theme) |
+| GTK Icon Theme  |           [Reversal Purple Dark](https://github.com/yeyushengfan258/Reversal-icon-theme)            |
+| Terminal Font   |                           [Hack](https://github.com/source-foundry/Hack)                            |
 
 <h5>Other notable apps</h5>
 
-| Type           | Program      |
-| :------------- | :----------: |
-| Messaging      | [Beeper](https://www.beeper.com/) |
-| Music          | [Spotify](https://spotify.com) with [Spicetify](https://github.com/the-argus/spicetify-nix) |
-| VPN            | [Mullvad](https://mullvad.net/en) |
-| OOP development| [IntelliJ Idea](https://www.jetbrains.com/) |
-| Media Player   | [Celluloid](https://celluloid-player.github.io/) |
+| Type            |                                           Program                                           |
+|:----------------|:-------------------------------------------------------------------------------------------:|
+| Messaging       |                              [Beeper](https://www.beeper.com/)                              |
+| Music           | [Spotify](https://spotify.com) with [Spicetify](https://github.com/the-argus/spicetify-nix) |
+| VPN             |                              [Mullvad](https://mullvad.net/en)                              |
+| OOP development |                         [IntelliJ Idea](https://www.jetbrains.com/)                         |
+| Media Player    |                      [Celluloid](https://celluloid-player.github.io/)                       |
 
 
 
@@ -88,27 +88,27 @@ Obviously using [Gnome](https://www.gnome.org/) as the DE.
 
 <h5>Extensions</h5>
 
-| Name           |
-| :------------: |
-| user-themes |
-| quick-settings-tweaker |
-| autohide-battery |
-| bluetooth-quick-connect |
-| blur-my-shell |
-| burn-my-windows |
-| compiz-windows-effect |
-| coverflow-alt-tab |
-| just-perfection |
-| logo-menu |
-| media-controls |
-| no-titlebar-when-maximized |
+|             Name             |
+|:----------------------------:|
+|         user-themes          |
+|    quick-settings-tweaker    |
+|       autohide-battery       |
+|   bluetooth-quick-connect    |
+|        blur-my-shell         |
+|       burn-my-windows        |
+|    compiz-windows-effect     |
+|      coverflow-alt-tab       |
+|       just-perfection        |
+|          logo-menu           |
+|        media-controls        |
+|  no-titlebar-when-maximized  |
 | notification-banner-reloaded |
 | order-gnome-shell-extensions |
-| pip-on-top |
-| tiling-assistant |
-| transparent-window-moving |
-| dash-to-dock |
-| unite |
+|          pip-on-top          |
+|       tiling-assistant       |
+|  transparent-window-moving   |
+|         dash-to-dock         |
+|            unite             |
 
 
 <h5>Pictures/Videos</h5>
@@ -136,11 +136,11 @@ On the server is an automatic media setup using [Nixarr](https://github.com/rasm
 
 These other modules are run using [declarative docker containers](https://nixos.wiki/wiki/NixOS_Containers#Declarative_docker_containers).
 
-| Type           | Program      |
-| :------------- | :----------: |
-| DNS            | [Adguard Home](https://adguard.com/en/adguard-home/overview.html) |
-| Dashboard      | [Homarr](https://homarr.dev/) |
-| Minecraft Server| [Minecraft server Docker container](https://hub.docker.com/r/itzg/minecraft-server) |
+| Type             |                                       Program                                       |
+|:-----------------|:-----------------------------------------------------------------------------------:|
+| DNS              |          [Adguard Home](https://adguard.com/en/adguard-home/overview.html)          |
+| Dashboard        |                            [Homarr](https://homarr.dev/)                            |
+| Minecraft Server | [Minecraft server Docker container](https://hub.docker.com/r/itzg/minecraft-server) |
 
 <h5>Pictures/Videos</h5>
 
@@ -157,49 +157,49 @@ My Desktop is used mostly for gaming and its config is very smiler to my laptop.
 <h4>Things that are the same as my laptop configuration</h4>
 
 
-| Type           | Program      |
-| :------------- | :----------: |
-| Desktop Manager| [SDDM](https://github.com/sddm/sddm) |
-| Desktop Environment| [Gnome](https://www.gnome.org/) |
-| Text editor    | [VSCode](https://code.visualstudio.com/), with declaratively defined extensions |
-| Shell          | [Fish](https://fishshell.com/) |
-| Shell Prompt   | [Starship](https://starship.rs/) |
-| Terminal       | [Kitty](https://github.com/kovidgoyal/kitty) |
-| Bootloader     | [Grub](https://www.gnu.org/software/grub/) |
-| File Manager   | [Nautilus](https://apps.gnome.org/Nautilus/) |
-| GTK Theme      | [My modded Catppuccin Mocha theme](https://github.com/AlexBerry0/Modded-Catppuccin-Mocha-GTK-theme) |
-| GTK Icon Theme | [Reversal Purple Dark](https://github.com/yeyushengfan258/Reversal-icon-theme) |
-| Terminal Font  | [Hack](https://github.com/source-foundry/Hack) |
-| Messaging      | [Beeper](https://www.beeper.com/) |
-| Music          | [Spotify](https://spotify.com) with [Spicetify](https://github.com/the-argus/spicetify-nix) |
-| VPN            | [Mullvad](https://mullvad.net/en) |
-| OOP development| [IntelliJ Idea](https://www.jetbrains.com/) |
-| Media Player   | [Celluloid](https://celluloid-player.github.io/) |
+| Type                |                                               Program                                               |
+|:--------------------|:---------------------------------------------------------------------------------------------------:|
+| Desktop Manager     |                                [SDDM](https://github.com/sddm/sddm)                                 |
+| Desktop Environment |                                   [Gnome](https://www.gnome.org/)                                   |
+| Text editor         |           [VSCode](https://code.visualstudio.com/), with declaratively defined extensions           |
+| Shell               |                                   [Fish](https://fishshell.com/)                                    |
+| Shell Prompt        |                                  [Starship](https://starship.rs/)                                   |
+| Terminal            |                            [Kitty](https://github.com/kovidgoyal/kitty)                             |
+| Bootloader          |                             [Grub](https://www.gnu.org/software/grub/)                              |
+| File Manager        |                            [Nautilus](https://apps.gnome.org/Nautilus/)                             |
+| GTK Theme           | [My modded Catppuccin Mocha theme](https://github.com/AlexBerry0/Modded-Catppuccin-Mocha-GTK-theme) |
+| GTK Icon Theme      |           [Reversal Purple Dark](https://github.com/yeyushengfan258/Reversal-icon-theme)            |
+| Terminal Font       |                           [Hack](https://github.com/source-foundry/Hack)                            |
+| Messaging           |                                  [Beeper](https://www.beeper.com/)                                  |
+| Music               |     [Spotify](https://spotify.com) with [Spicetify](https://github.com/the-argus/spicetify-nix)     |
+| VPN                 |                                  [Mullvad](https://mullvad.net/en)                                  |
+| OOP development     |                             [IntelliJ Idea](https://www.jetbrains.com/)                             |
+| Media Player        |                          [Celluloid](https://celluloid-player.github.io/)                           |
 
 The gnome extensions are also the same:
 
 
-| Name           |
-| :------------: |
-| user-themes |
-| quick-settings-tweaker |
-| autohide-battery |
-| bluetooth-quick-connect |
-| blur-my-shell |
-| burn-my-windows |
-| compiz-windows-effect |
-| coverflow-alt-tab |
-| just-perfection |
-| logo-menu |
-| media-controls |
-| no-titlebar-when-maximized |
+|             Name             |
+|:----------------------------:|
+|         user-themes          |
+|    quick-settings-tweaker    |
+|       autohide-battery       |
+|   bluetooth-quick-connect    |
+|        blur-my-shell         |
+|       burn-my-windows        |
+|    compiz-windows-effect     |
+|      coverflow-alt-tab       |
+|       just-perfection        |
+|          logo-menu           |
+|        media-controls        |
+|  no-titlebar-when-maximized  |
 | notification-banner-reloaded |
 | order-gnome-shell-extensions |
-| pip-on-top |
-| tiling-assistant |
-| transparent-window-moving |
-| dash-to-dock |
-| unite |
+|          pip-on-top          |
+|       tiling-assistant       |
+|  transparent-window-moving   |
+|         dash-to-dock         |
+|            unite             |
 
 <h4>Things that are different from my laptop configuration</h4>
 
@@ -208,15 +208,15 @@ The gnome extensions are also the same:
 Here are a list of apps & services I am using for gaming:
 
 
-| Name           |
-| :------------- |
-| [Steam](https://store.steampowered.com/about/)|
-| [OBS-studio](https://obsproject.com/)|
-| [Prism-launcher](https://prismlauncher.org/)|
-| [Minecraft](https://www.minecraft.net/en-us)|
-| [Lutris](https://lutris.net/)|
-| [Cartridges](https://github.com/kra-mo/cartridges)|
-| [steam-run](https://store.steampowered.com/about/)|
+| Name                                               |
+|:---------------------------------------------------|
+| [Steam](https://store.steampowered.com/about/)     |
+| [OBS-studio](https://obsproject.com/)              |
+| [Prism-launcher](https://prismlauncher.org/)       |
+| [Minecraft](https://www.minecraft.net/en-us)       |
+| [Lutris](https://lutris.net/)                      |
+| [Cartridges](https://github.com/kra-mo/cartridges) |
+| [steam-run](https://store.steampowered.com/about/) |
 
 
  I am also using the proprietary Nvidia drivers.
