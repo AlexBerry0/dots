@@ -30,6 +30,8 @@
     catppuccin.url = "github:catppuccin/nix";
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -58,6 +60,10 @@
         };
 
         modules = [
+          {
+            nixpkgs.overlays = [inputs.hyprpanel.overlay];
+            _module.args = {inherit inputs;};
+          }
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin

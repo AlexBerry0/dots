@@ -90,6 +90,7 @@
     pandoc
     qalculate-gtk
     tailscale
+    trayscale
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

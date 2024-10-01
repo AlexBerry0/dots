@@ -8,7 +8,8 @@
     ./main.nix
     ./appearance.nix
     ./keybinds.nix
-    ./waybar/waybar.nix
+    ./hyprpanel.nix
+    # ./waybar/waybar.nix
     # ./ags
     ./rofi.nix
   ];
