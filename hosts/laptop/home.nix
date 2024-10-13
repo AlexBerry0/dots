@@ -91,6 +91,8 @@
     qalculate-gtk
     tailscale
     trayscale
+    ciscoPacketTracer8
+    crosswords
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
