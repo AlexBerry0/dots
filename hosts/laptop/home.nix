@@ -43,7 +43,6 @@
     stacer
     github-desktop
     postman
-    bitwarden-desktop
     obs-studio
     nitch
     zoxide
@@ -59,8 +58,8 @@
     bun
     discord
     gparted
-    arduino-cli
-    arduino-ide
+    # arduino-cli
+    # arduino-ide
     nmap
     nix-prefetch-github
     nix-prefetch
@@ -93,6 +92,7 @@
     trayscale
     ciscoPacketTracer8
     crosswords
+    brave
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

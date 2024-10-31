@@ -47,10 +47,16 @@
   networking.networkmanager.enable = true;
   programs.captive-browser.enable = true;
   programs.captive-browser.interface = "wlo1";
-  networking.hostName = "alexslaptoplinux";
 
   # Mullvad config, currently commented out as I don't use it and it seems to break captive browser
   services.mullvad-vpn.enable = true;
+
+  networking = {
+    hostName = "alexslaptoplinux";
+    #networkmanager.enable = true;
+    nameservers = ["1.1.1.1" "8.8.8.8"];
+    #enableIPv6 = false;
+  };
 
   # networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
   # services.resolved = {
@@ -88,6 +94,7 @@
 
   # GNOME
   services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.cosmic.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     # gnome-text-editor
     gnome-console

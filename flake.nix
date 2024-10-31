@@ -3,6 +3,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +33,7 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:omarcresp/zen-browser-flake";
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
@@ -41,6 +45,7 @@
     spicetify-nix,
     nixarr,
     catppuccin,
+    nixos-cosmic,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -64,6 +69,13 @@
             nixpkgs.overlays = [inputs.hyprpanel.overlay];
             _module.args = {inherit inputs;};
           }
+          {
+            nix.settings = {
+              substituters = ["https://cosmic.cachix.org/"];
+              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+            };
+          }
+          nixos-cosmic.nixosModules.default
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin
