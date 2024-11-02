@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    # nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
@@ -20,8 +20,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # submerger.url = "github:rasmus-kirk/submerger";
     nixarr = {
       url = "github:rasmus-kirk/nixarr";
+      # inputs.sub-merge.follows = "submerger";
     };
 
     sops-nix = {
