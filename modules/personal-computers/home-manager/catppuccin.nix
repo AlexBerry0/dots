@@ -15,5 +15,5 @@
     fzf.catppuccin.enable = true;
   };
 
-  wayland.windowManager.hyprland.catppuccin.enable = true;
+  # wayland.windowManager.hyprland.catppuccin.enable = true;
 }

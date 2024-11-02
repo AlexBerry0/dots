@@ -33,6 +33,7 @@
     pkgs.gnomeExtensions.transparent-window-moving
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.unite
+    pkgs.gnomeExtensions.airpod-battery-monitor
     # modded-unite
     pkgs.catppuccin
   ];

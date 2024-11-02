@@ -17,7 +17,7 @@
     ../../modules/personal-computers/system/fish/fish-laptop.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
     ../../modules/personal-computers/system/nerdfonts.nix
-    ../../modules/personal-computers/system/hyprland
+    # ../../modules/personal-computers/system/hyprland
     ../../modules/personal-computers/system/gnome/dconf/laptop.nix
     ../../modules/personal-computers/system/direnv.nix
   ];
@@ -47,8 +47,8 @@
     nitch
     zoxide
     eza
-    hypridle
-    hyprlock
+    # hypridle
+    # hyprlock
     swaybg
     dart-sass
     sassc
@@ -78,7 +78,7 @@
     vesktop
     grimblast
     gpu-screen-recorder
-    hyprpicker
+    # hyprpicker
     btop
     matugen
     wl-clipboard
@@ -97,10 +97,10 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    ".config/hypr/hypridle.conf".source = ../../modules/personal-computers/system/hyprland/hypridle.conf;
-    ".config/hypr/hyprlock.conf".source = ../../modules/personal-computers/system/hyprland/hyprlock.conf;
-  };
+  # home.file = {
+  #   ".config/hypr/hypridle.conf".source = ../../modules/personal-computers/system/hyprland/hypridle.conf;
+  #   ".config/hypr/hyprlock.conf".source = ../../modules/personal-computers/system/hyprland/hyprlock.conf;
+  # };
 
   home.sessionVariables = {
   };
