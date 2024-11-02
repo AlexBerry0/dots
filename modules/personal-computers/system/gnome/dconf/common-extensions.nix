@@ -114,6 +114,15 @@
       unblur-in-overview = false;
     };
 
+    "org/gnome/shell/extensions/Airpod-Battery-Monitor" = {
+      airpods-list = [
+        ''
+          {"path":"/org/bluez/hci0/dev_14_14_7D_B0_0F_27","alias":"AirPods Pro","model":"2420","connected":true,"paired":true}
+        ''
+      ];
+      gui-interface = false;
+    };
+
     "org/gnome/shell/extensions/blur-my-shell/window-list" = {
       blur = true;
     };
@@ -265,57 +274,12 @@
     };
 
     "org/gnome/shell/extensions/order-icons" = {
-      icons-blacklist = [
-        "Another Window Session Manager"
-        "activities"
-      ];
-      order-icons-center = [
-        "Media Controls"
-        "dateMenu"
-        "media-player-controls"
-        "media-player"
-        "Media Player"
-        "media_controls_extension"
-      ];
-      order-icons-left = [
-        "LogoMenu"
-        "ArcMenu"
-        "dash-button"
-        "Workspace Indicator"
-        "uniteWindowControls"
-        "Notifications"
-        "menuButton"
-        "activities"
-        "appMenu"
-        "uniteDesktopLabel"
-        "uniteAppMenu"
-      ];
-      order-icons-right = [
-        "soundloopback@raginggoblin.rijkenmiel.nl"
-        "ArcMenu"
-        "Notifications"
-        "battery-bar"
-        "Another Window Session Manager"
-        "PamacUpdateIndicator"
-        "/org/gnome/Shell/Extensions/GSConnect/Device/f229f07e623e9f57"
-        "TrayIconsReloaded"
-        "color-picker@tuberry"
-        "clipboardIndicator"
-        "bluetooth-battery@michalw.github.com"
-        "workspace-indicator"
-        "drive-menu"
-        "tiling-assistant@leleat-on-github"
-        "uniteTrayIndicator"
-        "dateMenu"
-        "quickSettings"
-        "keyboard"
-        "a11y"
-        "dwellClick"
-        "screenSharing"
-        "screenRecording"
-        "power-menu"
-      ];
+      icons-blacklist = ["Another Window Session Manager" "activities"];
+      order-icons-center = ["Media Controls" "dateMenu" "media-player-controls" "media-player" "Media Player" "media_controls_extension"];
+      order-icons-left = ["LogoMenu" "ArcMenu" "dash-button" "Workspace Indicator" "uniteWindowControls" "Notifications" "menuButton" "activities" "appMenu" "uniteDesktopLabel" "uniteAppMenu"];
+      order-icons-right = ["Airpod-Battery-Monitor@maniacx.github.com" "soundloopback@raginggoblin.rijkenmiel.nl" "ArcMenu" "Notifications" "battery-bar" "Another Window Session Manager" "PamacUpdateIndicator" "/org/gnome/Shell/Extensions/GSConnect/Device/f229f07e623e9f57" "TrayIconsReloaded" "color-picker@tuberry" "clipboardIndicator" "bluetooth-battery@michalw.github.com" "workspace-indicator" "drive-menu" "tiling-assistant@leleat-on-github" "uniteTrayIndicator" "dateMenu" "quickSettings" "keyboard" "a11y" "dwellClick" "screenSharing" "screenRecording" "power-menu"];
     };
+
     "org/gnome/shell/extensions/pickawindow" = {
       wm-instance = "";
     };

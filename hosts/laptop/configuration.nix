@@ -94,7 +94,7 @@
 
   # GNOME
   services.xserver.desktopManager.gnome.enable = true;
-  services.desktopManager.cosmic.enable = true;
+  # services.desktopManager.cosmic.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     # gnome-text-editor
     gnome-console
