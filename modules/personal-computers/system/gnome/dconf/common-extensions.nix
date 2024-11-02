@@ -45,6 +45,7 @@
         "pip-on-top@rafostar.github.com"
         "x11gestures@joseexposito.github.io"
         "burn-my-windows@schneegans.github.com"
+        "Airpod-Battery-Monitor@maniacx.github.com"
       ];
     };
 
