@@ -5,7 +5,7 @@
 
     nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,16 +14,14 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    submerger.url = "github:rasmus-kirk/submerger";
     nixarr = {
       url = "github:rasmus-kirk/nixarr";
-      inputs.sub-merge.follows = "submerger";
     };
 
     sops-nix = {
@@ -35,7 +33,7 @@
 
     zen-browser.url = "github:omarcresp/zen-browser-flake";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -45,7 +43,7 @@
     spicetify-nix,
     nixarr,
     catppuccin,
-    nixos-cosmic,
+    # nixos-cosmic,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -65,17 +63,17 @@
         };
 
         modules = [
-          {
-            nixpkgs.overlays = [inputs.hyprpanel.overlay];
-            _module.args = {inherit inputs;};
-          }
-          {
-            nix.settings = {
-              substituters = ["https://cosmic.cachix.org/"];
-              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-            };
-          }
-          nixos-cosmic.nixosModules.default
+          # {
+          #   nixpkgs.overlays = [inputs.hyprpanel.overlay];
+          #   _module.args = {inherit inputs;};
+          # }
+          # {
+          #   nix.settings = {
+          #     substituters = ["https://cosmic.cachix.org/"];
+          #     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+          #   };
+          # }
+          # nixos-cosmic.nixosModules.default
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin
