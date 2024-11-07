@@ -25,8 +25,8 @@
     };
 
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///etc/nixos/media/space_saturn.png";
-      picture-uri-dark = "file:///etc/nixos/media/space_saturn.png";
+      picture-uri = "file:///etc/nixos/media/waves_purple.png";
+      picture-uri-dark = "file:///etc/nixos/media/waves_purple.png";
     };
 
     "org/gnome/desktop/interface" = {
