@@ -58,8 +58,8 @@
     bun
     discord
     gparted
-    # arduino-cli
-    # arduino-ide
+    arduino-cli
+    arduino-ide
     nmap
     nix-prefetch-github
     nix-prefetch
@@ -80,7 +80,7 @@
     gpu-screen-recorder
     # hyprpicker
     btop
-    matugen
+    # matugen
     wl-clipboard
     swww
     waybar
@@ -93,6 +93,7 @@
     ciscoPacketTracer8
     crosswords
     brave
+    steam-run
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
