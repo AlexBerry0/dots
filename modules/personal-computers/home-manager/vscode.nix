@@ -78,7 +78,6 @@ in {
         timonwong.shellcheck
         hashicorp.terraform
         astro-build.astro-vscode
-        badochov.ocaml-formatter
 
         # Other
         streetsidesoftware.code-spell-checker
@@ -124,7 +123,6 @@ in {
       "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-      "[ocaml]"."editor.defaultFormatter" = "badochov.ocaml-formatter";
       "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
 
       "security.workspace.trust.untrustedFiles" = "open";
