@@ -60,6 +60,7 @@ in {
         ms-toolsai.vscode-jupyter-slideshow
         ms-python.python
         ocamllabs.ocaml-platform
+        svelte.svelte-vscode
 
         # Copilot
         github.copilot
@@ -124,6 +125,7 @@ in {
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[ocaml]"."editor.defaultFormatter" = "badochov.ocaml-formatter";
+      "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
 
       "security.workspace.trust.untrustedFiles" = "open";
       "github.copilot.enable" = {
