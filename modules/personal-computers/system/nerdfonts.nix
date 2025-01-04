@@ -1,6 +1,11 @@
 {pkgs, ...}: {
-  fonts.fontconfig.enable = true;
-  home.packages = [
-    (pkgs.nerdfonts.override {fonts = ["Hack"];})
+  fonts = {
+    fontconfig.enable = true;
+    packages = [
+      pkgs.nerd-fonts.hack
+    ];
+  };
+  environment.systemPackages = with pkgs; [
+    nerd-fonts.hack
   ];
 }

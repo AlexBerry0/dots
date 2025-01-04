@@ -16,7 +16,7 @@
     ../../modules/personal-computers/system/gtk.nix
     ../../modules/personal-computers/system/fish/fish-laptop.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
-    ../../modules/personal-computers/system/nerdfonts.nix
+    # ../../modules/personal-computers/system/nerdfonts.nix
     # ../../modules/personal-computers/system/hyprland
     ../../modules/personal-computers/system/gnome/dconf/laptop.nix
     ../../modules/personal-computers/system/direnv.nix

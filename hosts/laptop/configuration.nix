@@ -13,6 +13,8 @@
     ../../modules/personal-computers/services
     ../../modules/personal-computers/home-manager/steam.nix
     ../../modules/common/nh.nix
+    ../../modules/personal-computers/system/nerdfonts.nix
+
     # inputs.sops-nix.nixosModules.sops
   ];
 
