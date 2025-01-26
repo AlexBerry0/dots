@@ -190,7 +190,6 @@
     libgcc
     gnumake
     inputs.zen-browser.packages."${system}".default
-    bepper-beta
   ];
 
   virtualisation.waydroid.enable = true;
