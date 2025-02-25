@@ -34,7 +34,8 @@
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.unite
     pkgs.gnomeExtensions.airpod-battery-monitor
+    pkgs.gnomeExtensions.appindicator
     # modded-unite
-    pkgs.catppuccin
+    # pkgs.catppuccin
   ];
 }

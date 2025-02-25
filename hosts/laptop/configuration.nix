@@ -72,6 +72,8 @@
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
+  gtk.iconCache.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
@@ -141,7 +143,7 @@
 
   # Sounds
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

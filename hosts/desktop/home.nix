@@ -28,7 +28,7 @@
   # Packages installed with Home-manager
   home.packages = with pkgs; [
     firefox
-    beeper
+    # beeper
     stacer
     burpsuite
     image-roll

@@ -3,12 +3,12 @@
   appimageTools,
   fetchurl,
 }: let
-  version = "4.0.375";
+  version = "4.0.397";
   pname = "beepertexts";
 
   src = fetchurl {
     url = "https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop";
-    hash = "sha256-/VmQu/FF4ePJ/tc2widb4B9//ATMWKzkKVpYansGLfg=";
+    hash = "sha256-uHvXBz2y5kN8mU/cAaQbLgmsWtdPVUf70M4CLcYwsTg=";
   };
 in
   appimageTools.wrapType2 {
