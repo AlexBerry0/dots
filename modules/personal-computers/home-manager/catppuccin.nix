@@ -6,13 +6,11 @@
   catppuccin = {
     accent = "peach";
     flavor = "mocha";
-  };
-  programs = {
-    bottom.catppuccin.enable = true;
-    kitty.catppuccin.enable = true;
-    fish.catppuccin.enable = true;
-    rofi.catppuccin.enable = true;
-    fzf.catppuccin.enable = true;
+    bottom.enable = true;
+    kitty.enable = true;
+    fish.enable = true;
+    rofi.enable = true;
+    fzf.enable = true;
   };
 
   # wayland.windowManager.hyprland.catppuccin.enable = true;

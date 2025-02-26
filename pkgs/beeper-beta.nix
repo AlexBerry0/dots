@@ -3,7 +3,7 @@
   appimageTools,
   fetchurl,
 }: let
-  version = "4.0.397";
+  version = "4.0.470";
   pname = "beepertexts";
 
   src = fetchurl {
