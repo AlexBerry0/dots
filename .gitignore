@@ -1,0 +1,9 @@
+# Ignore Nix build outputs
+result
+result-*
+
+# Ignore derivation files
+*.drv
+
+# Exclude Local Assets folder
+local-assets/
