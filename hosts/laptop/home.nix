@@ -40,7 +40,7 @@
     burpsuite
     image-roll
     google-chrome
-    stacer
+    # stacer
     github-desktop
     postman
     obs-studio
@@ -49,9 +49,9 @@
     eza
     # hypridle
     # hyprlock
-    swaybg
+    # swaybg
     dart-sass
-    sassc
+    # sassc
     brightnessctl
     python3
     inotify-tools
@@ -72,7 +72,7 @@
     exiftool
     mediainfo
     wireshark
-    delfin
+    # delfin
     foliate
     sops
     vesktop
@@ -81,9 +81,9 @@
     # hyprpicker
     btop
     # matugen
-    wl-clipboard
-    swww
-    waybar
+    # wl-clipboard
+    # swww
+    # waybar
     obsidian
     spotify-player
     pandoc
@@ -91,10 +91,10 @@
     tailscale
     trayscale
     ciscoPacketTracer8
-    crosswords
+    # crosswords
     brave
     steam-run
-    gearlever
+    # gearlever
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -194,7 +194,7 @@
     inputs.zen-browser.packages."${system}".default
   ];
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
   virtualisation.docker.enable = true;
 
   security.polkit.enable = true;
