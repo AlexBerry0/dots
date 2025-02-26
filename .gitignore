@@ -4,6 +4,3 @@ result-*
 
 # Ignore derivation files
 *.drv
-
-# Exclude Local Assets folder
-local-assets/
