@@ -93,6 +93,7 @@
   services.xserver.enable = true;
 
   # SDDM
+  services.xserver.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.theme = "${import ../../pkgs/sddm-sugar-dark.nix {inherit pkgs;}}";
 
