@@ -285,6 +285,7 @@
       pull = "git pull";
       push = "git push";
       commit = "git add --all && git commit";
+      "rebuild++" = "rm /home/alexb/.config/gtk-4.0/gtk.css && nix-prefetch-url --type sha256 file:///home/alexb/Downloads/CiscoPacketTracer822_amd64_signed.deb && nh os switch /etc/nixos -H laptop";
     };
   };
 }
