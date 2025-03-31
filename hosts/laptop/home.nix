@@ -6,7 +6,7 @@
 }: {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ../../modules/personal-computers/home-manager/vscode.nix
     ../../modules/personal-computers/home-manager/alacritty.nix
     ../../modules/personal-computers/home-manager/kitty.nix

@@ -35,6 +35,7 @@
     pkgs.gnomeExtensions.unite
     pkgs.gnomeExtensions.airpod-battery-monitor
     pkgs.gnomeExtensions.appindicator
+    pkgs.gnomeExtensions.gsconnect
     # modded-unite
     # pkgs.catppuccin
   ];
