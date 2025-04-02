@@ -1,37 +1,65 @@
 {
   lib,
-  appimageTools,
   fetchurl,
+  appimageTools,
+  makeWrapper,
+  libsecret,
 }: let
-  version = "4.0.470";
-  pname = "beepertexts";
+  pname = "beeper";
+  version = "4.0.584";
 
   src = fetchurl {
-    url = "https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop";
-    hash = "sha256-OLwLjgWFOiBS5RkEpvhH7hreri8EF+JRvKy+Kdre8gM=";
+    url = "https://beeper-desktop.download.beeper.com/builds/Beeper-${version}.AppImage";
+    hash = "sha256-xKOVU1AiOfC7QIMn0ErUDVOVjho6cm2qXY1X2zk2kgs=";
+  };
+
+  appimageContents = appimageTools.extract {
+    inherit pname version src;
+    postExtract = ''
+      linuxConfigFilename=$(find $out/resources/app/build/main -name 'linux-*.mjs' -print -quit)
+      if [[ -n "$linuxConfigFilename" ]]; then
+        echo "Disabling runtime desktop integration in $linuxConfigFilename"
+        sed -i 's/export function registerLinuxConfig().*/export function registerLinuxConfig() {}/' "$linuxConfigFilename"
+      else
+        echo "Warning: Could not find linux config file to patch for desktop integration."
+      fi
+    '';
   };
 in
-  appimageTools.wrapType2 {
-    inherit pname version src;
-  }
-#   appimageContents = appimageTools.extractType1 {inherit pname version src;};
-# in
-#   appimageTools.wrapType2 rec {
-#     inherit pname version src;
-#     extraInstallCommands = ''
-#       cp -R ${appimageContents} $out
-#       mkdir -p $out/share/applications
-#       cp ${appimageContents}/beepertexts.desktop $_
-#     '';
-#   meta = {
-#     description = "Beeper beta version";
-#     homepage = "https://www.beeper.com/";
-#     downloadPage = "https://www.beeper.com/download";
-#     license = lib.licenses.asl20;
-#     sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
-#     maintainers = with lib.maintainers; [onny];
-#     platforms = ["x86_64-linux"];
-#     mainProgram = "AppRun"; # Define the main program explicitly
-#   };
-# }
+  appimageTools.wrapAppImage {
+    inherit pname version;
+    src = appimageContents;
+    extraPkgs = pkgs: [libsecret];
 
+    extraInstallCommands = ''
+      mkdir -p $out/share/icons/hicolor/512x512/apps
+      cp ${appimageContents}/usr/share/icons/hicolor/512x512/apps/beepertexts.png $out/share/icons/hicolor/512x512/apps/beeper.png
+
+      install -Dm644 ${appimageContents}/beepertexts.desktop $out/share/applications/beeper.desktop
+
+      substituteInPlace $out/share/applications/beeper.desktop \
+        --replace-fail "AppRun" "beeper" \
+        --replace-fail "Icon=beepertexts" "Icon=beeper"
+
+      . ${makeWrapper}/nix-support/setup-hook
+      wrapProgram $out/bin/beeper \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
+        --add-flags "--no-update" \
+        --set APPIMAGE "$out/bin/beeper"
+    '';
+
+    meta = {
+      description = "Beeper - Universal chat app (packaged from AppImage)";
+      longDescription = ''
+        Beeper is a universal chat app. With Beeper, you can send
+        and receive messages to friends, family and colleagues on
+        many different chat networks. This package wraps the official AppImage.
+      '';
+      homepage = "https://beeper.com";
+      license = lib.licenses.unfree;
+      sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
+      maintainers = with lib.maintainers; [];
+      platforms = ["x86_64-linux"];
+      mainProgram = "beeper";
+    };
+  }

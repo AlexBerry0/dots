@@ -43,12 +43,13 @@
     };
     lib = nixpkgs.lib;
   in {
-    packages = {
-      # Export the beeper-beta package for this system
+    packages.${system} = {
       beeper-beta = import ./pkgs/beeper-beta.nix {
-        lib = lib;
+        inherit lib;
         appimageTools = pkgs.appimageTools;
         fetchurl = pkgs.fetchurl;
+        makeWrapper = pkgs.makeWrapper;
+        libsecret = pkgs.libsecret;
       };
     };
 
@@ -65,9 +66,7 @@
           ./hosts/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin
-
-          # Add beeper-beta to system packages
-          {environment.systemPackages = with pkgs; [self.packages.beeper-beta];}
+          {environment.systemPackages = [self.packages.${system}.beeper-beta];}
         ];
       };
 
@@ -81,9 +80,6 @@
           ./hosts/home-server/configuration.nix
           inputs.home-manager.nixosModules.default
           nixarr.nixosModules.default
-
-          # Add beeper-beta to system packages if needed
-          {environment.systemPackages = with pkgs; [self.packages.beeper-beta];}
         ];
       };
       desktop = lib.nixosSystem {
@@ -98,9 +94,7 @@
           ./hosts/desktop/configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin
-
-          # Add beeper-beta to system packages
-          {environment.systemPackages = with pkgs; [self.packages.beeper-beta];}
+          {environment.systemPackages = [self.packages.${system}.beeper-beta];}
         ];
       };
     };
