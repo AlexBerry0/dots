@@ -6,7 +6,7 @@
   libsecret,
 }: let
   pname = "beeper";
-  version = "4.0.584";
+  version = "4.0.623";
 
   src = fetchurl {
     url = "https://beeper-desktop.download.beeper.com/builds/Beeper-${version}.AppImage";
