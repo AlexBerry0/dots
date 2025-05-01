@@ -35,7 +35,7 @@
   home.packages = with pkgs; [
     pomodoro-gtk
     firefox
-    # beeper
+    beeper
     stacer
     burpsuite
     image-roll
