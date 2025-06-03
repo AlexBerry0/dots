@@ -97,7 +97,7 @@
   services.displayManager.sddm.theme = "${import ../../pkgs/sddm-sugar-dark.nix {inherit pkgs;}}";
 
   # GNOME
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
   # services.desktopManager.cosmic.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     # gnome-text-editor
