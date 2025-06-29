@@ -90,7 +90,7 @@
     qalculate-gtk
     tailscale
     trayscale
-    ciscoPacketTracer8
+    # ciscoPacketTracer8
     # crosswords
     brave
     steam-run
