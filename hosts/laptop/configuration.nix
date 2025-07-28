@@ -191,6 +191,7 @@
     cargo
     libgcc
     gnumake
+    kubeseal
     inputs.zen-browser.packages."${system}".default
   ];
 
