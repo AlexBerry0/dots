@@ -10,7 +10,7 @@
     ../../modules/personal-computers/home-manager/vscode.nix
     ../../modules/personal-computers/home-manager/alacritty.nix
     ../../modules/personal-computers/home-manager/kitty.nix
-    ../../modules/personal-computers/home-manager/jetbrains.nix
+    # ../../modules/personal-computers/home-manager/jetbrains.nix
     ../../modules/personal-computers/home-manager/spicetify.nix
     ../../modules/personal-computers/home-manager/catppuccin.nix
     ../../modules/personal-computers/system/gtk.nix
@@ -35,23 +35,16 @@
   home.packages = with pkgs; [
     pomodoro-gtk
     firefox
-    # beeper
-    stacer
     burpsuite
     image-roll
     google-chrome
-    # stacer
     github-desktop
     postman
     obs-studio
     nitch
     zoxide
     eza
-    # hypridle
-    # hyprlock
-    # swaybg
     dart-sass
-    # sassc
     brightnessctl
     python3
     inotify-tools
@@ -59,23 +52,18 @@
     discord
     gparted
     arduino-cli
-    arduino-ide
     nmap
-    nix-prefetch-github
-    nix-prefetch
     nodejs_22
     mullvad-vpn
     qbittorrent
     celluloid
     nodePackages.sloc
-    termius
     exiftool
     mediainfo
     wireshark
     # delfin
     foliate
     sops
-    vesktop
     grimblast
     gpu-screen-recorder
     # hyprpicker
@@ -90,11 +78,8 @@
     qalculate-gtk
     tailscale
     trayscale
-    # ciscoPacketTracer8
-    # crosswords
     brave
     steam-run
-    # gearlever
     bottles
     libreoffice
     wireshark
@@ -102,6 +87,7 @@
     kubectl
     kubernetes-helm
     kubeseal
+    vdhcoapp
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -27,7 +27,7 @@
     pkgs.gnomeExtensions.media-controls
     pkgs.gnomeExtensions.no-titlebar-when-maximized
     pkgs.gnomeExtensions.notification-banner-reloaded
-    pkgs.gnomeExtensions.order-gnome-shell-extensions
+    # pkgs.gnomeExtensions.order-gnome-shell-extensions
     pkgs.gnomeExtensions.pip-on-top
     pkgs.gnomeExtensions.tiling-assistant
     pkgs.gnomeExtensions.transparent-window-moving

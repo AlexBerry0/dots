@@ -50,7 +50,6 @@
     mullvad-vpn
     qbittorrent
     celluloid
-    termius
     wireshark
     obs-studio
     prismlauncher

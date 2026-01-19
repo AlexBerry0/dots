@@ -6,11 +6,11 @@
   libsecret,
 }: let
   pname = "beeper";
-  version = "4.1.20";
+  version = "4.2.482";
 
   src = fetchurl {
-    url = "https://beeper-desktop.download.beeper.com/builds/Beeper-${version}.AppImage";
-    hash = "sha256-4sJ61j9/DdZM9mn3JqrvjlWPDb6nN4A4wzQR5lXthxU=";
+    url = "https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop";
+    hash = "sha256-mxBE0U2ABiOdSNj8c3Lqgmy5iFtOulCCkQ+oC2xyENA=";
   };
 
   appimageContents = appimageTools.extract {

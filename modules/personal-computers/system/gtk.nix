@@ -16,9 +16,12 @@ in {
 
     iconTheme = {
       name = "Reversal-purple-dark";
-      package = pkgs.reversal-icon-theme.override {
-        colorVariants = ["-purple"];
-      };
+      package = pkgs.reversal-icon-theme.overrideAttrs (oldAttrs: {
+        installPhase = ''
+          mkdir -p $out/share/icons
+          ./install.sh -d $out/share/icons -t purple
+        '';
+      });
     };
 
     theme = {

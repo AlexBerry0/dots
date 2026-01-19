@@ -158,7 +158,7 @@
   users.users.alexb = {
     isNormalUser = true;
     description = "Alex Berry";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "libvirtd"];
     shell = pkgs.fish;
   };
 
@@ -189,17 +189,37 @@
     opam
     rustup
     cargo
+    k3d
     libgcc
     gnumake
     kubeseal
+    k3s
+    openiscsi
+    minikube
+    qemu_kvm
+    docker-machine-kvm2
+    docker
+    podman
     inputs.zen-browser.packages."${system}".default
   ];
 
   # virtualisation.waydroid.enable = true;
   virtualisation.docker.enable = true;
 
+  environment.pathsToLink = ["/bin" "/share/qemu"];
+
+  services.openiscsi = {
+    enable = true;
+    name = "iqn.2024-01.io.k3d:nixos-host";
+  };
+
   security.polkit.enable = true;
 
+  virtualisation.libvirtd = {
+    enable = true;
+  };
+
+  networking.firewall.trustedInterfaces = ["virbr0"];
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
