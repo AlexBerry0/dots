@@ -251,5 +251,9 @@
     };
   };
 
+  system.activationScripts.removeGtkConfig = ''
+    rm -f /home/alexb/.config/gtk-4.0/gtk.css
+  '';
+
   system.stateVersion = "23.11";
 }
