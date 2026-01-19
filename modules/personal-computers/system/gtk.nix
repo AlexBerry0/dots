@@ -19,7 +19,7 @@ in {
       package = pkgs.reversal-icon-theme.overrideAttrs (oldAttrs: {
         installPhase = ''
           mkdir -p $out/share/icons
-          ./install.sh -d $out/share/icons -t purple
+          ./install.sh -d $out/share/icons -n Reversal -t all
         '';
       });
     };

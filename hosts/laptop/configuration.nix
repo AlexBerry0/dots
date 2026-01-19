@@ -93,8 +93,16 @@
   services.xserver.enable = true;
 
   # SDDM
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "${import ../../pkgs/sddm-sugar-dark.nix {inherit pkgs;}}";
+  services.displayManager.sddm = {
+    enable = true;
+    package = pkgs.kdePackages.sddm;
+    theme = "sddm-astronaut-theme";
+    extraPackages = with pkgs.kdePackages; [
+      qtsvg
+      qtmultimedia
+      qtvirtualkeyboard
+    ];
+  };
 
   # GNOME
   services.desktopManager.gnome.enable = true;
@@ -200,6 +208,13 @@
     docker-machine-kvm2
     docker
     podman
+    (sddm-astronaut.override {
+      themeConfig = {
+        Background = "${../../media/space_saturn.png}";
+        FormPosition = "left";
+        MainColor = "#fab387";
+      };
+    })
     inputs.zen-browser.packages."${system}".default
   ];
 

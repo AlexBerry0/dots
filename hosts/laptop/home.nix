@@ -33,6 +33,7 @@
 
   # Packages installed with Home-manager
   home.packages = with pkgs; [
+    # beeper
     pomodoro-gtk
     firefox
     burpsuite
