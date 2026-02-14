@@ -77,6 +77,7 @@ in {
           timonwong.shellcheck
           hashicorp.terraform
           astro-build.astro-vscode
+          ms-python.black-formatter
 
           # Other
           streetsidesoftware.code-spell-checker

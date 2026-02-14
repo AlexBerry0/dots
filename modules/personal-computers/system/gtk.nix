@@ -45,6 +45,27 @@ in {
         gtk-application-prefer-dark-theme=1
       '';
     };
+    gtk4.extraCss = ''
+      windowcontrols {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      windowcontrols > button {
+        min-height: 24px !important;
+        min-width: 24px !important;
+        max-height: 24px !important;
+        max-width: 24px !important;
+
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+
+        margin: 10px 4px !important;
+        padding: 0 !important;
+        border-radius: 50%;
+      }
+    '';
   };
 
   home.file.".themes/Catppuccin-Mocha" = {

@@ -10,7 +10,7 @@
 
   src = fetchurl {
     url = "https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop";
-    hash = "sha256-mxBE0U2ABiOdSNj8c3Lqgmy5iFtOulCCkQ+oC2xyENA=";
+    hash = "sha256-PuthmxdIuftaK9U9r52Fc9b8JzYPwxezRhWjdyo+nmA=";
   };
 
   appimageContents = appimageTools.extract {

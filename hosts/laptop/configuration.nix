@@ -205,7 +205,7 @@
     openiscsi
     minikube
     qemu_kvm
-    docker-machine-kvm2
+    # docker-machine-kvm2
     docker
     podman
     (sddm-astronaut.override {
@@ -251,9 +251,7 @@
     };
   };
 
-  system.activationScripts.removeGtkConfig = ''
-    rm -f /home/alexb/.config/gtk-4.0/gtk.css
-  '';
+  home-manager.backupFileExtension = "backup";
 
   system.stateVersion = "23.11";
 }
