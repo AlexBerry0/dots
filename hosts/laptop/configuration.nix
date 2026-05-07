@@ -14,15 +14,7 @@
     ../../modules/personal-computers/home-manager/steam.nix
     ../../modules/common/nh.nix
     ../../modules/personal-computers/system/nerdfonts.nix
-
-    # inputs.sops-nix.nixosModules.sops
   ];
-
-  # SOPS
-  # sops.defaultSopsFile = ./secrets/secrets.yaml;
-  # sops.defaultSopsFormat = "yaml";
-
-  # sops.age.keyFile = "/home/alexb/.config/sops/age/keys.txt";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -51,7 +43,6 @@
   programs.captive-browser.interface = "wlo1";
 
   # Mullvad config, currently commented out as I don't use it and it seems to break captive browser
-  services.mullvad-vpn.enable = true;
 
   networking = {
     hostName = "alexslaptoplinux";
@@ -59,15 +50,6 @@
     nameservers = ["1.1.1.1" "8.8.8.8"];
     #enableIPv6 = false;
   };
-
-  # networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-  # services.resolved = {
-  #   enable = true;
-  #   dnssec = "true";
-  #   domains = ["~."];
-  #   fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-  #   dnsovertls = "true";
-  # };
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";

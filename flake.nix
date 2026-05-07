@@ -70,18 +70,6 @@
         ];
       };
 
-      home-server = lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          machineName = "home-server";
-        };
-        modules = [
-          ./hosts/home-server/configuration.nix
-          inputs.home-manager.nixosModules.default
-          nixarr.nixosModules.default
-        ];
-      };
       desktop = lib.nixosSystem {
         inherit system;
         specialArgs = {

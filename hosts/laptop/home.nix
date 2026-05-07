@@ -10,14 +10,11 @@
     ../../modules/personal-computers/home-manager/vscode.nix
     ../../modules/personal-computers/home-manager/alacritty.nix
     ../../modules/personal-computers/home-manager/kitty.nix
-    # ../../modules/personal-computers/home-manager/jetbrains.nix
     ../../modules/personal-computers/home-manager/spicetify.nix
     ../../modules/personal-computers/home-manager/catppuccin.nix
     ../../modules/personal-computers/system/gtk.nix
     ../../modules/personal-computers/system/fish/fish-laptop.nix
     ../../modules/personal-computers/system/gnome/gnome.nix
-    # ../../modules/personal-computers/system/nerdfonts.nix
-    # ../../modules/personal-computers/system/hyprland
     ../../modules/personal-computers/system/gnome/dconf/laptop.nix
     ../../modules/personal-computers/system/direnv.nix
   ];
@@ -33,14 +30,9 @@
 
   # Packages installed with Home-manager
   home.packages = with pkgs; [
-    # beeper
-    pomodoro-gtk
     firefox
-    burpsuite
     image-roll
     google-chrome
-    github-desktop
-    postman
     obs-studio
     nitch
     zoxide
@@ -58,21 +50,12 @@
     mullvad-vpn
     qbittorrent
     celluloid
-    nodePackages.sloc
-    exiftool
     mediainfo
-    wireshark
-    # delfin
     foliate
     sops
     grimblast
     gpu-screen-recorder
-    # hyprpicker
     btop
-    # matugen
-    # wl-clipboard
-    # swww
-    # waybar
     obsidian
     spotify-player
     pandoc
@@ -81,9 +64,6 @@
     trayscale
     brave
     steam-run
-    bottles
-    libreoffice
-    wireshark
     rpi-imager
     kubectl
     kubernetes-helm
@@ -99,11 +79,6 @@
 
   home.sessionVariables = {
   };
-  # programs = {
-  #   hyprpanel = {
-  #     enable = true;
-  #   };
-  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
