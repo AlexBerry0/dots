@@ -59,27 +59,10 @@
         specialArgs = {
           inherit inputs;
           inherit spicetify-nix;
-          machineName = "laptop";
         };
 
         modules = [
-          ./hosts/laptop/configuration.nix
-          inputs.home-manager.nixosModules.default
-          catppuccin.nixosModules.catppuccin
-          {environment.systemPackages = [self.packages.${system}.beeper-beta];}
-        ];
-      };
-
-      desktop = lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit spicetify-nix;
-          machineName = "desktop";
-        };
-
-        modules = [
-          ./hosts/desktop/configuration.nix
+          ./configuration.nix
           inputs.home-manager.nixosModules.default
           catppuccin.nixosModules.catppuccin
           {environment.systemPackages = [self.packages.${system}.beeper-beta];}

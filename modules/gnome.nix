@@ -1,13 +1,119 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  modded-catppuccin = pkgs.fetchFromGitHub {
+    owner = "AlexBerry0";
+    repo = "Modded-Catppuccin-Mocha-GTK-theme";
+    rev = "5ec4a99d456047dfe94d5724ab137f6de21abdc6";
+    hash = "sha256-Ke4+jzxObBUejdmaAte2KOdBudbQ1jIyQ1Kb3kvFK9c=";
+  };
+in {
+  home.packages = [
+    pkgs.gnomeExtensions.user-themes
+    pkgs.gnomeExtensions.quick-settings-tweaker
+    pkgs.gnomeExtensions.autohide-battery
+    pkgs.gnomeExtensions.bluetooth-quick-connect
+    pkgs.gnomeExtensions.blur-my-shell
+    pkgs.gnomeExtensions.burn-my-windows
+    pkgs.gnomeExtensions.compiz-windows-effect
+    pkgs.gnomeExtensions.coverflow-alt-tab
+    pkgs.gnomeExtensions.just-perfection
+    pkgs.gnomeExtensions.logo-menu
+    pkgs.gnomeExtensions.media-controls
+    pkgs.gnomeExtensions.no-titlebar-when-maximized
+    pkgs.gnomeExtensions.notification-banner-reloaded
+    pkgs.gnomeExtensions.pip-on-top
+    pkgs.gnomeExtensions.tiling-assistant
+    pkgs.gnomeExtensions.transparent-window-moving
+    pkgs.gnomeExtensions.dash-to-dock
+    pkgs.gnomeExtensions.unite
+    pkgs.gnomeExtensions.airpod-battery-monitor
+    pkgs.gnomeExtensions.appindicator
+    pkgs.gnomeExtensions.gsconnect
+  ];
+
+  gtk = {
+    enable = true;
+    iconTheme = lib.mkForce {
+      name = "Reversal-purple-dark";
+      package = pkgs.reversal-icon-theme.overrideAttrs (oldAttrs: {
+        installPhase = ''
+          mkdir -p $out/share/icons
+          ./install.sh -d $out/share/icons -n Reversal -t all
+        '';
+      });
+    };
+    theme = lib.mkForce {
+      name = "Catppuccin-Mocha";
+    };
+    gtk4.theme = config.gtk.theme;
+    cursorTheme = lib.mkForce {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 22;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraCss = ''
+      windowcontrols {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      windowcontrols > button {
+        min-height: 24px !important;
+        min-width: 24px !important;
+        max-height: 24px !important;
+        max-width: 24px !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 10px 4px !important;
+        padding: 0 !important;
+        border-radius: 50%;
+      }
+    '';
+  };
+
+  home.file.".themes/Catppuccin-Mocha" = {
+    source = "${modded-catppuccin}/Catppuccin-Mocha";
+    recursive = true;
+  };
+
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${modded-catppuccin}/Catppuccin-Mocha/gtk-4.0/gtk-dark.css";
+  };
+
+  home.sessionVariables.GTK_THEME = "Catppuccin-Mocha";
+
+  # Dconf settings (merged from all dconf files)
   dconf.settings = {
     "org/gnome/shell" = {
+      favorite-apps = [
+        "zen.desktop"
+        "org.gnome.Nautilus.desktop"
+        "google-chrome.desktop"
+        "beeper.desktop"
+        "obsidian.desktop"
+        "code.desktop"
+      ];
+      last-selected-power-profile = "power-saver";
       disable-user-extensions = false;
       disable-extension-version-validation = false;
+      welcome-dialog-last-shown-version = "99.9";
       enabled-extensions = [
         "wobbly-windows@mecheye.net"
         "compiz-windows-effect@hermes83.github.com"
@@ -27,7 +133,6 @@
         "firefox-pip@bennypowers.com"
         "widgets@aylur"
         "flypie@schneegans.github.com"
-        # "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "gsconnect@andyholmes.github.io"
         "logomenu@aryan_k"
         "quick-settings-tweaks@qwreey"
@@ -47,6 +152,97 @@
         "burn-my-windows@schneegans.github.com"
         "Airpod-Battery-Monitor@maniacx.github.com"
       ];
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      auto-raise = false;
+      button-layout = "close,minimize,maximize:";
+      focus-mode = "click";
+      num-workspaces = 1;
+      resize-with-right-button = false;
+    };
+
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = false;
+      overlay-key = "Super_L";
+      workspaces-only-on-primary = true;
+    };
+
+    "org/gnome/desktop/background" = {
+      picture-uri = "file:///etc/nixos/media/space_saturn.png";
+      picture-uri-dark = "file:///etc/nixos/media/space_saturn.png";
+    };
+
+    "org/gnome/desktop/interface" = {
+      scaling-factor = lib.hm.gvariant.mkUint32 1;
+      clock-format = "12h";
+    };
+
+    "org/gnome/desktop/datetime" = {
+      time-format = "custom";
+      custom-time-format = "%m-%d %H:%M";
+      automatic-timezone = false;
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>t";
+      command = "kitty";
+      name = "Kitty - Terminal";
+    };
+
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      always-center-icons = true;
+      animation-time = 0.24999999999999967;
+      apply-custom-theme = true;
+      autohide-in-fullscreen = true;
+      background-color = "rgb(255,255,255)";
+      background-opacity = 0.5;
+      border-radius = 28;
+      click-action = "focus-minimize-or-previews";
+      custom-background-color = true;
+      custom-theme-customize-running-dots = false;
+      custom-theme-shrink = false;
+      customize-alphas = true;
+      dash-max-icon-size = 72;
+      dock-position = "BOTTOM";
+      extend-height = false;
+      floating-margin = 5;
+      force-straight-corner = false;
+      height-fraction = 0.90000000000000002;
+      hide-delay = 1.0;
+      hot-keys = true;
+      icon-size-fixed = true;
+      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+      isolate-monitors = false;
+      isolate-workspaces = false;
+      max-alpha = 0.78000000000000003;
+      middle-click-action = "launch";
+      min-alpha = 0.29999999999999999;
+      multi-monitor = true;
+      preferred-monitor = -2;
+      preferred-monitor-by-connector = "eDP-1";
+      preview-size-scale = 0.0;
+      require-pressure-to-show = false;
+      running-indicator-dominant-color = false;
+      running-indicator-style = "DOTS";
+      scroll-action = "cycle-windows";
+      shift-click-action = "minimize";
+      shift-middle-click-action = "launch";
+      show-apps-at-top = true;
+      show-delay = 0.20000000000000001;
+      show-favorites = true;
+      show-mounts = false;
+      show-mounts-network = true;
+      show-show-apps-button = true;
+      show-trash = false;
+      transparency-mode = "DYNAMIC";
+      unity-backlit-items = false;
     };
 
     "org/gnome/shell/extensions/Logo-menu" = {
@@ -90,10 +286,8 @@
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      # blacklist = @as "";
       blur = false;
       enable-all = true;
-      # whitelist = @as "";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
@@ -153,55 +347,6 @@
       switcher-style = "Coverflow";
     };
 
-    "org/gnome/shell/extensions/dash-to-dock" = {
-      always-center-icons = true;
-      animation-time = 0.24999999999999967;
-      apply-custom-theme = true;
-      autohide-in-fullscreen = true;
-      background-color = "rgb(255,255,255)";
-      background-opacity = 0.5;
-      border-radius = 28;
-      click-action = "focus-minimize-or-previews";
-      custom-background-color = true;
-      custom-theme-customize-running-dots = false;
-      custom-theme-shrink = false;
-      customize-alphas = true;
-      dash-max-icon-size = 72;
-      dock-position = "BOTTOM";
-      extend-height = false;
-      floating-margin = 5;
-      force-straight-corner = false;
-      height-fraction = 0.90000000000000002;
-      hide-delay = 1.0;
-      hot-keys = true;
-      icon-size-fixed = true;
-      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
-      isolate-monitors = false;
-      isolate-workspaces = false;
-      max-alpha = 0.78000000000000003;
-      middle-click-action = "launch";
-      min-alpha = 0.29999999999999999;
-      multi-monitor = true;
-      preferred-monitor = -2;
-      preferred-monitor-by-connector = "eDP-1";
-      preview-size-scale = 0.0;
-      require-pressure-to-show = false;
-      running-indicator-dominant-color = false;
-      running-indicator-style = "DOTS";
-      scroll-action = "cycle-windows";
-      shift-click-action = "minimize";
-      shift-middle-click-action = "launch";
-      show-apps-at-top = true;
-      show-delay = 0.20000000000000001;
-      show-favorites = true;
-      show-mounts = false;
-      show-mounts-network = true;
-      show-show-apps-button = true;
-      show-trash = false;
-      transparency-mode = "DYNAMIC";
-      unity-backlit-items = false;
-    };
-
     "org/gnome/shell/extensions/just-perfection" = {
       accessibility-menu = false;
       activities-button = false;
@@ -237,21 +382,9 @@
     "org/gnome/shell/extensions/mediacontrols" = {
       colored-player-icon = false;
       extension-position = "center";
-      mouse-actions = [
-        "toggle_info"
-        "none"
-        "none"
-        "none"
-        "none"
-        "none"
-        "none"
-        "none"
-      ];
+      mouse-actions = ["toggle_info" "none" "none" "none" "none" "none" "none" "none"];
       prefer-using-seek = true;
-      seperator-chars = [
-        "|"
-        "|"
-      ];
+      seperator-chars = ["|" "|"];
       show-control-icons = false;
       show-next-icon = true;
       show-player-icon = false;
@@ -260,11 +393,7 @@
       show-seperators = false;
       show-sources-menu = false;
       show-text = true;
-      track-label = [
-        "track"
-        "-"
-        "artist"
-      ];
+      track-label = ["track" "-" "artist"];
     };
 
     "org/gnome/shell/extensions/notification-banner-reloaded" = {
@@ -296,16 +425,10 @@
       input-always-show = false;
       input-show-selected = false;
       last-unsafe-state = false;
-      # list-buttons = {"name":"SystemItem","title":null,"visible":true},{"name":"OutputStreamSlider","title":null,"visible":true},{"name":"InputStreamSlider","title":null,"visible":false},{"name":"BrightnessItem","title":null,"visible":true},{"name":"NMWiredToggle","title":null,"visible":false},{"name":"NMWirelessToggle","title":"Wi-Fi","visible":true},{"name":"NMModemToggle","title":null,"visible":false},{"name":"NMBluetoothToggle","title":"Tether","visible":true},{"name":"NMVpnToggle","title":null,"visible":false},{"name":"BluetoothToggle","title":"Bluetooth","visible":true},{"name":"PowerProfilesToggle","title":"Power Mode","visible":true},{"name":"NightLightToggle","title":"Night Light","visible":true},{"name":"DarkModeToggle","title":"Dark Style","visible":true},{"name":"KeyboardBrightnessToggle","title":"Keyboard","visible":true},{"name":"RfkillToggle","title":"Aeroplane Mode","visible":true},{"name":"RotationToggle","title":"Auto Rotate","visible":false},{"name":"BackgroundAppsToggle","title":"No Background Apps","visible":false},{"name":"MediaSection","title":null,"visible":false}"";
       media-control-enabled = true;
       notifications-enabled = false;
       output-show-selected = false;
-      user-removed-buttons = [
-        "Notifications"
-        "DarkModeToggle"
-        "NightLightToggle"
-        "RfkillToggle"
-      ];
+      user-removed-buttons = ["Notifications" "DarkModeToggle" "NightLightToggle" "RfkillToggle"];
       volume-mixer-enabled = false;
       volume-mixer-position = "top";
       volume-mixer-show-description = false;

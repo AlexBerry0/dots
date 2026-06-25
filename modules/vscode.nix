@@ -44,10 +44,6 @@ in {
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions;
         [
-          # Looks
-          catppuccin.catppuccin-vsc-icons
-          catppuccin.catppuccin-vsc
-
           # Languages
           yzhang.markdown-all-in-one
           brettm12345.nixfmt-vscode
