@@ -107,7 +107,6 @@ in {
         "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "beeper.desktop"
-        "obsidian.desktop"
         "code.desktop"
       ];
       last-selected-power-profile = "power-saver";

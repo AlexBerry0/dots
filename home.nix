@@ -8,7 +8,6 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeModules.catppuccin
     ./modules/vscode.nix
-    ./modules/alacritty.nix
     ./modules/kitty.nix
     ./modules/spicetify.nix
     ./modules/fish.nix
@@ -62,7 +61,6 @@
     grimblast
     gpu-screen-recorder
     btop
-    obsidian
     spotify-player
     pandoc
     qalculate-gtk
@@ -74,7 +72,9 @@
     kubectl
     kubernetes-helm
     kubeseal
-    spotify-player
+    typst
+    typstyle
+    tinymist
   ];
 
   programs.home-manager.enable = true;

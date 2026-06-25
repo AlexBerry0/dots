@@ -41,6 +41,8 @@ in
         --replace-fail "AppRun" "beeper" \
         --replace-fail "Icon=beepertexts" "Icon=beeper"
 
+      echo "StartupWMClass=Beeper" >> $out/share/applications/beeper.desktop
+
       . ${makeWrapper}/nix-support/setup-hook
       wrapProgram $out/bin/beeper \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \

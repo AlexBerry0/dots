@@ -148,7 +148,20 @@
   # Fonts
   fonts = {
     fontconfig.enable = true;
-    packages = [pkgs.nerd-fonts.hack];
+    packages = with pkgs; [
+      nerd-fonts.hack
+      liberation_ttf
+      fira-code
+      nerd-fonts.fira-code
+      cm_unicode
+      lmodern
+      gyre-fonts
+      inter
+      jetbrains-mono
+      noto-fonts
+      noto-fonts-color-emoji
+      dejavu_fonts
+    ];
   };
 
   # Users
@@ -233,13 +246,15 @@
 
   systemd.user.services."gtk-fix" = {
     script = ''
-      rm -f /home/alexb/.config/gtk-4.0/gtk.css || true
+      rm -f %h/.config/gtk-4.0/gtk.css || true
     '';
     serviceConfig = {
       Type = "oneshot";
     };
-    wantedBy = ["multi-user.target"];
+    wantedBy = ["default.target"];
   };
+
+  zramSwap.enable = true;
 
   home-manager.backupFileExtension = "backup";
   system.stateVersion = "23.11";

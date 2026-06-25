@@ -28,7 +28,7 @@
     "text/x-makefile"
     "text/x-python"
     "text/x-scss"
-    "text/x-ocaml"
+    "text/x-typst"
   ];
 in {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
@@ -54,12 +54,10 @@ in {
           ms-toolsai.vscode-jupyter-cell-tags
           ms-toolsai.vscode-jupyter-slideshow
           ms-python.python
-          ocamllabs.ocaml-platform
           svelte.svelte-vscode
 
-          # Copilot
-          github.copilot
-          github.copilot-chat
+          # Typst Integration
+          myriad-dreamin.tinymist
 
           # Formatters
           bbenoist.nix
@@ -71,7 +69,6 @@ in {
           kamadorueda.alejandra
           shardulm94.trailing-spaces
           timonwong.shellcheck
-          hashicorp.terraform
           astro-build.astro-vscode
           ms-python.black-formatter
 
@@ -80,8 +77,6 @@ in {
           mkhl.direnv
           signageos.signageos-vscode-sops
           editorconfig.editorconfig
-          gruntfuggly.todo-tree
-          ms-vscode-remote.remote-containers
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -105,7 +100,6 @@ in {
         ];
 
       userSettings = {
-        # Define formatters for different languges
         "[c]"."editor.defaultFormatter" = "xaver.clang-format";
         "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
         "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -121,6 +115,14 @@ in {
         "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
 
+        # Typst Formatter and Save Settings
+        "[typst]" = {
+          "editor.defaultFormatter" = "myriad-dreamin.tinymist";
+          "editor.formatOnSave" = true;
+        };
+        "tinymist.formatterMode" = "typstyle";
+        "tinymist.exportPdf" = "onSave"; # <-- Compiles your PDF next to the .typ file automatically on save
+
         "security.workspace.trust.untrustedFiles" = "open";
         "github.copilot.enable" = {
           "*" = true;
@@ -129,6 +131,7 @@ in {
         "editor.formatOnType" = true;
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Catppuccin Mocha";
+        "terminal.integrated.fontFamily" = "Hack Nerd Font";
       };
     };
     mutableExtensionsDir = false;
