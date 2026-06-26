@@ -31,7 +31,8 @@
     "text/x-typst"
   ];
 in {
-  catppuccin.vscode.enable = false;
+  catppuccin.vscode.profiles.default.enable = false;
+  catppuccin.vscode.profiles.typst.enable = false;
 
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
@@ -56,7 +57,6 @@ in {
           ms-toolsai.vscode-jupyter-slideshow
           ms-python.python
           svelte.svelte-vscode
-          myriad-dreamin.tinymist
           bbenoist.nix
           christian-kohler.path-intellisense
           dbaeumer.vscode-eslint
@@ -72,7 +72,6 @@ in {
           mkhl.direnv
           signageos.signageos-vscode-sops
           editorconfig.editorconfig
-          tomoki1207.pdf
           mechatroner.rainbow-csv
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
@@ -119,13 +118,6 @@ in {
         "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
-        "[typst]" = {
-          "editor.defaultFormatter" = "myriad-dreamin.tinymist";
-          "editor.formatOnSave" = true;
-        };
-        "tinymist.formatterMode" = "typstyle";
-        "tinymist.exportPdf" = "onSave";
-        "tinymist.outputPath" = "$root/pdf_outputs/$dir/$name";
         "security.workspace.trust.untrustedFiles" = "open";
         "github.copilot.enable" = {
           "*" = true;
@@ -133,11 +125,9 @@ in {
         "zenMode.fullScreen" = false;
         "zenMode.centerLayout" = false;
         "zenMode.hideActivityBar" = true;
-        "zenMode.hideMinimap" = true;
         "zenMode.hideStatusBar" = true;
         "zenMode.hideLineNumbers" = false;
         "zenMode.showTabs" = "none";
-        "zenMode.hideMenuBar" = true;
         "editor.inlineSuggest.enabled" = false;
         "editor.formatOnType" = true;
         "cSpell.language" = "en,en-GB";
@@ -147,12 +137,6 @@ in {
         "terminal.integrated.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
         "workbench.editor.centeredLayout" = false;
       };
-      keybindings = [
-        {
-          key = "ctrl+alt+m";
-          command = "workbench.action.toggleZenMode";
-        }
-      ];
     };
 
     profiles.typst = {
@@ -183,11 +167,9 @@ in {
         "zenMode.fullScreen" = false;
         "zenMode.centerLayout" = false;
         "zenMode.hideActivityBar" = true;
-        "zenMode.hideMinimap" = true;
         "zenMode.hideStatusBar" = true;
         "zenMode.hideLineNumbers" = false;
         "zenMode.showTabs" = "none";
-        "zenMode.hideMenuBar" = true;
         "editor.inlineSuggest.enabled" = false;
         "editor.formatOnType" = true;
         "cSpell.language" = "en,en-GB";
@@ -199,6 +181,8 @@ in {
         "tinymist.exportPdf" = "onType";
         "tinymist.outputPath" = "$root/pdf_outputs/$dir/$name";
         "workbench.editor.centeredLayout" = false;
+        "files.autoSave" = "afterDelay";
+        "files.autoSaveDelay" = 1000;
       };
       keybindings = [
         {
