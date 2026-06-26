@@ -38,7 +38,6 @@
     firefox
     image-roll
     google-chrome
-    obs-studio
     nitch
     zoxide
     eza

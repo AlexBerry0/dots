@@ -40,6 +40,17 @@ in {
   programs.vscode = {
     enable = true;
     profiles.default = {
+      keybindings = [
+        {
+          key = "ctrl+alt+m";
+          command = "runCommands";
+          args = {
+            commands = [
+              "workbench.action.toggleZenMode"
+            ];
+          };
+        }
+      ];
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions;
@@ -78,6 +89,7 @@ in {
           signageos.signageos-vscode-sops
           editorconfig.editorconfig
           tomoki1207.pdf
+          mechatroner.rainbow-csv
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -132,13 +144,21 @@ in {
         "github.copilot.enable" = {
           "*" = true;
         };
+        "zenMode.fullScreen" = true;
+        "zenMode.centerLayout" = false;
+        "zenMode.hideActivityBar" = true;
+        "zenMode.hideMinimap" = true;
+        "zenMode.hideStatusBar" = true;
+        "zenMode.hideLineNumbers" = false;
+        "zenMode.showTabs" = "none";
+        "zenMode.hideMenuBar" = true;
         "editor.inlineSuggest.enabled" = false;
         "editor.formatOnType" = true;
         "cSpell.language" = "en,en-GB";
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.startupEditor" = "none";
-        "terminal.integrated.fontFamily" = "Hack Nerd Font";
+        "terminal.integrated.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
       };
     };
     mutableExtensionsDir = false;

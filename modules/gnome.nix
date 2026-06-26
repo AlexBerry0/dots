@@ -101,6 +101,10 @@ in {
 
   # Dconf settings (merged from all dconf files)
   dconf.settings = {
+    "org/gnome/desktop/app-folders" = {
+      folder-children = [];
+    };
+
     "org/gnome/shell" = {
       favorite-apps = [
         "zen.desktop"
@@ -461,5 +465,10 @@ in {
     "org/gnome/shell/extensions/user-theme" = {
       name = "Catppuccin-Mocha";
     };
+  };
+  home.activation = {
+    set-app-picker-layout = lib.hm.dag.entryAfter ["dconfSettings"] ''
+      $DRY_RUN_CMD ${pkgs.glib}/bin/gsettings set org.gnome.shell app-picker-layout "[{'zen.desktop': <{'position': <0>}>, 'code.desktop': <{'position': <1>}>, 'kitty.desktop': <{'position': <2>}>, 'org.gnome.Nautilus.desktop': <{'position': <3>}>, 'google-chrome.desktop': <{'position': <4>}>, 'beeper.desktop': <{'position': <5>}>, 'discord.desktop': <{'position': <6>}>, 'spotify.desktop': <{'position': <7>}>, 'mullvad-vpn.desktop': <{'position': <8>}>, 'trayscale.desktop': <{'position': <9>}>, 'qbittorrent.desktop': <{'position': <10>}>, 'qalculate-gtk.desktop': <{'position': <11>}>, 'foliate.desktop': <{'position': <12>}>, 'celluloid.desktop': <{'position': <13>}>, 'rpi-imager.desktop': <{'position': <14>}>, 'gparted.desktop': <{'position': <15>}>, 'image-roll.desktop': <{'position': <17>}>, 'brave.desktop': <{'position': <18>}>, 'firefox.desktop': <{'position': <19>}>}]"
+    '';
   };
 }

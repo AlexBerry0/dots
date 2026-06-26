@@ -47,11 +47,6 @@
         format = "[ $duration ]($style)";
       };
 
-      # hostname = {
-      #   style = "bg:sky fg:base";
-      #   format = "[ $hostname ]($style)";
-      # };
-
       "git_branch" = {
         symbol = "";
         style = "bg:peach fg:base";

@@ -189,20 +189,9 @@
     git
     qt5.qtquickcontrols2
     qt5.qtgraphicaleffects
-    sops
     bottom
-    rustup
-    cargo
-    k3d
     libgcc
     gnumake
-    kubeseal
-    k3s
-    openiscsi
-    minikube
-    qemu_kvm
-    docker
-    podman
     nerd-fonts.hack
     (sddm-astronaut.override {
       themeConfig = {
@@ -214,18 +203,9 @@
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
   ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.libvirtd.enable = true;
-
   environment.pathsToLink = ["/bin" "/share/qemu"];
 
-  services.openiscsi = {
-    enable = true;
-    name = "iqn.2024-01.io.k3d:nixos-host";
-  };
-
   security.polkit.enable = true;
-  networking.firewall.trustedInterfaces = ["virbr0"];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -254,6 +234,19 @@
   };
 
   zramSwap.enable = true;
+
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 10;
+    freeSwapThreshold = 10;
+    extraArgs = [
+      "-g"
+      "--avoid"
+      "^(X|gnome-shell|kitty|systemd)$"
+      "--prefer"
+      "^(electron|chrome|firefox|code|spotify)$"
+    ];
+  };
 
   home-manager.backupFileExtension = "backup";
   system.stateVersion = "23.11";
