@@ -191,8 +191,6 @@
     qt5.qtgraphicaleffects
     sops
     bottom
-    ocaml
-    opam
     rustup
     cargo
     k3d

@@ -44,7 +44,11 @@
     eza
     dart-sass
     brightnessctl
-    python3
+    (python3.withPackages (ps:
+      with ps; [
+        numpy
+        matplotlib
+      ]))
     inotify-tools
     bun
     discord

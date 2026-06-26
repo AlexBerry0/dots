@@ -137,6 +137,7 @@ in {
         "cSpell.language" = "en,en-GB";
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.startupEditor" = "none";
         "terminal.integrated.fontFamily" = "Hack Nerd Font";
       };
     };
