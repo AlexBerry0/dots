@@ -31,6 +31,8 @@
     "text/x-typst"
   ];
 in {
+  catppuccin.vscode.enable = false;
+
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
       value = ["code.desktop"];
@@ -40,22 +42,10 @@ in {
   programs.vscode = {
     enable = true;
     profiles.default = {
-      keybindings = [
-        {
-          key = "ctrl+alt+m";
-          command = "runCommands";
-          args = {
-            commands = [
-              "workbench.action.toggleZenMode"
-            ];
-          };
-        }
-      ];
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions;
         [
-          # Languages
           yzhang.markdown-all-in-one
           brettm12345.nixfmt-vscode
           mikestead.dotenv
@@ -66,11 +56,7 @@ in {
           ms-toolsai.vscode-jupyter-slideshow
           ms-python.python
           svelte.svelte-vscode
-
-          # Typst Integration
           myriad-dreamin.tinymist
-
-          # Formatters
           bbenoist.nix
           christian-kohler.path-intellisense
           dbaeumer.vscode-eslint
@@ -82,14 +68,14 @@ in {
           timonwong.shellcheck
           astro-build.astro-vscode
           ms-python.black-formatter
-
-          # Other
           streetsidesoftware.code-spell-checker
           mkhl.direnv
           signageos.signageos-vscode-sops
           editorconfig.editorconfig
           tomoki1207.pdf
           mechatroner.rainbow-csv
+          catppuccin.catppuccin-vsc
+          catppuccin.catppuccin-vsc-icons
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -144,7 +130,7 @@ in {
         "github.copilot.enable" = {
           "*" = true;
         };
-        "zenMode.fullScreen" = true;
+        "zenMode.fullScreen" = false;
         "zenMode.centerLayout" = false;
         "zenMode.hideActivityBar" = true;
         "zenMode.hideMinimap" = true;
@@ -159,8 +145,69 @@ in {
         "workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.startupEditor" = "none";
         "terminal.integrated.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
+        "workbench.editor.centeredLayout" = false;
       };
+      keybindings = [
+        {
+          key = "ctrl+alt+m";
+          command = "workbench.action.toggleZenMode";
+        }
+      ];
     };
+
+    profiles.typst = {
+      extensions = with pkgs.vscode-extensions;
+        [
+          myriad-dreamin.tinymist
+          tomoki1207.pdf
+          streetsidesoftware.code-spell-checker
+          catppuccin.catppuccin-vsc
+          catppuccin.catppuccin-vsc-icons
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "code-spell-checker-british-english";
+            publisher = "streetsidesoftware";
+            version = "1.3.0";
+            sha256 = "sha256-w6RNWJH8Orc3dM0iH0sFh+WdvYTThn74HJ89KTPNAUA=";
+          }
+        ];
+      userSettings = {
+        "editor.wordWrap" = "on";
+        "editor.minimap.enabled" = false;
+        "workbench.activityBar.visible" = true;
+        "workbench.statusBar.visible" = false;
+        "workbench.editor.showTabs" = "multiple";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "catppuccin-mocha";
+        "zenMode.fullScreen" = false;
+        "zenMode.centerLayout" = false;
+        "zenMode.hideActivityBar" = true;
+        "zenMode.hideMinimap" = true;
+        "zenMode.hideStatusBar" = true;
+        "zenMode.hideLineNumbers" = false;
+        "zenMode.showTabs" = "none";
+        "zenMode.hideMenuBar" = true;
+        "editor.inlineSuggest.enabled" = false;
+        "editor.formatOnType" = true;
+        "cSpell.language" = "en,en-GB";
+        "[typst]" = {
+          "editor.defaultFormatter" = "myriad-dreamin.tinymist";
+          "editor.formatOnSave" = true;
+        };
+        "tinymist.formatterMode" = "typstyle";
+        "tinymist.exportPdf" = "onType";
+        "tinymist.outputPath" = "$root/pdf_outputs/$dir/$name";
+        "workbench.editor.centeredLayout" = false;
+      };
+      keybindings = [
+        {
+          key = "ctrl+alt+m";
+          command = "workbench.action.toggleZenMode";
+        }
+      ];
+    };
+
     mutableExtensionsDir = false;
   };
 }
