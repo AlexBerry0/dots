@@ -77,5 +77,28 @@
     tinymist
   ];
 
+  systemd.user.services.notes-backup = {
+    Unit = {
+      Description = "Automatic UC Notes background Git backup";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash %h/Documents/UC/Notes/backup.sh";
+    };
+  };
+
+  systemd.user.timers.notes-backup = {
+    Unit = {
+      Description = "Trigger UC Notes backup timer";
+    };
+    Timer = {
+      OnCalendar = "*:0/30";
+      Persistent = true;
+    };
+    Install = {
+      WantedBy = ["timers.target"];
+    };
+  };
+
   programs.home-manager.enable = true;
 }

@@ -77,6 +77,7 @@ in {
           mkhl.direnv
           signageos.signageos-vscode-sops
           editorconfig.editorconfig
+          tomoki1207.pdf
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -97,6 +98,12 @@ in {
             version = "3.0.0";
             sha256 = "sha256-rUxKfr6mAyHzRtbbozZGYJ8itky3gICSnvnvb3b3PYU=";
           }
+          {
+            name = "code-spell-checker-british-english";
+            publisher = "streetsidesoftware";
+            version = "1.3.0";
+            sha256 = "sha256-w6RNWJH8Orc3dM0iH0sFh+WdvYTThn74HJ89KTPNAUA=";
+          }
         ];
 
       userSettings = {
@@ -114,21 +121,20 @@ in {
         "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
-
-        # Typst Formatter and Save Settings
         "[typst]" = {
           "editor.defaultFormatter" = "myriad-dreamin.tinymist";
           "editor.formatOnSave" = true;
         };
         "tinymist.formatterMode" = "typstyle";
-        "tinymist.exportPdf" = "onSave"; # <-- Compiles your PDF next to the .typ file automatically on save
-
+        "tinymist.exportPdf" = "onSave";
+        "tinymist.outputPath" = "$root/pdf_outputs/$dir/$name";
         "security.workspace.trust.untrustedFiles" = "open";
         "github.copilot.enable" = {
           "*" = true;
         };
         "editor.inlineSuggest.enabled" = false;
         "editor.formatOnType" = true;
+        "cSpell.language" = "en,en-GB";
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Catppuccin Mocha";
         "terminal.integrated.fontFamily" = "Hack Nerd Font";

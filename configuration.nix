@@ -161,6 +161,7 @@
       noto-fonts
       noto-fonts-color-emoji
       dejavu_fonts
+      libertine
     ];
   };
 
