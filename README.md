@@ -47,8 +47,6 @@ This is all themed using [Catppuccin Mocha](https://catppuccin.com/palette).
 │   ├── spicetify.nix
 │   ├── steam.nix
 │   └── vscode.nix
-├── pkgs/                       # Custom packages
-│   └── beeper-beta.nix
 ├── configuration.nix           # Main NixOS configuration
 ├── flake.lock
 ├── flake.nix                   # Flake entry point

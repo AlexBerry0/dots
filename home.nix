@@ -78,6 +78,7 @@
     typst
     typstyle
     tinymist
+    beeper
   ];
 
   systemd.user.services.notes-backup = {
