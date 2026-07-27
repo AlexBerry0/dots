@@ -35,7 +35,6 @@
   };
 
   home.packages = with pkgs; [
-    firefox
     image-roll
     google-chrome
     nitch
@@ -69,7 +68,6 @@
     qalculate-gtk
     tailscale
     trayscale
-    brave
     steam-run
     rpi-imager
     kubectl
