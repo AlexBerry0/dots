@@ -1,24 +1,25 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
 
     shellInit = ''
-      # Ensure Homebrew and local user binaries are on PATH
+      fish_add_path --path /run/current-system/sw/bin
+      fish_add_path --path /etc/profiles/per-user/alexberry/bin
+      fish_add_path --path "$HOME/.nix-profile/bin"
+      fish_add_path --path "$HOME/.local/bin"
+
       if test -d /opt/homebrew/bin
         eval (/opt/homebrew/bin/brew shellenv)
       end
-      fish_add_path --path "$HOME/.local/bin"
     '';
 
     interactiveShellInit = ''
       set -g fish_greeting
 
-      # Fastfetch display
       command -v fastfetch >/dev/null && fastfetch
 
       set -Ux FZF_DEFAULT_OPTS "--color 16"
 
-      # Opam initialisation if present
       if test -r "$HOME/.opam/opam-init/init.fish"
         source "$HOME/.opam/opam-init/init.fish" > /dev/null 2> /dev/null
       end
@@ -30,6 +31,8 @@
       pull = "git pull";
       push = "git push";
       commit = "git add --all && git commit";
+      rebuild = "sudo darwin-rebuild switch --flake '/Users/alexberry/Documents/Documents - Alexander’s MacBook Air/dots#macbook'";
+      update = "nix flake update --flake '/Users/alexberry/Documents/Documents - Alexander’s MacBook Air/dots' && sudo darwin-rebuild switch --flake '/Users/alexberry/Documents/Documents - Alexander’s MacBook Air/dots#macbook'";
     };
 
     functions = {
@@ -67,7 +70,7 @@
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
 
   programs.direnv = {

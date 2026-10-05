@@ -4,6 +4,7 @@
       autohide = true;
       tilesize = 63;
       mru-spaces = false;
+      show-recents = false;
       persistent-apps = [
         "/Applications/Zen.app"
         "/Applications/Beeper Desktop.app"

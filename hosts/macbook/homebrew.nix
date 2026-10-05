@@ -13,6 +13,7 @@
     brews = [
       "marek-vybiral/macos-wp/macos-wp"
       "evtx"
+      "spicetify-cli"
     ];
 
     casks = [

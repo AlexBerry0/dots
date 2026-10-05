@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    mutableExtensionsDir = false;
 
     profiles = {
       default = {
@@ -11,7 +10,7 @@
         extensions = with pkgs.vscode-extensions;
           [
             catppuccin.catppuccin-vsc
-            catppuccin.catppuccin-vsc-icons
+            pkief.material-icon-theme
             bbenoist.nix
             kamadorueda.alejandra
             esbenp.prettier-vscode
@@ -56,8 +55,9 @@
         userSettings = {
           "window.autoDetectColorScheme" = true;
           "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
-          "workbench.preferredLightColorTheme" = "Catppuccin Latte";
-          "workbench.iconTheme" = "catppuccin-mocha";
+          "workbench.preferredLightColorTheme" = "Solarized Light";
+          "workbench.iconTheme" = "material-icon-theme";
+
           "editor.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
           "editor.formatOnType" = true;
           "editor.formatOnSave" = true;
@@ -94,10 +94,11 @@
         };
       };
 
-      typst = {
+      "Typst" = {
         extensions = with pkgs.vscode-extensions; [
           catppuccin.catppuccin-vsc
-          catppuccin.catppuccin-vsc-icons
+          pkief.material-icon-theme
+          tomoki1207.pdf
           myriad-dreamin.tinymist
           streetsidesoftware.code-spell-checker
           vscodevim.vim
@@ -106,8 +107,9 @@
         userSettings = {
           "window.autoDetectColorScheme" = true;
           "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
-          "workbench.preferredLightColorTheme" = "Catppuccin Latte";
-          "workbench.iconTheme" = "catppuccin-mocha";
+          "workbench.preferredLightColorTheme" = "Solarized Light";
+          "workbench.iconTheme" = "material-icon-theme";
+
           "editor.wordWrap" = "on";
           "editor.minimap.enabled" = false;
           "editor.formatOnType" = true;
@@ -138,7 +140,7 @@
       devops = {
         extensions = with pkgs.vscode-extensions; [
           catppuccin.catppuccin-vsc
-          catppuccin.catppuccin-vsc-icons
+          pkief.material-icon-theme
           ms-azuretools.vscode-docker
           ms-kubernetes-tools.vscode-kubernetes-tools
           redhat.vscode-yaml
@@ -154,8 +156,9 @@
         userSettings = {
           "window.autoDetectColorScheme" = true;
           "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
-          "workbench.preferredLightColorTheme" = "Catppuccin Latte";
-          "workbench.iconTheme" = "catppuccin-mocha";
+          "workbench.preferredLightColorTheme" = "Solarized Light";
+          "workbench.iconTheme" = "material-icon-theme";
+
           "editor.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
           "editor.formatOnSave" = true;
           "editor.formatOnType" = true;
