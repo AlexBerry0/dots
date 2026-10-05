@@ -1,62 +1,46 @@
 {
-  description = "My NixOS system flake";
+  description = "Alex's Apple Silicon MacBook Configuration";
+
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixarr = {
-      url = "github:rasmus-kirk/nixarr";
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin.url = "github:catppuccin/nix";
-
-    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
+    darwin,
     home-manager,
-    spicetify-nix,
-    nixarr,
     catppuccin,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    lib = nixpkgs.lib;
-  in {
-    nixosConfigurations = {
-      laptop = lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit spicetify-nix;
-        };
-
-        modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
-          catppuccin.nixosModules.catppuccin
-        ];
-      };
+  }: {
+    darwinConfigurations."macbook" = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/macbook/default.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            extraSpecialArgs = {inherit inputs;};
+            users.alexberry = import ./users/alexberry/home.nix;
+          };
+        }
+      ];
     };
   };
 }

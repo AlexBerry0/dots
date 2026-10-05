@@ -1,6 +1,6 @@
-# Ignore Nix build outputs
 result
 result-*
-
-# Ignore derivation files
 *.drv
+.DS_Store
+repomix-output.xml
+*.backup
