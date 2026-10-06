@@ -98,20 +98,51 @@
       log "Found darwin-rebuild: $DARWIN_REBUILD_BIN"
     fi
 
-    # 3. Native macOS dialog via System Events
+    # 3. Prepare Nix snowflake icon
+    NIX_ICON_PNG=""
+    for size in 512x512 256x256 128x128; do
+      candidate="${pkgs.nixos-icons}/share/icons/hicolor/$size/apps/nix-snowflake.png"
+      if [ -f "$candidate" ]; then
+        NIX_ICON_PNG="$candidate"
+        break
+      fi
+    done
+
+    NIX_ICON_ICNS="$STATE_DIR/nix-snowflake.icns"
+    if [ ! -f "$NIX_ICON_ICNS" ] && [ -n "$NIX_ICON_PNG" ]; then
+      /usr/bin/sips -s format icns "$NIX_ICON_PNG" --out "$NIX_ICON_ICNS" >/dev/null 2>&1 || true
+    fi
+
+    ICON_PATH=""
+    if [ -f "$NIX_ICON_ICNS" ]; then
+      ICON_PATH="$NIX_ICON_ICNS"
+    elif [ -n "$NIX_ICON_PNG" ]; then
+      ICON_PATH="$NIX_ICON_PNG"
+    fi
+
+    # 4. Native macOS dialog with custom Nix icon
     ACTION=$(/usr/bin/osascript \
-      -e 'try' \
-      -e '  tell application "System Events"' \
-      -e '    activate' \
-      -e '    display dialog "Your weekly Nix system update is ready.\n\nThis will update flake inputs, rebuild the system with Touch ID, and push the updated lockfile to GitHub." with title "Nix System Update" buttons {"Postpone (24h)", "Update Now"} default button "Update Now" cancel button "Postpone (24h)" with icon note' \
-      -e '  end tell' \
-      -e '  return "UPDATE"' \
-      -e 'on error number -128' \
-      -e '  return "SNOOZE"' \
-      -e 'end try'
+      -e 'on run argv' \
+      -e '  set iconPath to (item 1 of argv)' \
+      -e '  try' \
+      -e '    tell application "System Events"' \
+      -e '      activate' \
+      -e '      if iconPath is not "" then' \
+      -e '        display dialog "Your weekly Nix system update is ready.\n\nThis will update flake inputs, rebuild the system with Touch ID, and push the updated lockfile to GitHub." with title "Nix System Update" buttons {"Postpone (24h)", "Update Now"} default button "Update Now" cancel button "Postpone (24h)" with icon (POSIX file iconPath)' \
+      -e '      else' \
+      -e '        display dialog "Your weekly Nix system update is ready.\n\nThis will update flake inputs, rebuild the system with Touch ID, and push the updated lockfile to GitHub." with title "Nix System Update" buttons {"Postpone (24h)", "Update Now"} default button "Update Now" cancel button "Postpone (24h)" with icon note' \
+      -e '      end if' \
+      -e '    end tell' \
+      -e '    return "UPDATE"' \
+      -e '  on error number -128' \
+      -e '    return "SNOOZE"' \
+      -e '  end try' \
+      -e 'end run' \
+      "$ICON_PATH"
     )
 
     if [ "$TEST_MODE" -eq 1 ]; then
+      log "Loaded icon: $ICON_PATH"
       log "Selected action: $ACTION"
     fi
 
@@ -125,19 +156,19 @@
 
     cd "${dotsDir}"
 
-    # 4. Flake update (runs as user alexberry)
+    # 5. Flake update (runs as user alexberry)
     if [ "$TEST_MODE" -eq 1 ]; then
       log "Updating flake inputs..."
     fi
     "$NIX_BIN" flake update --flake "${dotsDir}"
 
-    # 5. Build system configuration (runs as user alexberry, avoiding libgit2 ownership errors)
+    # 6. Build system configuration (runs as user alexberry, avoiding libgit2 ownership errors)
     if [ "$TEST_MODE" -eq 1 ]; then
       log "Building new system profile as current user..."
     fi
     "$DARWIN_REBUILD_BIN" build --flake "${dotsDir}#macbook"
 
-    # 6. Activate new profile (elevates via Touch ID / admin privileges only for activation)
+    # 7. Activate new profile (elevates via Touch ID / admin privileges only for activation)
     if [ "$TEST_MODE" -eq 1 ]; then
       log "Activating system profile with administrator privileges..."
     fi
@@ -151,7 +182,7 @@
     # Clean up local result symlink
     rm -f "${dotsDir}/result"
 
-    # 7. Commit and push lockfile
+    # 8. Commit and push lockfile
     if ! ${pkgs.git}/bin/git diff --quiet flake.lock; then
       if [ "$TEST_MODE" -eq 1 ]; then
         log "flake.lock changed; committing and pushing..."
@@ -172,7 +203,10 @@
     fi
   '';
 in {
-  home.packages = [updatePkg];
+  home.packages = [
+    updatePkg
+    pkgs.nixos-icons
+  ];
 
   launchd.agents.nix-auto-update = {
     enable = true;
