@@ -1,4 +1,196 @@
-{pkgs, ...}: {
+# modules/home/vscode.nix
+{pkgs, ...}: let
+  tokenColorCustomizations = {
+    "[Catppuccin Mocha]" = {
+      textMateRules = [
+        {
+          scope = [
+            "variable.other.readwrite.shell"
+            "variable.other.readwrite.assignment.shell"
+            "variable.other.assignment.shell"
+            "variable.other.normal.shell"
+            "variable.other.bracket.shell"
+            "variable.other.shell"
+          ];
+          settings = {
+            foreground = "#FAB387";
+          };
+        }
+        {
+          scope = [
+            "variable.other.positional.shell"
+            "variable.other.special.shell"
+            "variable.parameter.positional.shell"
+            "variable.language.special.shell"
+          ];
+          settings = {
+            foreground = "#EBA0AC";
+          };
+        }
+        {
+          scope = [
+            "punctuation.definition.variable.shell"
+            "string.interpolated.dollar.shell"
+          ];
+          settings = {
+            foreground = "#F5C2E7";
+          };
+        }
+        {
+          scope = [
+            "support.function.builtin.shell"
+            "support.function.builtin.sh"
+          ];
+          settings = {
+            foreground = "#CBA6F7";
+            fontStyle = "italic";
+          };
+        }
+        {
+          scope = [
+            "entity.name.command.shell"
+            "meta.command.name.shell"
+            "support.function.shell"
+          ];
+          settings = {
+            foreground = "#89DCEB";
+          };
+        }
+        {
+          scope = [
+            "constant.other.option.shell"
+            "support.command.argument.shell"
+          ];
+          settings = {
+            foreground = "#94E2D5";
+          };
+        }
+        {
+          scope = [
+            "keyword.operator.logical.shell"
+            "keyword.operator.pipe.shell"
+            "keyword.operator.redirect.shell"
+            "keyword.operator.assignment.shell"
+          ];
+          settings = {
+            foreground = "#74C7EC";
+          };
+        }
+        {
+          scope = [
+            "keyword.control.shell"
+          ];
+          settings = {
+            foreground = "#CBA6F7";
+          };
+        }
+        {
+          scope = [
+            "entity.name.function.shell"
+          ];
+          settings = {
+            foreground = "#89B4FA";
+            fontStyle = "bold";
+          };
+        }
+      ];
+    };
+    "[Solarized Light]" = {
+      textMateRules = [
+        {
+          scope = [
+            "variable.other.readwrite.shell"
+            "variable.other.readwrite.assignment.shell"
+            "variable.other.assignment.shell"
+            "variable.other.normal.shell"
+            "variable.other.bracket.shell"
+            "variable.other.shell"
+          ];
+          settings = {
+            foreground = "#6C71C4";
+          };
+        }
+        {
+          scope = [
+            "variable.other.positional.shell"
+            "variable.other.special.shell"
+            "variable.parameter.positional.shell"
+            "variable.language.special.shell"
+          ];
+          settings = {
+            foreground = "#CB4B16";
+          };
+        }
+        {
+          scope = [
+            "punctuation.definition.variable.shell"
+            "string.interpolated.dollar.shell"
+          ];
+          settings = {
+            foreground = "#D33682";
+          };
+        }
+        {
+          scope = [
+            "support.function.builtin.shell"
+            "support.function.builtin.sh"
+          ];
+          settings = {
+            foreground = "#859900";
+            fontStyle = "italic";
+          };
+        }
+        {
+          scope = [
+            "entity.name.command.shell"
+            "meta.command.name.shell"
+            "support.function.shell"
+          ];
+          settings = {
+            foreground = "#268BD2";
+          };
+        }
+        {
+          scope = [
+            "constant.other.option.shell"
+            "support.command.argument.shell"
+          ];
+          settings = {
+            foreground = "#B58900";
+          };
+        }
+        {
+          scope = [
+            "keyword.operator.logical.shell"
+            "keyword.operator.pipe.shell"
+            "keyword.operator.redirect.shell"
+            "keyword.operator.assignment.shell"
+          ];
+          settings = {
+            foreground = "#2AA198";
+          };
+        }
+        {
+          scope = [
+            "keyword.control.shell"
+          ];
+          settings = {
+            foreground = "#859900";
+          };
+        }
+        {
+          scope = [
+            "entity.name.function.shell"
+          ];
+          settings = {
+            foreground = "#268BD2";
+            fontStyle = "bold";
+          };
+        }
+      ];
+    };
+  };
+in {
   programs.vscode = {
     enable = true;
 
@@ -62,6 +254,8 @@
           "editor.formatOnType" = true;
           "editor.formatOnSave" = true;
           "editor.inlineSuggest.enabled" = false;
+          "editor.semanticHighlighting.enabled" = true;
+          "editor.tokenColorCustomizations" = tokenColorCustomizations;
           "cSpell.language" = "en-GB";
           "workbench.startupEditor" = "none";
           "workbench.editor.centeredLayout" = false;
@@ -86,6 +280,7 @@
           "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
           "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[shellscript]"."editor.defaultFormatter" = "foxundermoon.shell-format";
 
           "security.workspace.trust.untrustedFiles" = "open";
           "github.copilot.enable" = {
@@ -162,6 +357,8 @@
           "editor.fontFamily" = "'Hack Nerd Font', 'HackNerdFont', monospace";
           "editor.formatOnSave" = true;
           "editor.formatOnType" = true;
+          "editor.semanticHighlighting.enabled" = true;
+          "editor.tokenColorCustomizations" = tokenColorCustomizations;
           "cSpell.language" = "en-GB";
 
           "[yaml]" = {
@@ -172,6 +369,9 @@
           };
           "[terraform]" = {
             "editor.defaultFormatter" = "hashicorp.terraform";
+          };
+          "[shellscript]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
 
           "docker.showStartPage" = false;

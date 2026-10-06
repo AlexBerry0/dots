@@ -7,6 +7,7 @@
     ../../modules/home/vscode.nix
     ../../modules/home/neovim/default.nix
     ../../modules/home/automations/notes-backup.nix
+    ../../modules/home/automations/auto-update.nix
   ];
 
   home = {
