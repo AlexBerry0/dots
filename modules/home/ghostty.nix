@@ -1,7 +1,7 @@
 {...}: {
   xdg.configFile."ghostty/config".text = ''
-    theme = dark:Catppuccin Mocha,light:Builtin Solarized Light
-    font-family = Hack Nerd Font
+    theme = "dark:Catppuccin Mocha,light:iTerm2 Solarized Light"
+    font-family = "Hack Nerd Font"
     font-size = 11
     font-thicken = true
     cursor-style = block

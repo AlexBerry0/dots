@@ -1,4 +1,3 @@
-# modules/home/vscode.nix
 {pkgs, ...}: let
   tokenColorCustomizations = {
     "[Catppuccin Mocha]" = {
@@ -193,6 +192,7 @@
 in {
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = false; # Purges extensions not explicitly declared in this config
 
     profiles = {
       default = {
@@ -256,7 +256,17 @@ in {
           "editor.inlineSuggest.enabled" = false;
           "editor.semanticHighlighting.enabled" = true;
           "editor.tokenColorCustomizations" = tokenColorCustomizations;
+
+          # Spelling configuration: faint subtle dots, removes from Problems panel
           "cSpell.language" = "en-GB";
+          "cSpell.diagnosticLevel" = "Hint";
+
+          # AI & Copilot disabled completely
+          "chat.disableAIFeatures" = true;
+          "github.copilot.enable" = {
+            "*" = false;
+          };
+
           "workbench.startupEditor" = "none";
           "workbench.editor.centeredLayout" = false;
 
@@ -283,9 +293,6 @@ in {
           "[shellscript]"."editor.defaultFormatter" = "foxundermoon.shell-format";
 
           "security.workspace.trust.untrustedFiles" = "open";
-          "github.copilot.enable" = {
-            "*" = true;
-          };
         };
       };
 
