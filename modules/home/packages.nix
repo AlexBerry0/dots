@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     bottom
     direnv
@@ -22,5 +22,8 @@
     nodejs_22
     uv
     alejandra
+
+    age
+    sops
   ];
 }
