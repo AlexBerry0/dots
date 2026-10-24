@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  settings,
+  ...
+}: {
   imports = [
     ../../modules/home/packages.nix
     ../../modules/home/fish.nix
@@ -11,10 +15,14 @@
   ];
 
   home = {
-    username = "alexberry";
-    homeDirectory = "/Users/alexberry";
+    username = settings.username;
+    homeDirectory = settings.homeDirectory;
     stateVersion = "24.11";
   };
 
   programs.home-manager.enable = true;
+
+  home.sessionVariables = {
+    SOPS_AGE_KEY_FILE = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+  };
 }

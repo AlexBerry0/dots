@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   imports = [
     ./homebrew.nix
     ../../modules/darwin/preferences.nix
@@ -7,7 +11,7 @@
   nix.enable = false;
   nixpkgs.config.allowUnfree = true;
 
-  system.primaryUser = "alexberry";
+  system.primaryUser = settings.username;
   security.pam.services.sudo_local.touchIdAuth = true;
   programs.fish.enable = true;
 
@@ -15,9 +19,9 @@
     nerd-fonts.hack
   ];
 
-  users.users.alexberry = {
-    name = "alexberry";
-    home = "/Users/alexberry";
+  users.users.${settings.username} = {
+    name = settings.username;
+    home = settings.homeDirectory;
     shell = pkgs.fish;
   };
 

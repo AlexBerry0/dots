@@ -17,7 +17,6 @@
     ];
 
     casks = [
-      "font-hack-nerd-font"
       "zen"
       "beeper"
       "spotify"
@@ -25,6 +24,7 @@
       "bitwarden"
       "pocket-casts"
       "ghostty"
+      "utm"
     ];
   };
 }

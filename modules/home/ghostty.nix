@@ -10,5 +10,6 @@
     scrollback-limit = 100000
     macos-option-as-alt = true
     mouse-hide-while-typing = true
+    shell-integration-features = ssh-env,ssh-terminfo
   '';
 }
