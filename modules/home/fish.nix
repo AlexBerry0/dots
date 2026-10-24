@@ -25,7 +25,9 @@ in {
     interactiveShellInit = ''
       set -g fish_greeting
 
-      command -v fastfetch >/dev/null && fastfetch
+      # Nix package counting queries the store on every invocation. Keep the
+      # startup banner quick; plain `fastfetch` still shows the full report.
+      command -v fastfetch >/dev/null && fastfetch --config "${config.xdg.configHome}/fastfetch/startup.jsonc"
 
       set -Ux FZF_DEFAULT_OPTS "--color 16"
 
@@ -79,6 +81,43 @@ in {
         end
       '';
     };
+  };
+
+  xdg.configFile."fastfetch/startup.jsonc".text = builtins.toJSON {
+    modules = [
+      "title"
+      "separator"
+      "os"
+      "host"
+      "kernel"
+      "uptime"
+      {
+        type = "packages";
+        disabled = ["nix"];
+      }
+      "shell"
+      "display"
+      "de"
+      "wm"
+      "wmtheme"
+      "theme"
+      "icons"
+      "font"
+      "cursor"
+      "terminal"
+      "terminalfont"
+      "cpu"
+      "gpu"
+      "memory"
+      "swap"
+      "disk"
+      "localip"
+      "battery"
+      "poweradapter"
+      "locale"
+      "break"
+      "colors"
+    ];
   };
 
   programs.zoxide = {

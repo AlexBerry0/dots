@@ -12,6 +12,7 @@
     kubectl
     kubernetes-helm
     kubeseal
+    google-cloud-sdk
 
     typst
     typstyle
