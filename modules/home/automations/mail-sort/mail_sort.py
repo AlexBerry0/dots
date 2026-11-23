@@ -15,6 +15,7 @@ import json
 import pathlib
 import subprocess
 import sys
+import time
 
 HERE = pathlib.Path(__file__).resolve().parent
 BATCH = 12
@@ -115,6 +116,8 @@ def main(argv):
     for account in accounts():
         totals = {}
         for start in range(0, len(steps), BATCH):
+            if start:
+                time.sleep(1.5)  # give Mail a moment between batches
             result = osascript(build_script(account, steps[start : start + BATCH], days, dry_run))
             if result.returncode != 0:
                 failures += 1
