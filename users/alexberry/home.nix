@@ -12,6 +12,7 @@
     ../../modules/home/neovim/default.nix
     ../../modules/home/automations/notes-backup.nix
     ../../modules/home/automations/auto-update.nix
+    ../../modules/home/automations/mail-sort.nix
   ];
 
   home = {

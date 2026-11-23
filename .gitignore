@@ -4,3 +4,4 @@ result-*
 .DS_Store
 repomix-output.xml
 *.backup
+__pycache__/

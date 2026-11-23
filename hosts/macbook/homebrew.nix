@@ -39,7 +39,6 @@
       "prismlauncher"
       "roblox"
       "qbittorrent"
-      "alcove"
       "onedrive"
     ];
   };
