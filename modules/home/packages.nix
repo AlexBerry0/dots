@@ -24,5 +24,11 @@
 
     age
     sops
+
+    # Previously Homebrew-only CLI tools
+    black
+    gh
+    poppler-utils
+    yt-dlp
   ];
 }

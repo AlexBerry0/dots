@@ -1,7 +1,7 @@
 let
   username = "alexberry";
   homeDirectory = "/Users/${username}";
-  documentsDirectory = "${homeDirectory}/Documents/Documents - Alexander’s MacBook Air";
+  documentsDirectory = "${homeDirectory}/Documents";
 in {
   inherit username homeDirectory;
   hostName = "macbook";

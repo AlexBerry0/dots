@@ -43,7 +43,7 @@ Ghostty replaces Kitty. SSH integration handles terminal compatibility; remote F
 
 ## Background Automations
 
-- **Nix updates:** Checks daily at 10:00, offering weekly updates with a 24-hour postpone option. Requires a clean repository and administrator approval to activate. Leaves the lockfile local; never commits or pushes. Run `nix-auto-update --test` for diagnostics.
+- **Nix updates:** Checks daily at 10:00, offering weekly updates with a 24-hour postpone option. Requires a clean repository and administrator approval to activate. Commits the activated lockfile locally (never pushes) so later runs are not blocked; restores it if the build or activation fails. Run `nix-auto-update --test` for diagnostics.
 - **Notes backup:** Runs every 30 minutes and at login. Commits all non-ignored changes on the configured notes branch and pushes its upstream. Stops if remote changes need reconciliation.
 
 Logs: `/tmp/nix-auto-update.{out,err}` and `/tmp/notes-backup.{out,err}`. Rebuild to install automation changes.

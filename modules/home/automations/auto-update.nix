@@ -109,7 +109,7 @@
     BUILT_SYSTEM=$(${pkgs.coreutils}/bin/readlink -f "$RUN_DIR/result")
 
     log "Requesting administrator authentication to record and activate the built system..."
-    /usr/bin/osascript - "$NIX_ENV_BIN" "$BUILT_SYSTEM" <<'APPLESCRIPT'
+    if ! /usr/bin/osascript - "$NIX_ENV_BIN" "$BUILT_SYSTEM" <<'APPLESCRIPT'
     on run argv
       set nixEnv to quoted form of (item 1 of argv)
       set systemPath to item 2 of argv
@@ -117,11 +117,23 @@
       do shell script (nixEnv & " -p /nix/var/nix/profiles/system --set " & quoted form of systemPath & " && " & activateCommand & " activate") with administrator privileges
     end run
     APPLESCRIPT
+    then
+      # A lockfile left dirty here would block every later run, so put it back.
+      cp "$RUN_DIR/flake.lock" flake.lock
+      log "Activation was cancelled or failed; restored the previous lockfile. The running system was not changed." >&2
+      exit 1
+    fi
+
+    # Commit the activated lockfile so the repository stays clean for the next run.
+    "$GIT_BIN" add flake.lock
+    if ! "$GIT_BIN" diff --cached --quiet -- flake.lock; then
+      "$GIT_BIN" commit -m "flake.lock: automatic update $(${pkgs.coreutils}/bin/date '+%Y-%m-%d')" -- flake.lock
+    fi
 
     ${pkgs.coreutils}/bin/date +%s > "$LAST_RUN"
     rm -f "$SNOOZE_FILE"
-    log "System updated. Review flake.lock locally; nothing was committed or pushed."
-    /usr/bin/osascript -e 'display notification "System updated. Review flake.lock before committing." with title "Nix Update Succeeded"' || true
+    log "System updated and flake.lock committed locally (not pushed)."
+    /usr/bin/osascript -e 'display notification "System updated. flake.lock was committed locally; push when ready." with title "Nix Update Succeeded"' || true
   '';
 in {
   home.packages = [updatePkg];

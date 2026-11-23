@@ -53,7 +53,7 @@ class UpdaterTests(unittest.TestCase):
         self.assertEqual(lock, 'original')
         self.assertFalse(last)
 
-    def test_success_leaves_lock_local(self):
+    def test_success_commits_lock_locally(self):
         r, c, lock, last, snooze, busy = self.run_case()
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertEqual(lock, 'updated')
@@ -61,7 +61,7 @@ class UpdaterTests(unittest.TestCase):
         self.assertFalse(snooze or busy)
         self.assertIn('nix build', c)
         self.assertIn('osascript - ', c)
-        self.assertNotIn('git commit', c)
+        self.assertIn('git add flake.lock', c)
         self.assertNotIn('git push', c)
 
     def test_build_failure_restores_lock(self):
@@ -71,10 +71,11 @@ class UpdaterTests(unittest.TestCase):
         self.assertFalse(last or busy)
         self.assertNotIn('osascript - ', c)
 
-    def test_auth_failure_retains_lock_for_review(self):
+    def test_auth_failure_restores_lock(self):
         r, c, lock, last, _, busy = self.run_case(auth_fail=True)
         self.assertNotEqual(r.returncode, 0)
-        self.assertEqual(lock, 'updated')
+        self.assertEqual(lock, 'original')
+        self.assertNotIn('git commit', c)
         self.assertFalse(last or busy)
 
     def test_postpone(self):
