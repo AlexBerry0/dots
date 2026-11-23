@@ -38,7 +38,6 @@
       "antigravity"
       "prismlauncher"
       "roblox"
-      "qbittorrent"
       "onedrive"
     ];
   };
