@@ -113,7 +113,10 @@ def main(argv):
     steps = steps_from(rules)
     days = rules.get("bin_after_days", 3)
     failures = 0
+    skip = set(rules.get("skip_accounts", []))
     for account in accounts():
+        if account in skip:
+            continue
         totals = {}
         for start in range(0, len(steps), BATCH):
             if start:

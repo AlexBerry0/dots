@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+  <title>Mail Filters</title>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="edm.pbtech.co.nz OR topazlabs.com OR vast.gg OR shop.kobo.com OR salad.com OR salad.io OR borisfxnews.com OR minehut.com OR culturekings.co.nz OR em.funimation.com OR flamingoscooters.com OR toukana.com OR motionarray.com OR magic.wizards.com OR dnd.wizards.com OR dndbeyond.com OR timeadder.com OR norton.com OR nortonlifelock.com OR em1.cloudflare.com OR em2.cloudflare.com OR promotion@aliexpress.com OR mail.aliexpress.com OR info.aliexpress.com OR hellpizza.nz OR chefs-edge.com.au OR signalrgb.com OR mihoyo.com OR hoyoverse.com OR news.realestate.co.nz OR engage.canva.com OR dmsguild.com OR onxmaps.com OR tactileturn.com OR starforgesystems.com OR voxpoplabs.com OR coffeecup.com OR allstar.gg OR microsoftrewards.com OR pizzahut.co.nz OR dftba.com OR bastionboltactionpen.com OR mango3d.io OR airalo.com OR info.patreon.com OR updates.patreon.com OR grammarly.com OR info.clipchamp.com OR info.printful.com OR strandbags.co.nz OR newworld.co.nz OR comms.woolworths.co.nz OR dominos.co.nz OR engage.xbox.com OR voicemod.net OR displate.com OR pinterest.com OR jetpens.com OR burgerwisconsin.co.nz OR offers.proton.me OR offer.protonvpn.com OR news.protonvpn.com OR marketing.threenow.co.nz"/>
+    <apps:property name="shouldTrash" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="didiglobal.com OR kathmandu.co.nz OR ecomm.lenovo.com OR growth.ibm.com OR email3.bing.com OR infoemail.microsoft.com OR infomail.microsoft.com OR communication.microsoft.com OR e-mail.microsoft.com OR email.mozilla.org OR e.snapchat.com OR email.snapchat.com OR viewstats.com OR learn.termius.com OR info.jetstar.com OR mailout.tv3.co.nz OR mail.tvnz.co.nz OR e.interislander.co.nz OR info.aa.co.nz OR e.support.clubplus.co.nz OR comms.airnz.co.nz OR survey.airnz.co.nz OR email.ticketmaster.co.nz OR mail.goodreads.com OR go.getpocket.com OR news.edx.org OR email.theonion.com OR e.change.org OR whittakers.co.nz OR paperplus OR info.wise.com OR em.linkedin.com OR email.trademe.co.nz OR property@mail.trademe.co.nz OR c.2degreesmobile.co.nz OR comms.2degrees.nz OR m.2degrees.nz OR m.mercury.co.nz OR info.contact.co.nz OR email.alltrails.com OR info.digitalocean.com OR referrals.digitalocean.com OR team@m.ngrok.com OR insideapple.apple.com OR asia.apple.com OR email.norton.com OR everydayrewards.co.nz OR thewarehouse.co.nz OR whitcoulls.co.nz OR officemax.co.nz OR info.displate.com OR yotpo.com OR okendo.io OR judge.me OR asknicelyemail.com OR surveymonkeyuser.com OR bazaarvoice"/>
+    <apps:property name="shouldTrash" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="email.seek.co.nz OR s.seek.co.nz OR unitybooks.co.nz OR mail.beehiiv.com OR updates.prodigygame.com OR update.geocaching.com OR mail.rankedvote.co OR emails.wix.com OR email.hoyoverse.com OR e-mail.hoyoverse.com"/>
+    <apps:property name="shouldTrash" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="steampowered.com"/>
+    <apps:property name="subject" value="on sale"/>
+    <apps:property name="shouldTrash" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="steampowered.com"/>
+    <apps:property name="subject" value="wishlist"/>
+    <apps:property name="shouldTrash" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="no-reply@accounts.google.com OR accountprotection.microsoft.com OR accounts@firefox.com OR no-reply@bitwarden.com OR verify.signup OR mylogin.norton.com OR signin.autodesk.com OR id.apple.com OR account.sony.com OR accounts.riotgames.com OR accts.epicgames.com OR accounts.wizards.com OR identity.aa.co.nz OR id.clubplus.co.nz OR microsoftonline.com OR verify.snapchat.com"/>
+    <apps:property name="label" value="Account alerts"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="steampowered.com"/>
+    <apps:property name="subject" value="New sign in"/>
+    <apps:property name="label" value="Account alerts"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="steampowered.com"/>
+    <apps:property name="subject" value="Access from new computer"/>
+    <apps:property name="label" value="Account alerts"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="discord.com"/>
+    <apps:property name="subject" value="Verify"/>
+    <apps:property name="label" value="Account alerts"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="discord.com"/>
+    <apps:property name="subject" value="login"/>
+    <apps:property name="label" value="Account alerts"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="steampowered.com OR notice.aliexpress.com OR websales@pbtech.co.nz OR pbtech.co.nz OR nzpost.co.nz OR orders.apple.com OR email.apple.com OR trademe.co.nz OR dhl.com OR auspost.com.au OR @ups.com OR uber.com OR amazon.com OR airnz.co.nz OR jetstar.com OR interislander.co.nz OR intercity.co.nz OR spotify.com OR googleplay-noreply@google.com OR playstation.com OR stripe.com OR squareup.com OR humanitix.com OR flicket.co.nz OR lighthousecinema.co.nz OR roxycinema.co.nz OR nowbookit.com OR bookeo.com OR trybooking.com OR abodebooking.com OR atticbackpackers.co.nz OR easyeats.kiwi OR hell.co.nz OR snapper.co.nz OR yourride.nz OR fastway.org OR evt.com"/>
+    <apps:property name="label" value="Receipts &amp; Orders"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="canterbury.ac.nz OR auckland.ac.nz OR school.nz OR nzqa.govt.nz OR ucsa.org.nz OR unilodge.co.nz OR engineeringnz.org OR netacad.com OR khanacademy.org OR communityforce.com OR external.tec.govt.nz"/>
+    <apps:property name="label" value="Uni &amp; School"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="scouts.nz OR onlinescoutmanager.co.uk"/>
+    <apps:property name="label" value="Scouts"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="github.com OR digitalocean.com OR cloudflare.com OR nixos.org OR archlinux.org OR ngrok.com OR squarespace.com OR oraclecloud.com OR oracle.com OR oracle-mail.com OR linode.com OR uptimerobot.com OR zerossl.com OR jetbrains.com OR postman.com OR repl.it OR replit.com OR gitlab.com OR typst.app OR anthropic.com OR openai.com OR openrouter.ai OR x.ai OR deepseek.com OR pebblehost.com OR playit.gg OR zapier.com OR termius.com OR surge.sh OR mynixos.com OR manjaro.org OR pine64.com OR kagi.com OR obsidian.md OR proton.me OR adguard.com OR bitrix24.com OR drive-shares-dm-noreply@google.com OR docs.google.com OR dropbox.com OR onedrive.com OR trello.com OR teamviewer.com OR adobe.com OR autodesk.com OR trimble.com"/>
+    <apps:property name="label" value="Dev &amp; Tech"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="kiwibank.co.nz OR asb.co.nz OR anz.com OR wise.com OR sharesies.co.nz OR xero.com OR myob.com OR publictrust.co.nz OR ird.govt.nz OR ipayroll.co.nz OR employmenthero.com OR prezzycard.co.nz OR giftpay.com OR splitwise.com OR mercury.co.nz OR novaenergy.co.nz OR contact.co.nz OR rockgas.co.nz OR managemyhealth.co.nz OR smiledesigndentalgroup.co.nz OR earhealth.co.nz OR health.nz OR govt.nz OR hellosign.com OR 2degrees OR spark.co.nz OR welectricity.co.nz OR residentsportal.co.nz OR tpsportal.co.nz OR chchroomrentals.co.nz OR houzer.co.nz OR drivingschool.aa.co.nz OR aa.co.nz OR cliniko.com OR epaynz.co.nz"/>
+    <apps:property name="label" value="Money &amp; Admin"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="discord.com OR discordapp.com OR instagram.com OR twitter.com OR @x.com OR facebookmail.com OR redditmail.com OR reddit.com OR linkedin.com OR snapchat.com OR twitch.tv OR beeper.com OR youtube.com OR tumblr.com OR quora.com OR mastodon.social OR letterboxd.com OR trakt.tv OR last.fm OR guilded.gg OR vrchat.com OR faceit.com OR meta.com OR deviantart.com OR geoguessr.com"/>
+    <apps:property name="label" value="Social"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+  <entry>
+    <category term='filter'></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="from" value="tomscott.com OR patreon.com OR helloclub.com OR forestandbird.org.nz OR wikimedia.org OR compassion.org.nz OR redcross.org.nz OR kurzgesagt.org OR mountainsafety.org.nz OR hutbagger.co.nz OR sva.org.nz OR ttc.org.nz OR arcadyhall.org.nz OR reach.cloud OR skylight.org.nz OR greens.org.nz OR wja.org.nz OR gamersoutreach.org OR podtube.me OR omnivore.app OR iro.co.nz OR diverserecruit.co.nz OR seek.co.nz"/>
+    <apps:property name="label" value="Newsletters"/>
+    <apps:property name="shouldArchive" value="true"/>
+  </entry>
+</feed>
