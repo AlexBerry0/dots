@@ -8,6 +8,9 @@ inside each account, so mail never moves between accounts.
 Each account is processed in small batches of rules, one osascript call per
 batch, so a slow or failing batch is reported and the run carries on.
 
+On Gmail accounts a filed message is also archived (moved to All Mail), because
+moving into a Gmail label from Mail.app only adds the label.
+
 Usage: mail_sort.py [--dry-run] [--rules PATH]
 """
 
@@ -54,6 +57,12 @@ def build_script(account, steps, days, dry_run):
         'tell application "Mail"',
         f"  set acc to account {q(account)}",
         '  set ib to mailbox "INBOX" of acc',
+        # Gmail accounts: moving into a label folder only adds the label, so the
+        # message is then archived (moved to All Mail) to take it out of the inbox.
+        "  set allMail to missing value",
+        "  repeat with mb in mailboxes of acc",
+        '    if name of mb is "All Mail" then set allMail to contents of mb',
+        "  end repeat",
     ]
     for target, cond in steps:
         lines += ["  try", f"    set ms to (messages of ib whose {cond})", "    set n to count of ms", "    if n > 0 then"]
@@ -70,7 +79,7 @@ def build_script(account, steps, days, dry_run):
                     f"        set dest to mailbox {q(target)} of acc",
                     "      end try",
                 ]
-            action = "delete m" if target == "BIN" else "move m to dest"
+            action = "delete m" if target == "BIN" else "move m to dest\n          if allMail is not missing value then move m to allMail"
             label = "Bin" if target == "BIN" else target
             # Gmail threads can move together, so skip messages that are already gone.
             lines += [
@@ -113,10 +122,7 @@ def main(argv):
     steps = steps_from(rules)
     days = rules.get("bin_after_days", 3)
     failures = 0
-    skip = set(rules.get("skip_accounts", []))
     for account in accounts():
-        if account in skip:
-            continue
         totals = {}
         for start in range(0, len(steps), BATCH):
             if start:
