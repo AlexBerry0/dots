@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy to ~/.config/mail-sort/rules.json. An entry matches when the sender contains the text (and the subject contains 'subject', if given). First match wins. bin_old only bins mail older than bin_after_days.",
+  "skip_accounts": [
+    "someone@example.com"
+  ],
+  "bin_after_days": 3,
+  "bin_old": [
+    "alerts@example.com"
+  ],
+  "bin": [
+    "promo.example.com",
+    {
+      "sender": "shop.example.com",
+      "subject": "sale"
+    }
+  ],
+  "folders": {
+    "Receipts & Orders": [
+      "orders.example.com"
+    ],
+    "Newsletters": [
+      "news.example.com"
+    ]
+  }
+}

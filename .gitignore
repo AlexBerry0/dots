@@ -5,3 +5,4 @@ result-*
 repomix-output.xml
 *.backup
 __pycache__/
+modules/home/automations/mail-sort/rules.json

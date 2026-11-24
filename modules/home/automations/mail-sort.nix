@@ -3,8 +3,8 @@
   settings,
   ...
 }: let
-  # Rules are read from the working copy so edits apply on the next run without a rebuild.
-  rulesFile = "${settings.repoDir}/modules/home/automations/mail-sort/rules.json";
+  # The rules name people, banks and accounts, so they stay out of this public repository.
+  rulesFile = "${settings.homeDirectory}/.config/mail-sort/rules.json";
   sorter = pkgs.writeShellScriptBin "mail-sort" ''
     exec ${pkgs.python3}/bin/python3 -I ${./mail-sort/mail_sort.py} --rules "${rulesFile}" "$@"
   '';
