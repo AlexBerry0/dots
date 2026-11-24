@@ -8,6 +8,8 @@ in {
   system = "aarch64-darwin";
   repoDir = "${documentsDirectory}/dots";
   notesDir = "${documentsDirectory}/UC/Notes";
+  mailSortDir = "${documentsDirectory}/Coding/AI/mail-sort";
+  mailSortRepo = "git@github.com:AlexBerry0/mail-sort.git";
   libraryDir = "${documentsDirectory}/Coding/personal-library";
   notesBranch = "main";
 }
