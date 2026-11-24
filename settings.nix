@@ -8,5 +8,6 @@ in {
   system = "aarch64-darwin";
   repoDir = "${documentsDirectory}/dots";
   notesDir = "${documentsDirectory}/UC/Notes";
+  libraryDir = "${documentsDirectory}/Coding/personal-library";
   notesBranch = "main";
 }
