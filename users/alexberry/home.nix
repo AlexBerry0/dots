@@ -14,6 +14,7 @@
     ../../modules/home/automations/auto-update.nix
     ../../modules/home/automations/mail-sort.nix
     ../../modules/home/automations/library-sync.nix
+    ../../modules/home/automations/wheelclick.nix
   ];
 
   home = {
